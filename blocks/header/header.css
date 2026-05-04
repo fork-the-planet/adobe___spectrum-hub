@@ -2,6 +2,29 @@ header {
   position: relative;
   visibility: unset;
 
+  .skip-link {
+    position: absolute;
+    z-index: 1;
+    inset-inline-start: 4px;
+    inset-block-start: 4px;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    white-space: normal;
+    clip-path: none;
+    background-color: var(--s2-gray-25);
+    border-radius: 6px;
+    padding: var(--s2-spacing-100) var(--s2-spacing-200);
+    transform: translateY(calc(-100% - 4px));
+    transition: transform 0.2s ease;
+  }
+
+  .skip-link:focus-visible {
+    transform: translateY(0);
+    outline: 2px solid var(--s2-blue-900);
+    outline-offset: 2px;
+  }
+
   p {
     margin: 0;
   }

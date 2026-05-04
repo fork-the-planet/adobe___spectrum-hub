@@ -35,6 +35,13 @@ const decorateArea = ({ area = document }) => {
   };
 
   eagerLoad(area, 'img:not([src*=".svg"])');
+
+  // adds the id to `main` for the skip link
+  const main = area.querySelector('main');
+  if (main && !main.id) {
+    main.id = 'main-content';
+    main.tabIndex = -1;
+  }
 };
 
 export async function loadPage() {
