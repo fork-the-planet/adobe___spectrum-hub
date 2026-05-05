@@ -231,3 +231,9 @@ header {
     }
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-link {
+    transition: none;
+  }
+}
