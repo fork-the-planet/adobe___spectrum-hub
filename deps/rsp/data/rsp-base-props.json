@@ -1,297 +1,4 @@
 {
-  "ItemProps": [
-    {
-      "property": "children",
-      "type": "ReactNode",
-      "required": true,
-      "description": "Rendered contents of the item or child items."
-    },
-    {
-      "property": "title",
-      "type": "ReactNode, // label?? contents?",
-      "description": "Rendered contents of the item if `children` contains child items."
-    },
-    {
-      "property": "textValue",
-      "type": "string",
-      "description": "A string representation of the item's contents, used for features like typeahead."
-    },
-    {
-      "property": "'aria-label'",
-      "type": "string",
-      "description": "An accessibility label for this item."
-    },
-    {
-      "property": "childItems",
-      "type": "Iterable<T>",
-      "description": "A list of child item objects. Used for dynamic collections."
-    },
-    {
-      "property": "hasChildItems",
-      "type": "boolean",
-      "description": "Whether this item has children, even if not loaded yet."
-    }
-  ],
-  "AsyncLoadable": [
-    {
-      "property": "isLoading",
-      "type": "boolean, // possibly isLoadingMore",
-      "description": "Whether the items are currently loading."
-    },
-    {
-      "property": "onLoadMore",
-      "type": "() => any",
-      "description": "Handler that is called when more items should be loaded, e.g. while scrolling near the bottom."
-    }
-  ],
-  "SectionProps": [
-    {
-      "property": "title",
-      "type": "ReactNode",
-      "description": "Rendered contents of the section, e.g. a header."
-    },
-    {
-      "property": "'aria-label'",
-      "type": "string",
-      "description": "An accessibility label for the section."
-    },
-    {
-      "property": "children",
-      "type": "ItemElement<T> | ItemElement<T>[] | ItemRenderer<T>",
-      "required": true,
-      "description": "Static child items or a function to render children."
-    },
-    {
-      "property": "items",
-      "type": "Iterable<T>",
-      "description": "Item objects in the section."
-    }
-  ],
-  "CollectionBase": [
-    {
-      "property": "children",
-      "type": "CollectionChildren<T>",
-      "required": true,
-      "description": "The contents of the collection."
-    },
-    {
-      "property": "items",
-      "type": "Iterable<T>",
-      "description": "Item objects in the collection."
-    },
-    {
-      "property": "disabledKeys",
-      "type": "Iterable<Key>",
-      "description": "The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with."
-    }
-  ],
-  "CollectionStateBase": [
-    {
-      "property": "collection",
-      "type": "C",
-      "description": "A pre-constructed collection to use instead of building one from items and children."
-    }
-  ],
-  "Expandable": [
-    {
-      "property": "expandedKeys",
-      "type": "Iterable<Key>",
-      "description": "The currently expanded keys in the collection (controlled)."
-    },
-    {
-      "property": "defaultExpandedKeys",
-      "type": "Iterable<Key>",
-      "description": "The initial expanded keys in the collection (uncontrolled)."
-    },
-    {
-      "property": "onExpandedChange",
-      "type": "(keys: Set<Key>) => any",
-      "description": "Handler that is called when items are expanded or collapsed."
-    }
-  ],
-  "Sortable": [
-    {
-      "property": "sortDescriptor",
-      "type": "SortDescriptor",
-      "description": "The current sorted column and direction."
-    },
-    {
-      "property": "onSortChange",
-      "type": "(descriptor: SortDescriptor) => any",
-      "description": "Handler that is called when the sorted column or direction changes."
-    }
-  ],
-  "SortDescriptor": [
-    {
-      "property": "column",
-      "type": "Key",
-      "required": true,
-      "description": "The key of the column to sort by."
-    },
-    {
-      "property": "direction",
-      "type": "SortDirection",
-      "required": true,
-      "description": "The direction to sort by."
-    }
-  ],
-  "Rect": [
-    {
-      "property": "x",
-      "type": "number",
-      "required": true
-    },
-    {
-      "property": "y",
-      "type": "number",
-      "required": true
-    },
-    {
-      "property": "width",
-      "type": "number",
-      "required": true
-    },
-    {
-      "property": "height",
-      "type": "number",
-      "required": true
-    }
-  ],
-  "Size": [
-    {
-      "property": "width",
-      "type": "number",
-      "required": true
-    },
-    {
-      "property": "height",
-      "type": "number",
-      "required": true
-    }
-  ],
-  "Collection": [
-    {
-      "property": "children",
-      "type": "CollectionChildren<T>",
-      "required": true,
-      "description": "The contents of the collection."
-    },
-    {
-      "property": "items",
-      "type": "Iterable<T>",
-      "description": "Item objects in the collection."
-    },
-    {
-      "property": "disabledKeys",
-      "type": "Iterable<Key>",
-      "description": "The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with."
-    }
-  ],
-  "Node": [
-    {
-      "property": "type",
-      "type": "string",
-      "required": true,
-      "description": "The type of item this node represents."
-    },
-    {
-      "property": "key",
-      "type": "Key",
-      "required": true,
-      "description": "A unique key for the node."
-    },
-    {
-      "property": "value",
-      "type": "T | null",
-      "required": true,
-      "description": "The object value the node was created from."
-    },
-    {
-      "property": "level",
-      "type": "number",
-      "required": true,
-      "description": "The level of depth this node is at in the hierarchy."
-    },
-    {
-      "property": "hasChildNodes",
-      "type": "boolean",
-      "required": true,
-      "description": "Whether this item has children, even if not loaded yet."
-    },
-    {
-      "property": "childNodes",
-      "type": "Iterable<Node<T>>",
-      "required": true,
-      "description": "The loaded children of this node."
-    },
-    {
-      "property": "rendered",
-      "type": "ReactNode",
-      "required": true,
-      "description": "The rendered contents of this node (e.g. JSX)."
-    },
-    {
-      "property": "textValue",
-      "type": "string",
-      "required": true,
-      "description": "A string value for this node, used for features like typeahead."
-    },
-    {
-      "property": "'aria-label'",
-      "type": "string",
-      "description": "An accessibility label for this node."
-    },
-    {
-      "property": "index",
-      "type": "number",
-      "required": true,
-      "description": "The index of this node within its parent."
-    },
-    {
-      "property": "wrapper",
-      "type": "(element: ReactElement) => ReactElement",
-      "description": "A function that should be called to wrap the rendered node."
-    },
-    {
-      "property": "parentKey",
-      "type": "Key | null",
-      "description": "The key of the parent node."
-    },
-    {
-      "property": "prevKey",
-      "type": "Key | null",
-      "description": "The key of the node before this node."
-    },
-    {
-      "property": "nextKey",
-      "type": "Key | null",
-      "description": "The key of the node after this node."
-    },
-    {
-      "property": "firstChildKey",
-      "type": "Key | null",
-      "description": "The first child key of this node."
-    },
-    {
-      "property": "lastChildKey",
-      "type": "Key | null",
-      "description": "The last child key of this node."
-    },
-    {
-      "property": "props",
-      "type": "any",
-      "description": "Additional properties specific to a particular node type."
-    },
-    {
-      "property": "shouldInvalidate",
-      "type": "(context: any) => boolean"
-    },
-    {
-      "property": "render",
-      "type": "(node: Node<any>) => ReactElement",
-      "description": "A function that renders this node to a React Element in the DOM."
-    }
-  ],
   "AriaLabelingProps": [
     {
       "property": "'aria-label'",
@@ -849,252 +556,466 @@
       "description": "An ARIA role override to apply to the form element."
     }
   ],
-  "PressEvent": [
+  "Validation": [
     {
-      "property": "type",
-      "type": "'pressstart' | 'pressend' | 'pressup' | 'press'",
-      "required": true,
-      "description": "The type of press event being fired."
+      "property": "isRequired",
+      "type": "boolean",
+      "description": "Whether user input is required on the input before form submission."
     },
     {
-      "property": "pointerType",
-      "type": "PointerType",
-      "required": true,
-      "description": "The pointer type that triggered the press event."
+      "property": "isInvalid",
+      "type": "boolean",
+      "description": "Whether the input value is invalid."
     },
     {
-      "property": "target",
-      "type": "Element",
-      "required": true,
-      "description": "The target element of the press event."
+      "property": "validationState",
+      "type": "ValidationState"
     },
     {
-      "property": "shiftKey",
+      "property": "validationBehavior",
+      "type": "'aria' | 'native'",
+      "default": "'aria'",
+      "description": "Whether to use native HTML form validation to prevent form submission when the value is missing or invalid, or mark the field as required or invalid via ARIA."
+    },
+    {
+      "property": "validate",
+      "type": "(value: T) => ValidationError | true | null | undefined",
+      "description": "A function that returns an error message if a given value is invalid. Validation errors are displayed to the user when the form is submitted if `validationBehavior=\"native\"`. For realtime validation, use the `isInvalid` prop instead."
+    }
+  ],
+  "ValidationResult": [
+    {
+      "property": "isInvalid",
       "type": "boolean",
       "required": true,
-      "description": "Whether the shift keyboard modifier was held during the press event."
+      "description": "Whether the input value is invalid."
     },
     {
-      "property": "ctrlKey",
-      "type": "boolean",
+      "property": "validationErrors",
+      "type": "string[]",
       "required": true,
-      "description": "Whether the ctrl keyboard modifier was held during the press event."
+      "description": "The current error messages for the input if it is invalid, otherwise an empty array."
     },
     {
-      "property": "metaKey",
-      "type": "boolean",
+      "property": "validationDetails",
+      "type": "ValidityState",
       "required": true,
-      "description": "Whether the meta keyboard modifier was held during the press event."
+      "description": "The native validation details for the input."
+    }
+  ],
+  "SpectrumFieldValidation": [
+    {
+      "property": "validationState",
+      "type": "ValidationState",
+      "description": "Whether the input should display its \"valid\" or \"invalid\" visual styling."
+    }
+  ],
+  "InputBase": [
+    {
+      "property": "isDisabled",
+      "type": "boolean",
+      "description": "Whether the input is disabled."
     },
     {
-      "property": "altKey",
+      "property": "isReadOnly",
       "type": "boolean",
-      "required": true,
-      "description": "Whether the alt keyboard modifier was held during the press event."
+      "description": "Whether the input can be selected but not changed by the user."
+    }
+  ],
+  "ValueBase": [
+    {
+      "property": "value",
+      "type": "T",
+      "description": "The current value (controlled)."
     },
+    {
+      "property": "defaultValue",
+      "type": "T",
+      "description": "The default value (uncontrolled)."
+    },
+    {
+      "property": "onChange",
+      "type": "(value: C) => void",
+      "description": "Handler that is called when the value changes."
+    }
+  ],
+  "TextInputBase": [
+    {
+      "property": "placeholder",
+      "type": "string",
+      "description": "Temporary text that occupies the text input when it is empty."
+    }
+  ],
+  "SpectrumTextInputBase": [
+    {
+      "property": "placeholder",
+      "type": "string",
+      "description": "Temporary text that occupies the text input when it is empty. Please use help text instead."
+    }
+  ],
+  "RangeValue": [
+    {
+      "property": "start",
+      "type": "T",
+      "required": true,
+      "description": "The start value of the range."
+    },
+    {
+      "property": "end",
+      "type": "T",
+      "required": true,
+      "description": "The end value of the range."
+    }
+  ],
+  "RangeInputBase": [
+    {
+      "property": "minValue",
+      "type": "T",
+      "description": "The smallest value allowed for the input."
+    },
+    {
+      "property": "maxValue",
+      "type": "T",
+      "description": "The largest value allowed for the input."
+    },
+    {
+      "property": "step",
+      "type": "T // ??",
+      "description": "The amount that the input value changes with each increment or decrement \"tick\"."
+    }
+  ],
+  "HelpTextProps": [
+    {
+      "property": "description",
+      "type": "ReactNode",
+      "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
+    },
+    {
+      "property": "errorMessage",
+      "type": "ReactNode | ((v: ValidationResult) => ReactNode)",
+      "description": "An error message for the field."
+    }
+  ],
+  "SpectrumHelpTextProps": [
+    {
+      "property": "isDisabled",
+      "type": "boolean",
+      "description": "Whether the description is displayed with lighter text."
+    },
+    {
+      "property": "showErrorIcon",
+      "type": "boolean",
+      "description": "Whether an error icon is rendered."
+    }
+  ],
+  "Removable": [
+    {
+      "property": "isRemovable",
+      "type": "boolean"
+    },
+    {
+      "property": "onRemove",
+      "type": "(value: T, event?: SyntheticEvent) => R"
+    }
+  ],
+  "ItemProps": [
+    {
+      "property": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Rendered contents of the item or child items."
+    },
+    {
+      "property": "title",
+      "type": "ReactNode, // label?? contents?",
+      "description": "Rendered contents of the item if `children` contains child items."
+    },
+    {
+      "property": "textValue",
+      "type": "string",
+      "description": "A string representation of the item's contents, used for features like typeahead."
+    },
+    {
+      "property": "'aria-label'",
+      "type": "string",
+      "description": "An accessibility label for this item."
+    },
+    {
+      "property": "childItems",
+      "type": "Iterable<T>",
+      "description": "A list of child item objects. Used for dynamic collections."
+    },
+    {
+      "property": "hasChildItems",
+      "type": "boolean",
+      "description": "Whether this item has children, even if not loaded yet."
+    }
+  ],
+  "AsyncLoadable": [
+    {
+      "property": "isLoading",
+      "type": "boolean, // possibly isLoadingMore",
+      "description": "Whether the items are currently loading."
+    },
+    {
+      "property": "onLoadMore",
+      "type": "() => any",
+      "description": "Handler that is called when more items should be loaded, e.g. while scrolling near the bottom."
+    }
+  ],
+  "SectionProps": [
+    {
+      "property": "title",
+      "type": "ReactNode",
+      "description": "Rendered contents of the section, e.g. a header."
+    },
+    {
+      "property": "'aria-label'",
+      "type": "string",
+      "description": "An accessibility label for the section."
+    },
+    {
+      "property": "children",
+      "type": "ItemElement<T> | ItemElement<T>[] | ItemRenderer<T>",
+      "required": true,
+      "description": "Static child items or a function to render children."
+    },
+    {
+      "property": "items",
+      "type": "Iterable<T>",
+      "description": "Item objects in the section."
+    }
+  ],
+  "CollectionBase": [
+    {
+      "property": "children",
+      "type": "CollectionChildren<T>",
+      "required": true,
+      "description": "The contents of the collection."
+    },
+    {
+      "property": "items",
+      "type": "Iterable<T>",
+      "description": "Item objects in the collection."
+    },
+    {
+      "property": "disabledKeys",
+      "type": "Iterable<Key>",
+      "description": "The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with."
+    }
+  ],
+  "CollectionStateBase": [
+    {
+      "property": "collection",
+      "type": "C",
+      "description": "A pre-constructed collection to use instead of building one from items and children."
+    }
+  ],
+  "Expandable": [
+    {
+      "property": "expandedKeys",
+      "type": "Iterable<Key>",
+      "description": "The currently expanded keys in the collection (controlled)."
+    },
+    {
+      "property": "defaultExpandedKeys",
+      "type": "Iterable<Key>",
+      "description": "The initial expanded keys in the collection (uncontrolled)."
+    },
+    {
+      "property": "onExpandedChange",
+      "type": "(keys: Set<Key>) => any",
+      "description": "Handler that is called when items are expanded or collapsed."
+    }
+  ],
+  "Sortable": [
+    {
+      "property": "sortDescriptor",
+      "type": "SortDescriptor",
+      "description": "The current sorted column and direction."
+    },
+    {
+      "property": "onSortChange",
+      "type": "(descriptor: SortDescriptor) => any",
+      "description": "Handler that is called when the sorted column or direction changes."
+    }
+  ],
+  "SortDescriptor": [
+    {
+      "property": "column",
+      "type": "Key",
+      "required": true,
+      "description": "The key of the column to sort by."
+    },
+    {
+      "property": "direction",
+      "type": "SortDirection",
+      "required": true,
+      "description": "The direction to sort by."
+    }
+  ],
+  "Rect": [
     {
       "property": "x",
       "type": "number",
-      "required": true,
-      "description": "X position relative to the target."
+      "required": true
     },
     {
       "property": "y",
       "type": "number",
+      "required": true
+    },
+    {
+      "property": "width",
+      "type": "number",
+      "required": true
+    },
+    {
+      "property": "height",
+      "type": "number",
+      "required": true
+    }
+  ],
+  "Size": [
+    {
+      "property": "width",
+      "type": "number",
+      "required": true
+    },
+    {
+      "property": "height",
+      "type": "number",
+      "required": true
+    }
+  ],
+  "Collection": [
+    {
+      "property": "children",
+      "type": "CollectionChildren<T>",
       "required": true,
-      "description": "Y position relative to the target."
+      "description": "The contents of the collection."
+    },
+    {
+      "property": "items",
+      "type": "Iterable<T>",
+      "description": "Item objects in the collection."
+    },
+    {
+      "property": "disabledKeys",
+      "type": "Iterable<Key>",
+      "description": "The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with."
+    }
+  ],
+  "Node": [
+    {
+      "property": "type",
+      "type": "string",
+      "required": true,
+      "description": "The type of item this node represents."
     },
     {
       "property": "key",
-      "type": "string",
-      "description": "The key that triggered the press event, if it was triggered by a keyboard interaction. This is useful for differentiating between Space and Enter key presses."
-    }
-  ],
-  "LongPressEvent": [
-    {
-      "property": "type",
-      "type": "'longpressstart' | 'longpressend' | 'longpress'",
+      "type": "Key",
       "required": true,
-      "description": "The type of long press event being fired."
-    }
-  ],
-  "HoverEvent": [
+      "description": "A unique key for the node."
+    },
     {
-      "property": "type",
-      "type": "'hoverstart' | 'hoverend'",
+      "property": "value",
+      "type": "T | null",
       "required": true,
-      "description": "The type of hover event being fired."
+      "description": "The object value the node was created from."
     },
     {
-      "property": "pointerType",
-      "type": "'mouse' | 'pen'",
+      "property": "level",
+      "type": "number",
       "required": true,
-      "description": "The pointer type that triggered the hover event."
+      "description": "The level of depth this node is at in the hierarchy."
     },
     {
-      "property": "target",
-      "type": "HTMLElement",
-      "required": true,
-      "description": "The target element of the hover event."
-    }
-  ],
-  "KeyboardEvents": [
-    {
-      "property": "onKeyDown",
-      "type": "(e: KeyboardEvent) => void",
-      "description": "Handler that is called when a key is pressed."
-    },
-    {
-      "property": "onKeyUp",
-      "type": "(e: KeyboardEvent) => void",
-      "description": "Handler that is called when a key is released."
-    }
-  ],
-  "FocusEvents": [
-    {
-      "property": "onFocus",
-      "type": "(e: FocusEvent<Target>) => void",
-      "description": "Handler that is called when the element receives focus."
-    },
-    {
-      "property": "onBlur",
-      "type": "(e: FocusEvent<Target>) => void",
-      "description": "Handler that is called when the element loses focus."
-    },
-    {
-      "property": "onFocusChange",
-      "type": "(isFocused: boolean) => void",
-      "description": "Handler that is called when the element's focus status changes."
-    }
-  ],
-  "HoverEvents": [
-    {
-      "property": "onHoverStart",
-      "type": "(e: HoverEvent) => void",
-      "description": "Handler that is called when a hover interaction starts."
-    },
-    {
-      "property": "onHoverEnd",
-      "type": "(e: HoverEvent) => void",
-      "description": "Handler that is called when a hover interaction ends."
-    },
-    {
-      "property": "onHoverChange",
-      "type": "(isHovering: boolean) => void",
-      "description": "Handler that is called when the hover state changes."
-    }
-  ],
-  "PressEvents": [
-    {
-      "property": "onPress",
-      "type": "(e: PressEvent) => void",
-      "description": "Handler that is called when the press is released over the target."
-    },
-    {
-      "property": "onPressStart",
-      "type": "(e: PressEvent) => void",
-      "description": "Handler that is called when a press interaction starts."
-    },
-    {
-      "property": "onPressEnd",
-      "type": "(e: PressEvent) => void",
-      "description": "Handler that is called when a press interaction ends, either over the target or when the pointer leaves the target."
-    },
-    {
-      "property": "onPressChange",
-      "type": "(isPressed: boolean) => void",
-      "description": "Handler that is called when the press state changes."
-    },
-    {
-      "property": "onPressUp",
-      "type": "(e: PressEvent) => void",
-      "description": "Handler that is called when a press is released over the target, regardless of whether it started on the target or not."
-    },
-    {
-      "property": "onClick",
-      "type": "(e: MouseEvent<FocusableElement>) => void",
-      "description": "**Not recommended – use `onPress` instead.** `onClick` is an alias for `onPress` provided for compatibility with other libraries. `onPress` provides additional event details for non-mouse interactions."
-    }
-  ],
-  "FocusableProps": [
-    {
-      "property": "autoFocus",
+      "property": "hasChildNodes",
       "type": "boolean",
-      "description": "Whether the element should receive focus on render."
-    }
-  ],
-  "MoveStartEvent": [
-    {
-      "property": "type",
-      "type": "'movestart'",
       "required": true,
-      "description": "The type of move event being fired."
-    }
-  ],
-  "MoveMoveEvent": [
-    {
-      "property": "type",
-      "type": "'move'",
-      "required": true,
-      "description": "The type of move event being fired."
+      "description": "Whether this item has children, even if not loaded yet."
     },
     {
-      "property": "deltaX",
+      "property": "childNodes",
+      "type": "Iterable<Node<T>>",
+      "required": true,
+      "description": "The loaded children of this node."
+    },
+    {
+      "property": "rendered",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The rendered contents of this node (e.g. JSX)."
+    },
+    {
+      "property": "textValue",
+      "type": "string",
+      "required": true,
+      "description": "A string value for this node, used for features like typeahead."
+    },
+    {
+      "property": "'aria-label'",
+      "type": "string",
+      "description": "An accessibility label for this node."
+    },
+    {
+      "property": "index",
       "type": "number",
       "required": true,
-      "description": "The amount moved in the X direction since the last event."
+      "description": "The index of this node within its parent."
     },
     {
-      "property": "deltaY",
-      "type": "number",
-      "required": true,
-      "description": "The amount moved in the Y direction since the last event."
-    }
-  ],
-  "MoveEndEvent": [
-    {
-      "property": "type",
-      "type": "'moveend'",
-      "required": true,
-      "description": "The type of move event being fired."
-    }
-  ],
-  "MoveEvents": [
-    {
-      "property": "onMoveStart",
-      "type": "(e: MoveStartEvent) => void",
-      "description": "Handler that is called when a move interaction starts."
+      "property": "wrapper",
+      "type": "(element: ReactElement) => ReactElement",
+      "description": "A function that should be called to wrap the rendered node."
     },
     {
-      "property": "onMove",
-      "type": "(e: MoveMoveEvent) => void",
-      "description": "Handler that is called when the element is moved."
+      "property": "parentKey",
+      "type": "Key | null",
+      "description": "The key of the parent node."
     },
     {
-      "property": "onMoveEnd",
-      "type": "(e: MoveEndEvent) => void",
-      "description": "Handler that is called when a move interaction ends."
-    }
-  ],
-  "ScrollEvent": [
-    {
-      "property": "deltaX",
-      "type": "number",
-      "required": true,
-      "description": "The amount moved in the X direction since the last event."
+      "property": "prevKey",
+      "type": "Key | null",
+      "description": "The key of the node before this node."
     },
     {
-      "property": "deltaY",
-      "type": "number",
-      "required": true,
-      "description": "The amount moved in the Y direction since the last event."
+      "property": "nextKey",
+      "type": "Key | null",
+      "description": "The key of the node after this node."
+    },
+    {
+      "property": "firstChildKey",
+      "type": "Key | null",
+      "description": "The first child key of this node."
+    },
+    {
+      "property": "lastChildKey",
+      "type": "Key | null",
+      "description": "The last child key of this node."
+    },
+    {
+      "property": "props",
+      "type": "any",
+      "description": "Additional properties specific to a particular node type."
+    },
+    {
+      "property": "shouldInvalidate",
+      "type": "(context: any) => boolean"
+    },
+    {
+      "property": "render",
+      "type": "(node: Node<any>) => ReactElement",
+      "description": "A function that renders this node to a React Element in the DOM."
     }
   ],
-  "ScrollEvents": [
+  "RefObject": [
     {
-      "property": "onScroll",
-      "type": "(e: ScrollEvent) => void",
-      "description": "Handler that is called when the scroll wheel moves."
+      "property": "current",
+      "type": "T",
+      "required": true
     }
   ],
   "DragDropEvent": [
@@ -1522,236 +1443,6 @@
       "property": "getAllowedDropOperations",
       "type": "() => DropOperation[]",
       "description": "Function that returns the drop operations that are allowed for the dragged items. If not provided, all drop operations are allowed."
-    }
-  ],
-  "Removable": [
-    {
-      "property": "isRemovable",
-      "type": "boolean"
-    },
-    {
-      "property": "onRemove",
-      "type": "(value: T, event?: SyntheticEvent) => R"
-    }
-  ],
-  "RefObject": [
-    {
-      "property": "current",
-      "type": "T",
-      "required": true
-    }
-  ],
-  "SingleSelection": [
-    {
-      "property": "disallowEmptySelection",
-      "type": "boolean",
-      "description": "Whether the collection allows empty selection."
-    },
-    {
-      "property": "selectedKey",
-      "type": "Key | null",
-      "description": "The currently selected key in the collection (controlled)."
-    },
-    {
-      "property": "defaultSelectedKey",
-      "type": "Key | null",
-      "description": "The initial selected key in the collection (uncontrolled)."
-    },
-    {
-      "property": "onSelectionChange",
-      "type": "(key: Key | null) => void",
-      "description": "Handler that is called when the selection changes."
-    }
-  ],
-  "MultipleSelection": [
-    {
-      "property": "selectionMode",
-      "type": "SelectionMode",
-      "description": "The type of selection that is allowed in the collection."
-    },
-    {
-      "property": "disallowEmptySelection",
-      "type": "boolean",
-      "description": "Whether the collection allows empty selection."
-    },
-    {
-      "property": "selectedKeys",
-      "type": "'all' | Iterable<Key>",
-      "description": "The currently selected keys in the collection (controlled)."
-    },
-    {
-      "property": "defaultSelectedKeys",
-      "type": "'all' | Iterable<Key>",
-      "description": "The initial selected keys in the collection (uncontrolled)."
-    },
-    {
-      "property": "onSelectionChange",
-      "type": "(keys: Selection) => void",
-      "description": "Handler that is called when the selection changes."
-    },
-    {
-      "property": "disabledKeys",
-      "type": "Iterable<Key>",
-      "description": "The currently disabled keys in the collection (controlled)."
-    }
-  ],
-  "SpectrumSelectionProps": [
-    {
-      "property": "selectionStyle",
-      "type": "'checkbox' | 'highlight'",
-      "description": "How selection should be displayed."
-    }
-  ],
-  "Validation": [
-    {
-      "property": "isRequired",
-      "type": "boolean",
-      "description": "Whether user input is required on the input before form submission."
-    },
-    {
-      "property": "isInvalid",
-      "type": "boolean",
-      "description": "Whether the input value is invalid."
-    },
-    {
-      "property": "validationState",
-      "type": "ValidationState"
-    },
-    {
-      "property": "validationBehavior",
-      "type": "'aria' | 'native'",
-      "default": "'aria'",
-      "description": "Whether to use native HTML form validation to prevent form submission when the value is missing or invalid, or mark the field as required or invalid via ARIA."
-    },
-    {
-      "property": "validate",
-      "type": "(value: T) => ValidationError | true | null | undefined",
-      "description": "A function that returns an error message if a given value is invalid. Validation errors are displayed to the user when the form is submitted if `validationBehavior=\"native\"`. For realtime validation, use the `isInvalid` prop instead."
-    }
-  ],
-  "ValidationResult": [
-    {
-      "property": "isInvalid",
-      "type": "boolean",
-      "required": true,
-      "description": "Whether the input value is invalid."
-    },
-    {
-      "property": "validationErrors",
-      "type": "string[]",
-      "required": true,
-      "description": "The current error messages for the input if it is invalid, otherwise an empty array."
-    },
-    {
-      "property": "validationDetails",
-      "type": "ValidityState",
-      "required": true,
-      "description": "The native validation details for the input."
-    }
-  ],
-  "SpectrumFieldValidation": [
-    {
-      "property": "validationState",
-      "type": "ValidationState",
-      "description": "Whether the input should display its \"valid\" or \"invalid\" visual styling."
-    }
-  ],
-  "InputBase": [
-    {
-      "property": "isDisabled",
-      "type": "boolean",
-      "description": "Whether the input is disabled."
-    },
-    {
-      "property": "isReadOnly",
-      "type": "boolean",
-      "description": "Whether the input can be selected but not changed by the user."
-    }
-  ],
-  "ValueBase": [
-    {
-      "property": "value",
-      "type": "T",
-      "description": "The current value (controlled)."
-    },
-    {
-      "property": "defaultValue",
-      "type": "T",
-      "description": "The default value (uncontrolled)."
-    },
-    {
-      "property": "onChange",
-      "type": "(value: C) => void",
-      "description": "Handler that is called when the value changes."
-    }
-  ],
-  "TextInputBase": [
-    {
-      "property": "placeholder",
-      "type": "string",
-      "description": "Temporary text that occupies the text input when it is empty."
-    }
-  ],
-  "SpectrumTextInputBase": [
-    {
-      "property": "placeholder",
-      "type": "string",
-      "description": "Temporary text that occupies the text input when it is empty. Please use help text instead."
-    }
-  ],
-  "RangeValue": [
-    {
-      "property": "start",
-      "type": "T",
-      "required": true,
-      "description": "The start value of the range."
-    },
-    {
-      "property": "end",
-      "type": "T",
-      "required": true,
-      "description": "The end value of the range."
-    }
-  ],
-  "RangeInputBase": [
-    {
-      "property": "minValue",
-      "type": "T",
-      "description": "The smallest value allowed for the input."
-    },
-    {
-      "property": "maxValue",
-      "type": "T",
-      "description": "The largest value allowed for the input."
-    },
-    {
-      "property": "step",
-      "type": "T // ??",
-      "description": "The amount that the input value changes with each increment or decrement \"tick\"."
-    }
-  ],
-  "HelpTextProps": [
-    {
-      "property": "description",
-      "type": "ReactNode",
-      "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
-    },
-    {
-      "property": "errorMessage",
-      "type": "ReactNode | ((v: ValidationResult) => ReactNode)",
-      "description": "An error message for the field."
-    }
-  ],
-  "SpectrumHelpTextProps": [
-    {
-      "property": "isDisabled",
-      "type": "boolean",
-      "description": "Whether the description is displayed with lighter text."
-    },
-    {
-      "property": "showErrorIcon",
-      "type": "boolean",
-      "description": "Whether an error icon is rendered."
     }
   ],
   "StyleProps": [
@@ -2212,6 +1903,315 @@
       "property": "contextualHelp",
       "type": "ReactNode",
       "description": "A ContextualHelp element to place next to the label."
+    }
+  ],
+  "SingleSelection": [
+    {
+      "property": "disallowEmptySelection",
+      "type": "boolean",
+      "description": "Whether the collection allows empty selection."
+    },
+    {
+      "property": "selectedKey",
+      "type": "Key | null",
+      "description": "The currently selected key in the collection (controlled)."
+    },
+    {
+      "property": "defaultSelectedKey",
+      "type": "Key | null",
+      "description": "The initial selected key in the collection (uncontrolled)."
+    },
+    {
+      "property": "onSelectionChange",
+      "type": "(key: Key | null) => void",
+      "description": "Handler that is called when the selection changes."
+    }
+  ],
+  "MultipleSelection": [
+    {
+      "property": "selectionMode",
+      "type": "SelectionMode",
+      "description": "The type of selection that is allowed in the collection."
+    },
+    {
+      "property": "disallowEmptySelection",
+      "type": "boolean",
+      "description": "Whether the collection allows empty selection."
+    },
+    {
+      "property": "selectedKeys",
+      "type": "'all' | Iterable<Key>",
+      "description": "The currently selected keys in the collection (controlled)."
+    },
+    {
+      "property": "defaultSelectedKeys",
+      "type": "'all' | Iterable<Key>",
+      "description": "The initial selected keys in the collection (uncontrolled)."
+    },
+    {
+      "property": "onSelectionChange",
+      "type": "(keys: Selection) => void",
+      "description": "Handler that is called when the selection changes."
+    },
+    {
+      "property": "disabledKeys",
+      "type": "Iterable<Key>",
+      "description": "The currently disabled keys in the collection (controlled)."
+    }
+  ],
+  "SpectrumSelectionProps": [
+    {
+      "property": "selectionStyle",
+      "type": "'checkbox' | 'highlight'",
+      "description": "How selection should be displayed."
+    }
+  ],
+  "PressEvent": [
+    {
+      "property": "type",
+      "type": "'pressstart' | 'pressend' | 'pressup' | 'press'",
+      "required": true,
+      "description": "The type of press event being fired."
+    },
+    {
+      "property": "pointerType",
+      "type": "PointerType",
+      "required": true,
+      "description": "The pointer type that triggered the press event."
+    },
+    {
+      "property": "target",
+      "type": "Element",
+      "required": true,
+      "description": "The target element of the press event."
+    },
+    {
+      "property": "shiftKey",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the shift keyboard modifier was held during the press event."
+    },
+    {
+      "property": "ctrlKey",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the ctrl keyboard modifier was held during the press event."
+    },
+    {
+      "property": "metaKey",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the meta keyboard modifier was held during the press event."
+    },
+    {
+      "property": "altKey",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the alt keyboard modifier was held during the press event."
+    },
+    {
+      "property": "x",
+      "type": "number",
+      "required": true,
+      "description": "X position relative to the target."
+    },
+    {
+      "property": "y",
+      "type": "number",
+      "required": true,
+      "description": "Y position relative to the target."
+    },
+    {
+      "property": "key",
+      "type": "string",
+      "description": "The key that triggered the press event, if it was triggered by a keyboard interaction. This is useful for differentiating between Space and Enter key presses."
+    }
+  ],
+  "LongPressEvent": [
+    {
+      "property": "type",
+      "type": "'longpressstart' | 'longpressend' | 'longpress'",
+      "required": true,
+      "description": "The type of long press event being fired."
+    }
+  ],
+  "HoverEvent": [
+    {
+      "property": "type",
+      "type": "'hoverstart' | 'hoverend'",
+      "required": true,
+      "description": "The type of hover event being fired."
+    },
+    {
+      "property": "pointerType",
+      "type": "'mouse' | 'pen'",
+      "required": true,
+      "description": "The pointer type that triggered the hover event."
+    },
+    {
+      "property": "target",
+      "type": "HTMLElement",
+      "required": true,
+      "description": "The target element of the hover event."
+    }
+  ],
+  "KeyboardEvents": [
+    {
+      "property": "onKeyDown",
+      "type": "(e: KeyboardEvent) => void",
+      "description": "Handler that is called when a key is pressed."
+    },
+    {
+      "property": "onKeyUp",
+      "type": "(e: KeyboardEvent) => void",
+      "description": "Handler that is called when a key is released."
+    }
+  ],
+  "FocusEvents": [
+    {
+      "property": "onFocus",
+      "type": "(e: FocusEvent<Target>) => void",
+      "description": "Handler that is called when the element receives focus."
+    },
+    {
+      "property": "onBlur",
+      "type": "(e: FocusEvent<Target>) => void",
+      "description": "Handler that is called when the element loses focus."
+    },
+    {
+      "property": "onFocusChange",
+      "type": "(isFocused: boolean) => void",
+      "description": "Handler that is called when the element's focus status changes."
+    }
+  ],
+  "HoverEvents": [
+    {
+      "property": "onHoverStart",
+      "type": "(e: HoverEvent) => void",
+      "description": "Handler that is called when a hover interaction starts."
+    },
+    {
+      "property": "onHoverEnd",
+      "type": "(e: HoverEvent) => void",
+      "description": "Handler that is called when a hover interaction ends."
+    },
+    {
+      "property": "onHoverChange",
+      "type": "(isHovering: boolean) => void",
+      "description": "Handler that is called when the hover state changes."
+    }
+  ],
+  "PressEvents": [
+    {
+      "property": "onPress",
+      "type": "(e: PressEvent) => void",
+      "description": "Handler that is called when the press is released over the target."
+    },
+    {
+      "property": "onPressStart",
+      "type": "(e: PressEvent) => void",
+      "description": "Handler that is called when a press interaction starts."
+    },
+    {
+      "property": "onPressEnd",
+      "type": "(e: PressEvent) => void",
+      "description": "Handler that is called when a press interaction ends, either over the target or when the pointer leaves the target."
+    },
+    {
+      "property": "onPressChange",
+      "type": "(isPressed: boolean) => void",
+      "description": "Handler that is called when the press state changes."
+    },
+    {
+      "property": "onPressUp",
+      "type": "(e: PressEvent) => void",
+      "description": "Handler that is called when a press is released over the target, regardless of whether it started on the target or not."
+    },
+    {
+      "property": "onClick",
+      "type": "(e: MouseEvent<FocusableElement>) => void",
+      "description": "**Not recommended – use `onPress` instead.** `onClick` is an alias for `onPress` provided for compatibility with other libraries. `onPress` provides additional event details for non-mouse interactions."
+    }
+  ],
+  "FocusableProps": [
+    {
+      "property": "autoFocus",
+      "type": "boolean",
+      "description": "Whether the element should receive focus on render."
+    }
+  ],
+  "MoveStartEvent": [
+    {
+      "property": "type",
+      "type": "'movestart'",
+      "required": true,
+      "description": "The type of move event being fired."
+    }
+  ],
+  "MoveMoveEvent": [
+    {
+      "property": "type",
+      "type": "'move'",
+      "required": true,
+      "description": "The type of move event being fired."
+    },
+    {
+      "property": "deltaX",
+      "type": "number",
+      "required": true,
+      "description": "The amount moved in the X direction since the last event."
+    },
+    {
+      "property": "deltaY",
+      "type": "number",
+      "required": true,
+      "description": "The amount moved in the Y direction since the last event."
+    }
+  ],
+  "MoveEndEvent": [
+    {
+      "property": "type",
+      "type": "'moveend'",
+      "required": true,
+      "description": "The type of move event being fired."
+    }
+  ],
+  "MoveEvents": [
+    {
+      "property": "onMoveStart",
+      "type": "(e: MoveStartEvent) => void",
+      "description": "Handler that is called when a move interaction starts."
+    },
+    {
+      "property": "onMove",
+      "type": "(e: MoveMoveEvent) => void",
+      "description": "Handler that is called when the element is moved."
+    },
+    {
+      "property": "onMoveEnd",
+      "type": "(e: MoveEndEvent) => void",
+      "description": "Handler that is called when a move interaction ends."
+    }
+  ],
+  "ScrollEvent": [
+    {
+      "property": "deltaX",
+      "type": "number",
+      "required": true,
+      "description": "The amount moved in the X direction since the last event."
+    },
+    {
+      "property": "deltaY",
+      "type": "number",
+      "required": true,
+      "description": "The amount moved in the Y direction since the last event."
+    }
+  ],
+  "ScrollEvents": [
+    {
+      "property": "onScroll",
+      "type": "(e: ScrollEvent) => void",
+      "description": "Handler that is called when the scroll wheel moves."
     }
   ],
   "ButtonProps": [
