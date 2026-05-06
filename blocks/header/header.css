@@ -233,7 +233,8 @@ header {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .skip-link {
+  header .skip-link,
+  header .skip-link:focus-visible {
     transition: none;
   }
 }
