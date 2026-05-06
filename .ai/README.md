@@ -78,6 +78,12 @@ Skills are used on-demand. When a task matches a skill's purpose, the agent read
 - **Purpose**: Stylesheet organization, complete design token reference, light/dark mode with `light-dark()`, the `spectrum-edge` CSS layer, global utility classes, and CSS conventions for block stylesheets (nesting, BEM, media query syntax, reduced motion).
 - **How to invoke**: Ask about CSS organization, adding styles, tokens, or light/dark mode (e.g. "where do I add shared styles", "what token should I use for this color", "how does dark mode work here").
 
+#### Create a new block
+
+- **File**: [`.ai/skills/create-new-block/SKILL.md`](./skills/create-new-block/SKILL.md)
+- **Purpose**: Scaffold and implement a new EDS block — covers file structure, the `init(el)` function contract, template injection, CSS conventions, design tokens, and when to use templates vs per-page authoring vs fragments.
+- **How to invoke**: Ask to create or add a new block (e.g. "create a new block", "scaffold a block for X", "add a new block to the detail template").
+
 ## Using rules and skills across tools and IDEs
 
 Canonical content lives in **`.ai/`** (this directory). Tool-specific directories (`.cursor/`, `.claude/`) are thin adapters that point back here via symlinks — edit files in `.ai/`, never in the adapter directories.
