@@ -40,7 +40,6 @@ const decorateArea = ({ area = document }) => {
   const main = area.querySelector('main');
   if (main && !main.id) {
     main.id = 'main-content';
-    main.tabIndex = -1;
   }
 };
 
