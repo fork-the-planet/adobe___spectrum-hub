@@ -72,6 +72,12 @@ Skills are used on-demand. When a task matches a skill's purpose, the agent read
 - **Purpose**: Create conventional commit messages following the conventional commits specification.
 - **How to invoke**: Ask for a commit message (e.g. "write a commit message for these changes", "suggest a commit message"). Applies when you're about to run `git commit`.
 
+#### Stylesheet conventions
+
+- **File**: [`.ai/skills/stylesheet-conventions/SKILL.md`](./skills/stylesheet-conventions/SKILL.md)
+- **Purpose**: Stylesheet organization, complete design token reference, light/dark mode with `light-dark()`, the `spectrum-edge` CSS layer, global utility classes, and CSS conventions for block stylesheets (nesting, BEM, media query syntax, reduced motion).
+- **How to invoke**: Ask about CSS organization, adding styles, tokens, or light/dark mode (e.g. "where do I add shared styles", "what token should I use for this color", "how does dark mode work here").
+
 ## Using rules and skills across tools and IDEs
 
 Canonical content lives in **`.ai/`** (this directory). Tool-specific directories (`.cursor/`, `.claude/`) are thin adapters that point back here via symlinks — edit files in `.ai/`, never in the adapter directories.
