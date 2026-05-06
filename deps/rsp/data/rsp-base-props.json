@@ -1,713 +1,4 @@
 {
-  "AriaLabelingProps": [
-    {
-      "property": "'aria-label'",
-      "type": "string",
-      "description": "Defines a string value that labels the current element."
-    },
-    {
-      "property": "'aria-labelledby'",
-      "type": "string",
-      "description": "Identifies the element (or elements) that labels the current element."
-    },
-    {
-      "property": "'aria-describedby'",
-      "type": "string",
-      "description": "Identifies the element (or elements) that describes the object."
-    },
-    {
-      "property": "'aria-details'",
-      "type": "string",
-      "description": "Identifies the element (or elements) that provide a detailed, extended description for the object."
-    }
-  ],
-  "AriaValidationProps": [
-    {
-      "property": "'aria-errormessage'",
-      "type": "string",
-      "description": "Identifies the element that provides an error message for the object."
-    }
-  ],
-  "DOMProps": [
-    {
-      "property": "id",
-      "type": "string",
-      "description": "The element's unique identifier. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id)."
-    }
-  ],
-  "FocusableDOMProps": [
-    {
-      "property": "excludeFromTabOrder",
-      "type": "boolean",
-      "description": "Whether to exclude the element from the sequential tab order. If true, the element will not be focusable via the keyboard by tabbing. This should be avoided except in rare scenarios where an alternative means of accessing the element or its functionality via the keyboard is available."
-    }
-  ],
-  "TextInputDOMEvents": [
-    {
-      "property": "onCopy",
-      "type": "ClipboardEventHandler<HTMLInputElement>",
-      "description": "Handler that is called when the user copies text. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/oncopy)."
-    },
-    {
-      "property": "onCut",
-      "type": "ClipboardEventHandler<HTMLInputElement>",
-      "description": "Handler that is called when the user cuts text. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/oncut)."
-    },
-    {
-      "property": "onPaste",
-      "type": "ClipboardEventHandler<HTMLInputElement>",
-      "description": "Handler that is called when the user pastes text. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/onpaste)."
-    },
-    {
-      "property": "onCompositionStart",
-      "type": "CompositionEventHandler<HTMLInputElement>",
-      "description": "Handler that is called when a text composition system starts a new text composition session. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/compositionstart_event)."
-    },
-    {
-      "property": "onCompositionEnd",
-      "type": "CompositionEventHandler<HTMLInputElement>",
-      "description": "Handler that is called when a text composition system completes or cancels the current text composition session. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/compositionend_event)."
-    },
-    {
-      "property": "onCompositionUpdate",
-      "type": "CompositionEventHandler<HTMLInputElement>",
-      "description": "Handler that is called when a new character is received in the current text composition session. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/compositionupdate_event)."
-    },
-    {
-      "property": "onSelect",
-      "type": "ReactEventHandler<HTMLInputElement>",
-      "description": "Handler that is called when text in the input is selected. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/select_event)."
-    },
-    {
-      "property": "onBeforeInput",
-      "type": "FormEventHandler<HTMLInputElement>",
-      "description": "Handler that is called when the input value is about to be modified. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/beforeinput_event)."
-    },
-    {
-      "property": "onInput",
-      "type": "FormEventHandler<HTMLInputElement>",
-      "description": "Handler that is called when the input value is modified. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event)."
-    }
-  ],
-  "InputDOMProps": [
-    {
-      "property": "name",
-      "type": "string",
-      "description": "The name of the input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname)."
-    },
-    {
-      "property": "form",
-      "type": "string",
-      "description": "The `<form>` element to associate the input with. The value of this attribute must be the id of a `<form>` in the same document. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#form)."
-    }
-  ],
-  "TextInputDOMProps": [
-    {
-      "property": "autoComplete",
-      "type": "string",
-      "description": "Describes the type of autocomplete functionality the input should provide if any. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefautocomplete)."
-    },
-    {
-      "property": "maxLength",
-      "type": "number",
-      "description": "The maximum number of characters supported by the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefmaxlength)."
-    },
-    {
-      "property": "minLength",
-      "type": "number",
-      "description": "The minimum number of characters required by the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefminlength)."
-    },
-    {
-      "property": "pattern",
-      "type": "string",
-      "description": "Regex pattern that the value of the input must match to be valid. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefpattern)."
-    },
-    {
-      "property": "placeholder",
-      "type": "string",
-      "description": "Content that appears in the input when it is empty. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefplaceholder)."
-    },
-    {
-      "property": "type",
-      "type": "'text' | 'search' | 'url' | 'tel' | 'email' | 'password' | (string & {})",
-      "default": "'text'",
-      "description": "The type of input to render. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdeftype)."
-    },
-    {
-      "property": "inputMode",
-      "type": "'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search'",
-      "description": "Hints at the type of data that might be entered by the user while editing the element or its contents. See [MDN](https://html.spec.whatwg.org/multipage/interaction.html#input-modalities:-the-inputmode-attribute)."
-    },
-    {
-      "property": "autoCorrect",
-      "type": "string",
-      "description": "An attribute that takes as its value a space-separated string that describes what, if any, type of autocomplete functionality the input should provide. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#autocomplete)."
-    },
-    {
-      "property": "spellCheck",
-      "type": "string",
-      "description": "An enumerated attribute that defines whether the element may be checked for spelling errors. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck)."
-    }
-  ],
-  "LinkDOMProps": [
-    {
-      "property": "href",
-      "type": "Href",
-      "description": "A URL to link to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href)."
-    },
-    {
-      "property": "hrefLang",
-      "type": "string",
-      "description": "Hints at the human language of the linked URL. See[MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#hreflang)."
-    },
-    {
-      "property": "target",
-      "type": "HTMLAttributeAnchorTarget",
-      "description": "The target window for the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target)."
-    },
-    {
-      "property": "rel",
-      "type": "string",
-      "description": "The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel)."
-    },
-    {
-      "property": "download",
-      "type": "boolean | string",
-      "description": "Causes the browser to download the linked URL. A string may be provided to suggest a file name. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download)."
-    },
-    {
-      "property": "ping",
-      "type": "string",
-      "description": "A space-separated list of URLs to ping when the link is followed. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#ping)."
-    },
-    {
-      "property": "referrerPolicy",
-      "type": "HTMLAttributeReferrerPolicy",
-      "description": "How much of the referrer to send when following the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#referrerpolicy)."
-    },
-    {
-      "property": "routerOptions",
-      "type": "RouterOptions",
-      "description": "Options for the configured client side router."
-    }
-  ],
-  "DOMAttributes": [
-    {
-      "property": "id",
-      "type": "string | undefined"
-    },
-    {
-      "property": "role",
-      "type": "AriaRole | undefined"
-    },
-    {
-      "property": "tabIndex",
-      "type": "number | undefined"
-    },
-    {
-      "property": "style",
-      "type": "CSSProperties | undefined"
-    },
-    {
-      "property": "className",
-      "type": "string | undefined"
-    }
-  ],
-  "GroupDOMAttributes": [
-    {
-      "property": "role",
-      "type": "'group' | 'region' | 'presentation'"
-    }
-  ],
-  "GlobalDOMAttributes": [
-    {
-      "property": "dir",
-      "type": "string | undefined"
-    },
-    {
-      "property": "lang",
-      "type": "string | undefined"
-    },
-    {
-      "property": "hidden",
-      "type": "boolean | undefined"
-    },
-    {
-      "property": "inert",
-      "type": "boolean | undefined"
-    },
-    {
-      "property": "translate",
-      "type": "'yes' | 'no' | undefined"
-    }
-  ],
-  "GlobalDOMEvents": [
-    {
-      "property": "onClick",
-      "type": "MouseEventHandler<T> | undefined"
-    },
-    {
-      "property": "onClickCapture",
-      "type": "MouseEventHandler<T> | undefined"
-    },
-    {
-      "property": "onAuxClick",
-      "type": "MouseEventHandler<T> | undefined"
-    },
-    {
-      "property": "onAuxClickCapture",
-      "type": "MouseEventHandler<T> | undefined"
-    },
-    {
-      "property": "onContextMenu",
-      "type": "MouseEventHandler<T> | undefined"
-    },
-    {
-      "property": "onContextMenuCapture",
-      "type": "MouseEventHandler<T> | undefined"
-    },
-    {
-      "property": "onDoubleClick",
-      "type": "MouseEventHandler<T> | undefined"
-    },
-    {
-      "property": "onDoubleClickCapture",
-      "type": "MouseEventHandler<T> | undefined"
-    },
-    {
-      "property": "onMouseDown",
-      "type": "MouseEventHandler<T> | undefined"
-    },
-    {
-      "property": "onMouseDownCapture",
-      "type": "MouseEventHandler<T> | undefined"
-    },
-    {
-      "property": "onMouseEnter",
-      "type": "MouseEventHandler<T> | undefined"
-    },
-    {
-      "property": "onMouseLeave",
-      "type": "MouseEventHandler<T> | undefined"
-    },
-    {
-      "property": "onMouseMove",
-      "type": "MouseEventHandler<T> | undefined"
-    },
-    {
-      "property": "onMouseMoveCapture",
-      "type": "MouseEventHandler<T> | undefined"
-    },
-    {
-      "property": "onMouseOut",
-      "type": "MouseEventHandler<T> | undefined"
-    },
-    {
-      "property": "onMouseOutCapture",
-      "type": "MouseEventHandler<T> | undefined"
-    },
-    {
-      "property": "onMouseOver",
-      "type": "MouseEventHandler<T> | undefined"
-    },
-    {
-      "property": "onMouseOverCapture",
-      "type": "MouseEventHandler<T> | undefined"
-    },
-    {
-      "property": "onMouseUp",
-      "type": "MouseEventHandler<T> | undefined"
-    },
-    {
-      "property": "onMouseUpCapture",
-      "type": "MouseEventHandler<T> | undefined"
-    },
-    {
-      "property": "onTouchCancel",
-      "type": "TouchEventHandler<T> | undefined"
-    },
-    {
-      "property": "onTouchCancelCapture",
-      "type": "TouchEventHandler<T> | undefined"
-    },
-    {
-      "property": "onTouchEnd",
-      "type": "TouchEventHandler<T> | undefined"
-    },
-    {
-      "property": "onTouchEndCapture",
-      "type": "TouchEventHandler<T> | undefined"
-    },
-    {
-      "property": "onTouchMove",
-      "type": "TouchEventHandler<T> | undefined"
-    },
-    {
-      "property": "onTouchMoveCapture",
-      "type": "TouchEventHandler<T> | undefined"
-    },
-    {
-      "property": "onTouchStart",
-      "type": "TouchEventHandler<T> | undefined"
-    },
-    {
-      "property": "onTouchStartCapture",
-      "type": "TouchEventHandler<T> | undefined"
-    },
-    {
-      "property": "onPointerDown",
-      "type": "PointerEventHandler<T> | undefined"
-    },
-    {
-      "property": "onPointerDownCapture",
-      "type": "PointerEventHandler<T> | undefined"
-    },
-    {
-      "property": "onPointerMove",
-      "type": "PointerEventHandler<T> | undefined"
-    },
-    {
-      "property": "onPointerMoveCapture",
-      "type": "PointerEventHandler<T> | undefined"
-    },
-    {
-      "property": "onPointerUp",
-      "type": "PointerEventHandler<T> | undefined"
-    },
-    {
-      "property": "onPointerUpCapture",
-      "type": "PointerEventHandler<T> | undefined"
-    },
-    {
-      "property": "onPointerCancel",
-      "type": "PointerEventHandler<T> | undefined"
-    },
-    {
-      "property": "onPointerCancelCapture",
-      "type": "PointerEventHandler<T> | undefined"
-    },
-    {
-      "property": "onPointerEnter",
-      "type": "PointerEventHandler<T> | undefined"
-    },
-    {
-      "property": "onPointerLeave",
-      "type": "PointerEventHandler<T> | undefined"
-    },
-    {
-      "property": "onPointerOver",
-      "type": "PointerEventHandler<T> | undefined"
-    },
-    {
-      "property": "onPointerOverCapture",
-      "type": "PointerEventHandler<T> | undefined"
-    },
-    {
-      "property": "onPointerOut",
-      "type": "PointerEventHandler<T> | undefined"
-    },
-    {
-      "property": "onPointerOutCapture",
-      "type": "PointerEventHandler<T> | undefined"
-    },
-    {
-      "property": "onGotPointerCapture",
-      "type": "PointerEventHandler<T> | undefined"
-    },
-    {
-      "property": "onGotPointerCaptureCapture",
-      "type": "PointerEventHandler<T> | undefined"
-    },
-    {
-      "property": "onLostPointerCapture",
-      "type": "PointerEventHandler<T> | undefined"
-    },
-    {
-      "property": "onLostPointerCaptureCapture",
-      "type": "PointerEventHandler<T> | undefined"
-    },
-    {
-      "property": "onScroll",
-      "type": "UIEventHandler<T> | undefined"
-    },
-    {
-      "property": "onScrollCapture",
-      "type": "UIEventHandler<T> | undefined"
-    },
-    {
-      "property": "onWheel",
-      "type": "WheelEventHandler<T> | undefined"
-    },
-    {
-      "property": "onWheelCapture",
-      "type": "WheelEventHandler<T> | undefined"
-    },
-    {
-      "property": "onAnimationStart",
-      "type": "AnimationEventHandler<T> | undefined"
-    },
-    {
-      "property": "onAnimationStartCapture",
-      "type": "AnimationEventHandler<T> | undefined"
-    },
-    {
-      "property": "onAnimationEnd",
-      "type": "AnimationEventHandler<T> | undefined"
-    },
-    {
-      "property": "onAnimationEndCapture",
-      "type": "AnimationEventHandler<T> | undefined"
-    },
-    {
-      "property": "onAnimationIteration",
-      "type": "AnimationEventHandler<T> | undefined"
-    },
-    {
-      "property": "onAnimationIterationCapture",
-      "type": "AnimationEventHandler<T> | undefined"
-    },
-    {
-      "property": "onTransitionCancel",
-      "type": "TransitionEventHandler<T> | undefined"
-    },
-    {
-      "property": "onTransitionCancelCapture",
-      "type": "TransitionEventHandler<T> | undefined"
-    },
-    {
-      "property": "onTransitionEnd",
-      "type": "TransitionEventHandler<T> | undefined"
-    },
-    {
-      "property": "onTransitionEndCapture",
-      "type": "TransitionEventHandler<T> | undefined"
-    },
-    {
-      "property": "onTransitionRun",
-      "type": "TransitionEventHandler<T> | undefined"
-    },
-    {
-      "property": "onTransitionRunCapture",
-      "type": "TransitionEventHandler<T> | undefined"
-    },
-    {
-      "property": "onTransitionStart",
-      "type": "TransitionEventHandler<T> | undefined"
-    },
-    {
-      "property": "onTransitionStartCapture",
-      "type": "TransitionEventHandler<T> | undefined"
-    }
-  ],
-  "FormProps": [
-    {
-      "property": "validationErrors",
-      "type": "ValidationErrors",
-      "description": "Validation errors for the form, typically returned by a server. This should be set to an object mapping from input names to errors."
-    },
-    {
-      "property": "action",
-      "type": "string | FormHTMLAttributes<HTMLFormElement>['action']",
-      "description": "Where to send the form-data when the form is submitted. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#action)."
-    },
-    {
-      "property": "encType",
-      "type": "'application/x-www-form-urlencoded' | 'multipart/form-data' | 'text/plain'",
-      "description": "The enctype attribute specifies how the form-data should be encoded when submitting it to the server. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#enctype)."
-    },
-    {
-      "property": "method",
-      "type": "'get' | 'post' | 'dialog'",
-      "description": "The HTTP method to submit the form with. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#method)."
-    },
-    {
-      "property": "target",
-      "type": "'_blank' | '_self' | '_parent' | '_top'",
-      "description": "The target attribute specifies a name or a keyword that indicates where to display the response that is received after submitting the form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#target)."
-    },
-    {
-      "property": "onSubmit",
-      "type": "(event: FormEvent<HTMLFormElement>) => void",
-      "description": "Triggered when a user submits the form."
-    },
-    {
-      "property": "onReset",
-      "type": "(event: FormEvent<HTMLFormElement>) => void",
-      "description": "Triggered when a user resets the form."
-    },
-    {
-      "property": "onInvalid",
-      "type": "(event: FormEvent<HTMLFormElement>) => void",
-      "description": "Triggered for each invalid field when a user submits the form."
-    },
-    {
-      "property": "autoComplete",
-      "type": "'off' | 'on'",
-      "description": "Indicates whether input elements can by default have their values automatically completed by the browser. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#autocomplete)."
-    },
-    {
-      "property": "autoCapitalize",
-      "type": "'off' | 'none' | 'on' | 'sentences' | 'words' | 'characters'",
-      "description": "Controls whether inputted text is automatically capitalized and, if so, in what manner. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize)."
-    },
-    {
-      "property": "role",
-      "type": "'search' | 'presentation'",
-      "description": "An ARIA role override to apply to the form element."
-    }
-  ],
-  "Validation": [
-    {
-      "property": "isRequired",
-      "type": "boolean",
-      "description": "Whether user input is required on the input before form submission."
-    },
-    {
-      "property": "isInvalid",
-      "type": "boolean",
-      "description": "Whether the input value is invalid."
-    },
-    {
-      "property": "validationState",
-      "type": "ValidationState"
-    },
-    {
-      "property": "validationBehavior",
-      "type": "'aria' | 'native'",
-      "default": "'aria'",
-      "description": "Whether to use native HTML form validation to prevent form submission when the value is missing or invalid, or mark the field as required or invalid via ARIA."
-    },
-    {
-      "property": "validate",
-      "type": "(value: T) => ValidationError | true | null | undefined",
-      "description": "A function that returns an error message if a given value is invalid. Validation errors are displayed to the user when the form is submitted if `validationBehavior=\"native\"`. For realtime validation, use the `isInvalid` prop instead."
-    }
-  ],
-  "ValidationResult": [
-    {
-      "property": "isInvalid",
-      "type": "boolean",
-      "required": true,
-      "description": "Whether the input value is invalid."
-    },
-    {
-      "property": "validationErrors",
-      "type": "string[]",
-      "required": true,
-      "description": "The current error messages for the input if it is invalid, otherwise an empty array."
-    },
-    {
-      "property": "validationDetails",
-      "type": "ValidityState",
-      "required": true,
-      "description": "The native validation details for the input."
-    }
-  ],
-  "SpectrumFieldValidation": [
-    {
-      "property": "validationState",
-      "type": "ValidationState",
-      "description": "Whether the input should display its \"valid\" or \"invalid\" visual styling."
-    }
-  ],
-  "InputBase": [
-    {
-      "property": "isDisabled",
-      "type": "boolean",
-      "description": "Whether the input is disabled."
-    },
-    {
-      "property": "isReadOnly",
-      "type": "boolean",
-      "description": "Whether the input can be selected but not changed by the user."
-    }
-  ],
-  "ValueBase": [
-    {
-      "property": "value",
-      "type": "T",
-      "description": "The current value (controlled)."
-    },
-    {
-      "property": "defaultValue",
-      "type": "T",
-      "description": "The default value (uncontrolled)."
-    },
-    {
-      "property": "onChange",
-      "type": "(value: C) => void",
-      "description": "Handler that is called when the value changes."
-    }
-  ],
-  "TextInputBase": [
-    {
-      "property": "placeholder",
-      "type": "string",
-      "description": "Temporary text that occupies the text input when it is empty."
-    }
-  ],
-  "SpectrumTextInputBase": [
-    {
-      "property": "placeholder",
-      "type": "string",
-      "description": "Temporary text that occupies the text input when it is empty. Please use help text instead."
-    }
-  ],
-  "RangeValue": [
-    {
-      "property": "start",
-      "type": "T",
-      "required": true,
-      "description": "The start value of the range."
-    },
-    {
-      "property": "end",
-      "type": "T",
-      "required": true,
-      "description": "The end value of the range."
-    }
-  ],
-  "RangeInputBase": [
-    {
-      "property": "minValue",
-      "type": "T",
-      "description": "The smallest value allowed for the input."
-    },
-    {
-      "property": "maxValue",
-      "type": "T",
-      "description": "The largest value allowed for the input."
-    },
-    {
-      "property": "step",
-      "type": "T // ??",
-      "description": "The amount that the input value changes with each increment or decrement \"tick\"."
-    }
-  ],
-  "HelpTextProps": [
-    {
-      "property": "description",
-      "type": "ReactNode",
-      "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
-    },
-    {
-      "property": "errorMessage",
-      "type": "ReactNode | ((v: ValidationResult) => ReactNode)",
-      "description": "An error message for the field."
-    }
-  ],
-  "SpectrumHelpTextProps": [
-    {
-      "property": "isDisabled",
-      "type": "boolean",
-      "description": "Whether the description is displayed with lighter text."
-    },
-    {
-      "property": "showErrorIcon",
-      "type": "boolean",
-      "description": "Whether an error icon is rendered."
-    }
-  ],
   "Removable": [
     {
       "property": "isRemovable",
@@ -718,304 +9,65 @@
       "type": "(value: T, event?: SyntheticEvent) => R"
     }
   ],
-  "ItemProps": [
+  "SingleSelection": [
     {
-      "property": "children",
-      "type": "ReactNode",
-      "required": true,
-      "description": "Rendered contents of the item or child items."
-    },
-    {
-      "property": "title",
-      "type": "ReactNode, // label?? contents?",
-      "description": "Rendered contents of the item if `children` contains child items."
-    },
-    {
-      "property": "textValue",
-      "type": "string",
-      "description": "A string representation of the item's contents, used for features like typeahead."
-    },
-    {
-      "property": "'aria-label'",
-      "type": "string",
-      "description": "An accessibility label for this item."
-    },
-    {
-      "property": "childItems",
-      "type": "Iterable<T>",
-      "description": "A list of child item objects. Used for dynamic collections."
-    },
-    {
-      "property": "hasChildItems",
+      "property": "disallowEmptySelection",
       "type": "boolean",
-      "description": "Whether this item has children, even if not loaded yet."
+      "description": "Whether the collection allows empty selection."
+    },
+    {
+      "property": "selectedKey",
+      "type": "Key | null",
+      "description": "The currently selected key in the collection (controlled)."
+    },
+    {
+      "property": "defaultSelectedKey",
+      "type": "Key | null",
+      "description": "The initial selected key in the collection (uncontrolled)."
+    },
+    {
+      "property": "onSelectionChange",
+      "type": "(key: Key | null) => void",
+      "description": "Handler that is called when the selection changes."
     }
   ],
-  "AsyncLoadable": [
+  "MultipleSelection": [
     {
-      "property": "isLoading",
-      "type": "boolean, // possibly isLoadingMore",
-      "description": "Whether the items are currently loading."
+      "property": "selectionMode",
+      "type": "SelectionMode",
+      "description": "The type of selection that is allowed in the collection."
     },
     {
-      "property": "onLoadMore",
-      "type": "() => any",
-      "description": "Handler that is called when more items should be loaded, e.g. while scrolling near the bottom."
-    }
-  ],
-  "SectionProps": [
-    {
-      "property": "title",
-      "type": "ReactNode",
-      "description": "Rendered contents of the section, e.g. a header."
+      "property": "disallowEmptySelection",
+      "type": "boolean",
+      "description": "Whether the collection allows empty selection."
     },
     {
-      "property": "'aria-label'",
-      "type": "string",
-      "description": "An accessibility label for the section."
+      "property": "selectedKeys",
+      "type": "'all' | Iterable<Key>",
+      "description": "The currently selected keys in the collection (controlled)."
     },
     {
-      "property": "children",
-      "type": "ItemElement<T> | ItemElement<T>[] | ItemRenderer<T>",
-      "required": true,
-      "description": "Static child items or a function to render children."
+      "property": "defaultSelectedKeys",
+      "type": "'all' | Iterable<Key>",
+      "description": "The initial selected keys in the collection (uncontrolled)."
     },
     {
-      "property": "items",
-      "type": "Iterable<T>",
-      "description": "Item objects in the section."
-    }
-  ],
-  "CollectionBase": [
-    {
-      "property": "children",
-      "type": "CollectionChildren<T>",
-      "required": true,
-      "description": "The contents of the collection."
-    },
-    {
-      "property": "items",
-      "type": "Iterable<T>",
-      "description": "Item objects in the collection."
+      "property": "onSelectionChange",
+      "type": "(keys: Selection) => void",
+      "description": "Handler that is called when the selection changes."
     },
     {
       "property": "disabledKeys",
       "type": "Iterable<Key>",
-      "description": "The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with."
+      "description": "The currently disabled keys in the collection (controlled)."
     }
   ],
-  "CollectionStateBase": [
+  "SpectrumSelectionProps": [
     {
-      "property": "collection",
-      "type": "C",
-      "description": "A pre-constructed collection to use instead of building one from items and children."
-    }
-  ],
-  "Expandable": [
-    {
-      "property": "expandedKeys",
-      "type": "Iterable<Key>",
-      "description": "The currently expanded keys in the collection (controlled)."
-    },
-    {
-      "property": "defaultExpandedKeys",
-      "type": "Iterable<Key>",
-      "description": "The initial expanded keys in the collection (uncontrolled)."
-    },
-    {
-      "property": "onExpandedChange",
-      "type": "(keys: Set<Key>) => any",
-      "description": "Handler that is called when items are expanded or collapsed."
-    }
-  ],
-  "Sortable": [
-    {
-      "property": "sortDescriptor",
-      "type": "SortDescriptor",
-      "description": "The current sorted column and direction."
-    },
-    {
-      "property": "onSortChange",
-      "type": "(descriptor: SortDescriptor) => any",
-      "description": "Handler that is called when the sorted column or direction changes."
-    }
-  ],
-  "SortDescriptor": [
-    {
-      "property": "column",
-      "type": "Key",
-      "required": true,
-      "description": "The key of the column to sort by."
-    },
-    {
-      "property": "direction",
-      "type": "SortDirection",
-      "required": true,
-      "description": "The direction to sort by."
-    }
-  ],
-  "Rect": [
-    {
-      "property": "x",
-      "type": "number",
-      "required": true
-    },
-    {
-      "property": "y",
-      "type": "number",
-      "required": true
-    },
-    {
-      "property": "width",
-      "type": "number",
-      "required": true
-    },
-    {
-      "property": "height",
-      "type": "number",
-      "required": true
-    }
-  ],
-  "Size": [
-    {
-      "property": "width",
-      "type": "number",
-      "required": true
-    },
-    {
-      "property": "height",
-      "type": "number",
-      "required": true
-    }
-  ],
-  "Collection": [
-    {
-      "property": "children",
-      "type": "CollectionChildren<T>",
-      "required": true,
-      "description": "The contents of the collection."
-    },
-    {
-      "property": "items",
-      "type": "Iterable<T>",
-      "description": "Item objects in the collection."
-    },
-    {
-      "property": "disabledKeys",
-      "type": "Iterable<Key>",
-      "description": "The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with."
-    }
-  ],
-  "Node": [
-    {
-      "property": "type",
-      "type": "string",
-      "required": true,
-      "description": "The type of item this node represents."
-    },
-    {
-      "property": "key",
-      "type": "Key",
-      "required": true,
-      "description": "A unique key for the node."
-    },
-    {
-      "property": "value",
-      "type": "T | null",
-      "required": true,
-      "description": "The object value the node was created from."
-    },
-    {
-      "property": "level",
-      "type": "number",
-      "required": true,
-      "description": "The level of depth this node is at in the hierarchy."
-    },
-    {
-      "property": "hasChildNodes",
-      "type": "boolean",
-      "required": true,
-      "description": "Whether this item has children, even if not loaded yet."
-    },
-    {
-      "property": "childNodes",
-      "type": "Iterable<Node<T>>",
-      "required": true,
-      "description": "The loaded children of this node."
-    },
-    {
-      "property": "rendered",
-      "type": "ReactNode",
-      "required": true,
-      "description": "The rendered contents of this node (e.g. JSX)."
-    },
-    {
-      "property": "textValue",
-      "type": "string",
-      "required": true,
-      "description": "A string value for this node, used for features like typeahead."
-    },
-    {
-      "property": "'aria-label'",
-      "type": "string",
-      "description": "An accessibility label for this node."
-    },
-    {
-      "property": "index",
-      "type": "number",
-      "required": true,
-      "description": "The index of this node within its parent."
-    },
-    {
-      "property": "wrapper",
-      "type": "(element: ReactElement) => ReactElement",
-      "description": "A function that should be called to wrap the rendered node."
-    },
-    {
-      "property": "parentKey",
-      "type": "Key | null",
-      "description": "The key of the parent node."
-    },
-    {
-      "property": "prevKey",
-      "type": "Key | null",
-      "description": "The key of the node before this node."
-    },
-    {
-      "property": "nextKey",
-      "type": "Key | null",
-      "description": "The key of the node after this node."
-    },
-    {
-      "property": "firstChildKey",
-      "type": "Key | null",
-      "description": "The first child key of this node."
-    },
-    {
-      "property": "lastChildKey",
-      "type": "Key | null",
-      "description": "The last child key of this node."
-    },
-    {
-      "property": "props",
-      "type": "any",
-      "description": "Additional properties specific to a particular node type."
-    },
-    {
-      "property": "shouldInvalidate",
-      "type": "(context: any) => boolean"
-    },
-    {
-      "property": "render",
-      "type": "(node: Node<any>) => ReactElement",
-      "description": "A function that renders this node to a React Element in the DOM."
-    }
-  ],
-  "RefObject": [
-    {
-      "property": "current",
-      "type": "T",
-      "required": true
+      "property": "selectionStyle",
+      "type": "'checkbox' | 'highlight'",
+      "description": "How selection should be displayed."
     }
   ],
   "DragDropEvent": [
@@ -1868,102 +920,720 @@
       "description": "Defines the default `justifySelf` for all items in the grid. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-items)."
     }
   ],
-  "LabelableProps": [
+  "AriaLabelingProps": [
     {
-      "property": "label",
-      "type": "ReactNode",
-      "description": "The content to display as the label."
+      "property": "'aria-label'",
+      "type": "string",
+      "description": "Defines a string value that labels the current element."
+    },
+    {
+      "property": "'aria-labelledby'",
+      "type": "string",
+      "description": "Identifies the element (or elements) that labels the current element."
+    },
+    {
+      "property": "'aria-describedby'",
+      "type": "string",
+      "description": "Identifies the element (or elements) that describes the object."
+    },
+    {
+      "property": "'aria-details'",
+      "type": "string",
+      "description": "Identifies the element (or elements) that provide a detailed, extended description for the object."
     }
   ],
-  "SpectrumLabelableProps": [
+  "AriaValidationProps": [
     {
-      "property": "labelPosition",
-      "type": "LabelPosition",
-      "default": "'top'",
-      "description": "The label's overall position relative to the element it is labeling."
+      "property": "'aria-errormessage'",
+      "type": "string",
+      "description": "Identifies the element that provides an error message for the object."
+    }
+  ],
+  "DOMProps": [
+    {
+      "property": "id",
+      "type": "string",
+      "description": "The element's unique identifier. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id)."
+    }
+  ],
+  "FocusableDOMProps": [
+    {
+      "property": "excludeFromTabOrder",
+      "type": "boolean",
+      "description": "Whether to exclude the element from the sequential tab order. If true, the element will not be focusable via the keyboard by tabbing. This should be avoided except in rare scenarios where an alternative means of accessing the element or its functionality via the keyboard is available."
+    }
+  ],
+  "TextInputDOMEvents": [
+    {
+      "property": "onCopy",
+      "type": "ClipboardEventHandler<HTMLInputElement>",
+      "description": "Handler that is called when the user copies text. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/oncopy)."
     },
     {
-      "property": "labelAlign",
-      "type": "Alignment",
-      "default": "'start'",
-      "description": "The label's horizontal alignment relative to the element it is labeling."
+      "property": "onCut",
+      "type": "ClipboardEventHandler<HTMLInputElement>",
+      "description": "Handler that is called when the user cuts text. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/oncut)."
     },
     {
-      "property": "necessityIndicator",
-      "type": "NecessityIndicator",
-      "default": "'icon'",
-      "description": "Whether the required state should be shown as an icon or text."
+      "property": "onPaste",
+      "type": "ClipboardEventHandler<HTMLInputElement>",
+      "description": "Handler that is called when the user pastes text. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/onpaste)."
     },
+    {
+      "property": "onCompositionStart",
+      "type": "CompositionEventHandler<HTMLInputElement>",
+      "description": "Handler that is called when a text composition system starts a new text composition session. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/compositionstart_event)."
+    },
+    {
+      "property": "onCompositionEnd",
+      "type": "CompositionEventHandler<HTMLInputElement>",
+      "description": "Handler that is called when a text composition system completes or cancels the current text composition session. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/compositionend_event)."
+    },
+    {
+      "property": "onCompositionUpdate",
+      "type": "CompositionEventHandler<HTMLInputElement>",
+      "description": "Handler that is called when a new character is received in the current text composition session. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/compositionupdate_event)."
+    },
+    {
+      "property": "onSelect",
+      "type": "ReactEventHandler<HTMLInputElement>",
+      "description": "Handler that is called when text in the input is selected. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/select_event)."
+    },
+    {
+      "property": "onBeforeInput",
+      "type": "FormEventHandler<HTMLInputElement>",
+      "description": "Handler that is called when the input value is about to be modified. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/beforeinput_event)."
+    },
+    {
+      "property": "onInput",
+      "type": "FormEventHandler<HTMLInputElement>",
+      "description": "Handler that is called when the input value is modified. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event)."
+    }
+  ],
+  "InputDOMProps": [
+    {
+      "property": "name",
+      "type": "string",
+      "description": "The name of the input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname)."
+    },
+    {
+      "property": "form",
+      "type": "string",
+      "description": "The `<form>` element to associate the input with. The value of this attribute must be the id of a `<form>` in the same document. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#form)."
+    }
+  ],
+  "TextInputDOMProps": [
+    {
+      "property": "autoComplete",
+      "type": "string",
+      "description": "Describes the type of autocomplete functionality the input should provide if any. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefautocomplete)."
+    },
+    {
+      "property": "maxLength",
+      "type": "number",
+      "description": "The maximum number of characters supported by the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefmaxlength)."
+    },
+    {
+      "property": "minLength",
+      "type": "number",
+      "description": "The minimum number of characters required by the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefminlength)."
+    },
+    {
+      "property": "pattern",
+      "type": "string",
+      "description": "Regex pattern that the value of the input must match to be valid. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefpattern)."
+    },
+    {
+      "property": "placeholder",
+      "type": "string",
+      "description": "Content that appears in the input when it is empty. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefplaceholder)."
+    },
+    {
+      "property": "type",
+      "type": "'text' | 'search' | 'url' | 'tel' | 'email' | 'password' | (string & {})",
+      "default": "'text'",
+      "description": "The type of input to render. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdeftype)."
+    },
+    {
+      "property": "inputMode",
+      "type": "'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search'",
+      "description": "Hints at the type of data that might be entered by the user while editing the element or its contents. See [MDN](https://html.spec.whatwg.org/multipage/interaction.html#input-modalities:-the-inputmode-attribute)."
+    },
+    {
+      "property": "autoCorrect",
+      "type": "string",
+      "description": "An attribute that takes as its value a space-separated string that describes what, if any, type of autocomplete functionality the input should provide. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#autocomplete)."
+    },
+    {
+      "property": "spellCheck",
+      "type": "string",
+      "description": "An enumerated attribute that defines whether the element may be checked for spelling errors. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck)."
+    }
+  ],
+  "LinkDOMProps": [
+    {
+      "property": "href",
+      "type": "Href",
+      "description": "A URL to link to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href)."
+    },
+    {
+      "property": "hrefLang",
+      "type": "string",
+      "description": "Hints at the human language of the linked URL. See[MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#hreflang)."
+    },
+    {
+      "property": "target",
+      "type": "HTMLAttributeAnchorTarget",
+      "description": "The target window for the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target)."
+    },
+    {
+      "property": "rel",
+      "type": "string",
+      "description": "The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel)."
+    },
+    {
+      "property": "download",
+      "type": "boolean | string",
+      "description": "Causes the browser to download the linked URL. A string may be provided to suggest a file name. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download)."
+    },
+    {
+      "property": "ping",
+      "type": "string",
+      "description": "A space-separated list of URLs to ping when the link is followed. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#ping)."
+    },
+    {
+      "property": "referrerPolicy",
+      "type": "HTMLAttributeReferrerPolicy",
+      "description": "How much of the referrer to send when following the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#referrerpolicy)."
+    },
+    {
+      "property": "routerOptions",
+      "type": "RouterOptions",
+      "description": "Options for the configured client side router."
+    }
+  ],
+  "DOMAttributes": [
+    {
+      "property": "id",
+      "type": "string | undefined"
+    },
+    {
+      "property": "role",
+      "type": "AriaRole | undefined"
+    },
+    {
+      "property": "tabIndex",
+      "type": "number | undefined"
+    },
+    {
+      "property": "style",
+      "type": "CSSProperties | undefined"
+    },
+    {
+      "property": "className",
+      "type": "string | undefined"
+    }
+  ],
+  "GroupDOMAttributes": [
+    {
+      "property": "role",
+      "type": "'group' | 'region' | 'presentation'"
+    }
+  ],
+  "GlobalDOMAttributes": [
+    {
+      "property": "dir",
+      "type": "string | undefined"
+    },
+    {
+      "property": "lang",
+      "type": "string | undefined"
+    },
+    {
+      "property": "hidden",
+      "type": "boolean | undefined"
+    },
+    {
+      "property": "inert",
+      "type": "boolean | undefined"
+    },
+    {
+      "property": "translate",
+      "type": "'yes' | 'no' | undefined"
+    }
+  ],
+  "GlobalDOMEvents": [
+    {
+      "property": "onClick",
+      "type": "MouseEventHandler<T> | undefined"
+    },
+    {
+      "property": "onClickCapture",
+      "type": "MouseEventHandler<T> | undefined"
+    },
+    {
+      "property": "onAuxClick",
+      "type": "MouseEventHandler<T> | undefined"
+    },
+    {
+      "property": "onAuxClickCapture",
+      "type": "MouseEventHandler<T> | undefined"
+    },
+    {
+      "property": "onContextMenu",
+      "type": "MouseEventHandler<T> | undefined"
+    },
+    {
+      "property": "onContextMenuCapture",
+      "type": "MouseEventHandler<T> | undefined"
+    },
+    {
+      "property": "onDoubleClick",
+      "type": "MouseEventHandler<T> | undefined"
+    },
+    {
+      "property": "onDoubleClickCapture",
+      "type": "MouseEventHandler<T> | undefined"
+    },
+    {
+      "property": "onMouseDown",
+      "type": "MouseEventHandler<T> | undefined"
+    },
+    {
+      "property": "onMouseDownCapture",
+      "type": "MouseEventHandler<T> | undefined"
+    },
+    {
+      "property": "onMouseEnter",
+      "type": "MouseEventHandler<T> | undefined"
+    },
+    {
+      "property": "onMouseLeave",
+      "type": "MouseEventHandler<T> | undefined"
+    },
+    {
+      "property": "onMouseMove",
+      "type": "MouseEventHandler<T> | undefined"
+    },
+    {
+      "property": "onMouseMoveCapture",
+      "type": "MouseEventHandler<T> | undefined"
+    },
+    {
+      "property": "onMouseOut",
+      "type": "MouseEventHandler<T> | undefined"
+    },
+    {
+      "property": "onMouseOutCapture",
+      "type": "MouseEventHandler<T> | undefined"
+    },
+    {
+      "property": "onMouseOver",
+      "type": "MouseEventHandler<T> | undefined"
+    },
+    {
+      "property": "onMouseOverCapture",
+      "type": "MouseEventHandler<T> | undefined"
+    },
+    {
+      "property": "onMouseUp",
+      "type": "MouseEventHandler<T> | undefined"
+    },
+    {
+      "property": "onMouseUpCapture",
+      "type": "MouseEventHandler<T> | undefined"
+    },
+    {
+      "property": "onTouchCancel",
+      "type": "TouchEventHandler<T> | undefined"
+    },
+    {
+      "property": "onTouchCancelCapture",
+      "type": "TouchEventHandler<T> | undefined"
+    },
+    {
+      "property": "onTouchEnd",
+      "type": "TouchEventHandler<T> | undefined"
+    },
+    {
+      "property": "onTouchEndCapture",
+      "type": "TouchEventHandler<T> | undefined"
+    },
+    {
+      "property": "onTouchMove",
+      "type": "TouchEventHandler<T> | undefined"
+    },
+    {
+      "property": "onTouchMoveCapture",
+      "type": "TouchEventHandler<T> | undefined"
+    },
+    {
+      "property": "onTouchStart",
+      "type": "TouchEventHandler<T> | undefined"
+    },
+    {
+      "property": "onTouchStartCapture",
+      "type": "TouchEventHandler<T> | undefined"
+    },
+    {
+      "property": "onPointerDown",
+      "type": "PointerEventHandler<T> | undefined"
+    },
+    {
+      "property": "onPointerDownCapture",
+      "type": "PointerEventHandler<T> | undefined"
+    },
+    {
+      "property": "onPointerMove",
+      "type": "PointerEventHandler<T> | undefined"
+    },
+    {
+      "property": "onPointerMoveCapture",
+      "type": "PointerEventHandler<T> | undefined"
+    },
+    {
+      "property": "onPointerUp",
+      "type": "PointerEventHandler<T> | undefined"
+    },
+    {
+      "property": "onPointerUpCapture",
+      "type": "PointerEventHandler<T> | undefined"
+    },
+    {
+      "property": "onPointerCancel",
+      "type": "PointerEventHandler<T> | undefined"
+    },
+    {
+      "property": "onPointerCancelCapture",
+      "type": "PointerEventHandler<T> | undefined"
+    },
+    {
+      "property": "onPointerEnter",
+      "type": "PointerEventHandler<T> | undefined"
+    },
+    {
+      "property": "onPointerLeave",
+      "type": "PointerEventHandler<T> | undefined"
+    },
+    {
+      "property": "onPointerOver",
+      "type": "PointerEventHandler<T> | undefined"
+    },
+    {
+      "property": "onPointerOverCapture",
+      "type": "PointerEventHandler<T> | undefined"
+    },
+    {
+      "property": "onPointerOut",
+      "type": "PointerEventHandler<T> | undefined"
+    },
+    {
+      "property": "onPointerOutCapture",
+      "type": "PointerEventHandler<T> | undefined"
+    },
+    {
+      "property": "onGotPointerCapture",
+      "type": "PointerEventHandler<T> | undefined"
+    },
+    {
+      "property": "onGotPointerCaptureCapture",
+      "type": "PointerEventHandler<T> | undefined"
+    },
+    {
+      "property": "onLostPointerCapture",
+      "type": "PointerEventHandler<T> | undefined"
+    },
+    {
+      "property": "onLostPointerCaptureCapture",
+      "type": "PointerEventHandler<T> | undefined"
+    },
+    {
+      "property": "onScroll",
+      "type": "UIEventHandler<T> | undefined"
+    },
+    {
+      "property": "onScrollCapture",
+      "type": "UIEventHandler<T> | undefined"
+    },
+    {
+      "property": "onWheel",
+      "type": "WheelEventHandler<T> | undefined"
+    },
+    {
+      "property": "onWheelCapture",
+      "type": "WheelEventHandler<T> | undefined"
+    },
+    {
+      "property": "onAnimationStart",
+      "type": "AnimationEventHandler<T> | undefined"
+    },
+    {
+      "property": "onAnimationStartCapture",
+      "type": "AnimationEventHandler<T> | undefined"
+    },
+    {
+      "property": "onAnimationEnd",
+      "type": "AnimationEventHandler<T> | undefined"
+    },
+    {
+      "property": "onAnimationEndCapture",
+      "type": "AnimationEventHandler<T> | undefined"
+    },
+    {
+      "property": "onAnimationIteration",
+      "type": "AnimationEventHandler<T> | undefined"
+    },
+    {
+      "property": "onAnimationIterationCapture",
+      "type": "AnimationEventHandler<T> | undefined"
+    },
+    {
+      "property": "onTransitionCancel",
+      "type": "TransitionEventHandler<T> | undefined"
+    },
+    {
+      "property": "onTransitionCancelCapture",
+      "type": "TransitionEventHandler<T> | undefined"
+    },
+    {
+      "property": "onTransitionEnd",
+      "type": "TransitionEventHandler<T> | undefined"
+    },
+    {
+      "property": "onTransitionEndCapture",
+      "type": "TransitionEventHandler<T> | undefined"
+    },
+    {
+      "property": "onTransitionRun",
+      "type": "TransitionEventHandler<T> | undefined"
+    },
+    {
+      "property": "onTransitionRunCapture",
+      "type": "TransitionEventHandler<T> | undefined"
+    },
+    {
+      "property": "onTransitionStart",
+      "type": "TransitionEventHandler<T> | undefined"
+    },
+    {
+      "property": "onTransitionStartCapture",
+      "type": "TransitionEventHandler<T> | undefined"
+    }
+  ],
+  "FormProps": [
+    {
+      "property": "validationErrors",
+      "type": "ValidationErrors",
+      "description": "Validation errors for the form, typically returned by a server. This should be set to an object mapping from input names to errors."
+    },
+    {
+      "property": "action",
+      "type": "string | FormHTMLAttributes<HTMLFormElement>['action']",
+      "description": "Where to send the form-data when the form is submitted. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#action)."
+    },
+    {
+      "property": "encType",
+      "type": "'application/x-www-form-urlencoded' | 'multipart/form-data' | 'text/plain'",
+      "description": "The enctype attribute specifies how the form-data should be encoded when submitting it to the server. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#enctype)."
+    },
+    {
+      "property": "method",
+      "type": "'get' | 'post' | 'dialog'",
+      "description": "The HTTP method to submit the form with. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#method)."
+    },
+    {
+      "property": "target",
+      "type": "'_blank' | '_self' | '_parent' | '_top'",
+      "description": "The target attribute specifies a name or a keyword that indicates where to display the response that is received after submitting the form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#target)."
+    },
+    {
+      "property": "onSubmit",
+      "type": "(event: FormEvent<HTMLFormElement>) => void",
+      "description": "Triggered when a user submits the form."
+    },
+    {
+      "property": "onReset",
+      "type": "(event: FormEvent<HTMLFormElement>) => void",
+      "description": "Triggered when a user resets the form."
+    },
+    {
+      "property": "onInvalid",
+      "type": "(event: FormEvent<HTMLFormElement>) => void",
+      "description": "Triggered for each invalid field when a user submits the form."
+    },
+    {
+      "property": "autoComplete",
+      "type": "'off' | 'on'",
+      "description": "Indicates whether input elements can by default have their values automatically completed by the browser. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#autocomplete)."
+    },
+    {
+      "property": "autoCapitalize",
+      "type": "'off' | 'none' | 'on' | 'sentences' | 'words' | 'characters'",
+      "description": "Controls whether inputted text is automatically capitalized and, if so, in what manner. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize)."
+    },
+    {
+      "property": "role",
+      "type": "'search' | 'presentation'",
+      "description": "An ARIA role override to apply to the form element."
+    }
+  ],
+  "RefObject": [
+    {
+      "property": "current",
+      "type": "T",
+      "required": true
+    }
+  ],
+  "Validation": [
     {
       "property": "isRequired",
       "type": "boolean",
-      "description": "Whether the label is labeling a required field or group."
+      "description": "Whether user input is required on the input before form submission."
     },
     {
-      "property": "contextualHelp",
+      "property": "isInvalid",
+      "type": "boolean",
+      "description": "Whether the input value is invalid."
+    },
+    {
+      "property": "validationState",
+      "type": "ValidationState"
+    },
+    {
+      "property": "validationBehavior",
+      "type": "'aria' | 'native'",
+      "default": "'aria'",
+      "description": "Whether to use native HTML form validation to prevent form submission when the value is missing or invalid, or mark the field as required or invalid via ARIA."
+    },
+    {
+      "property": "validate",
+      "type": "(value: T) => ValidationError | true | null | undefined",
+      "description": "A function that returns an error message if a given value is invalid. Validation errors are displayed to the user when the form is submitted if `validationBehavior=\"native\"`. For realtime validation, use the `isInvalid` prop instead."
+    }
+  ],
+  "ValidationResult": [
+    {
+      "property": "isInvalid",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the input value is invalid."
+    },
+    {
+      "property": "validationErrors",
+      "type": "string[]",
+      "required": true,
+      "description": "The current error messages for the input if it is invalid, otherwise an empty array."
+    },
+    {
+      "property": "validationDetails",
+      "type": "ValidityState",
+      "required": true,
+      "description": "The native validation details for the input."
+    }
+  ],
+  "SpectrumFieldValidation": [
+    {
+      "property": "validationState",
+      "type": "ValidationState",
+      "description": "Whether the input should display its \"valid\" or \"invalid\" visual styling."
+    }
+  ],
+  "InputBase": [
+    {
+      "property": "isDisabled",
+      "type": "boolean",
+      "description": "Whether the input is disabled."
+    },
+    {
+      "property": "isReadOnly",
+      "type": "boolean",
+      "description": "Whether the input can be selected but not changed by the user."
+    }
+  ],
+  "ValueBase": [
+    {
+      "property": "value",
+      "type": "T",
+      "description": "The current value (controlled)."
+    },
+    {
+      "property": "defaultValue",
+      "type": "T",
+      "description": "The default value (uncontrolled)."
+    },
+    {
+      "property": "onChange",
+      "type": "(value: C) => void",
+      "description": "Handler that is called when the value changes."
+    }
+  ],
+  "TextInputBase": [
+    {
+      "property": "placeholder",
+      "type": "string",
+      "description": "Temporary text that occupies the text input when it is empty."
+    }
+  ],
+  "SpectrumTextInputBase": [
+    {
+      "property": "placeholder",
+      "type": "string",
+      "description": "Temporary text that occupies the text input when it is empty. Please use help text instead."
+    }
+  ],
+  "RangeValue": [
+    {
+      "property": "start",
+      "type": "T",
+      "required": true,
+      "description": "The start value of the range."
+    },
+    {
+      "property": "end",
+      "type": "T",
+      "required": true,
+      "description": "The end value of the range."
+    }
+  ],
+  "RangeInputBase": [
+    {
+      "property": "minValue",
+      "type": "T",
+      "description": "The smallest value allowed for the input."
+    },
+    {
+      "property": "maxValue",
+      "type": "T",
+      "description": "The largest value allowed for the input."
+    },
+    {
+      "property": "step",
+      "type": "T // ??",
+      "description": "The amount that the input value changes with each increment or decrement \"tick\"."
+    }
+  ],
+  "HelpTextProps": [
+    {
+      "property": "description",
       "type": "ReactNode",
-      "description": "A ContextualHelp element to place next to the label."
+      "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
+    },
+    {
+      "property": "errorMessage",
+      "type": "ReactNode | ((v: ValidationResult) => ReactNode)",
+      "description": "An error message for the field."
     }
   ],
-  "SingleSelection": [
+  "SpectrumHelpTextProps": [
     {
-      "property": "disallowEmptySelection",
+      "property": "isDisabled",
       "type": "boolean",
-      "description": "Whether the collection allows empty selection."
+      "description": "Whether the description is displayed with lighter text."
     },
     {
-      "property": "selectedKey",
-      "type": "Key | null",
-      "description": "The currently selected key in the collection (controlled)."
-    },
-    {
-      "property": "defaultSelectedKey",
-      "type": "Key | null",
-      "description": "The initial selected key in the collection (uncontrolled)."
-    },
-    {
-      "property": "onSelectionChange",
-      "type": "(key: Key | null) => void",
-      "description": "Handler that is called when the selection changes."
-    }
-  ],
-  "MultipleSelection": [
-    {
-      "property": "selectionMode",
-      "type": "SelectionMode",
-      "description": "The type of selection that is allowed in the collection."
-    },
-    {
-      "property": "disallowEmptySelection",
+      "property": "showErrorIcon",
       "type": "boolean",
-      "description": "Whether the collection allows empty selection."
-    },
-    {
-      "property": "selectedKeys",
-      "type": "'all' | Iterable<Key>",
-      "description": "The currently selected keys in the collection (controlled)."
-    },
-    {
-      "property": "defaultSelectedKeys",
-      "type": "'all' | Iterable<Key>",
-      "description": "The initial selected keys in the collection (uncontrolled)."
-    },
-    {
-      "property": "onSelectionChange",
-      "type": "(keys: Selection) => void",
-      "description": "Handler that is called when the selection changes."
-    },
-    {
-      "property": "disabledKeys",
-      "type": "Iterable<Key>",
-      "description": "The currently disabled keys in the collection (controlled)."
-    }
-  ],
-  "SpectrumSelectionProps": [
-    {
-      "property": "selectionStyle",
-      "type": "'checkbox' | 'highlight'",
-      "description": "How selection should be displayed."
+      "description": "Whether an error icon is rendered."
     }
   ],
   "PressEvent": [
@@ -2212,6 +1882,336 @@
       "property": "onScroll",
       "type": "(e: ScrollEvent) => void",
       "description": "Handler that is called when the scroll wheel moves."
+    }
+  ],
+  "ItemProps": [
+    {
+      "property": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Rendered contents of the item or child items."
+    },
+    {
+      "property": "title",
+      "type": "ReactNode, // label?? contents?",
+      "description": "Rendered contents of the item if `children` contains child items."
+    },
+    {
+      "property": "textValue",
+      "type": "string",
+      "description": "A string representation of the item's contents, used for features like typeahead."
+    },
+    {
+      "property": "'aria-label'",
+      "type": "string",
+      "description": "An accessibility label for this item."
+    },
+    {
+      "property": "childItems",
+      "type": "Iterable<T>",
+      "description": "A list of child item objects. Used for dynamic collections."
+    },
+    {
+      "property": "hasChildItems",
+      "type": "boolean",
+      "description": "Whether this item has children, even if not loaded yet."
+    }
+  ],
+  "AsyncLoadable": [
+    {
+      "property": "isLoading",
+      "type": "boolean, // possibly isLoadingMore",
+      "description": "Whether the items are currently loading."
+    },
+    {
+      "property": "onLoadMore",
+      "type": "() => any",
+      "description": "Handler that is called when more items should be loaded, e.g. while scrolling near the bottom."
+    }
+  ],
+  "SectionProps": [
+    {
+      "property": "title",
+      "type": "ReactNode",
+      "description": "Rendered contents of the section, e.g. a header."
+    },
+    {
+      "property": "'aria-label'",
+      "type": "string",
+      "description": "An accessibility label for the section."
+    },
+    {
+      "property": "children",
+      "type": "ItemElement<T> | ItemElement<T>[] | ItemRenderer<T>",
+      "required": true,
+      "description": "Static child items or a function to render children."
+    },
+    {
+      "property": "items",
+      "type": "Iterable<T>",
+      "description": "Item objects in the section."
+    }
+  ],
+  "CollectionBase": [
+    {
+      "property": "children",
+      "type": "CollectionChildren<T>",
+      "required": true,
+      "description": "The contents of the collection."
+    },
+    {
+      "property": "items",
+      "type": "Iterable<T>",
+      "description": "Item objects in the collection."
+    },
+    {
+      "property": "disabledKeys",
+      "type": "Iterable<Key>",
+      "description": "The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with."
+    }
+  ],
+  "CollectionStateBase": [
+    {
+      "property": "collection",
+      "type": "C",
+      "description": "A pre-constructed collection to use instead of building one from items and children."
+    }
+  ],
+  "Expandable": [
+    {
+      "property": "expandedKeys",
+      "type": "Iterable<Key>",
+      "description": "The currently expanded keys in the collection (controlled)."
+    },
+    {
+      "property": "defaultExpandedKeys",
+      "type": "Iterable<Key>",
+      "description": "The initial expanded keys in the collection (uncontrolled)."
+    },
+    {
+      "property": "onExpandedChange",
+      "type": "(keys: Set<Key>) => any",
+      "description": "Handler that is called when items are expanded or collapsed."
+    }
+  ],
+  "Sortable": [
+    {
+      "property": "sortDescriptor",
+      "type": "SortDescriptor",
+      "description": "The current sorted column and direction."
+    },
+    {
+      "property": "onSortChange",
+      "type": "(descriptor: SortDescriptor) => any",
+      "description": "Handler that is called when the sorted column or direction changes."
+    }
+  ],
+  "SortDescriptor": [
+    {
+      "property": "column",
+      "type": "Key",
+      "required": true,
+      "description": "The key of the column to sort by."
+    },
+    {
+      "property": "direction",
+      "type": "SortDirection",
+      "required": true,
+      "description": "The direction to sort by."
+    }
+  ],
+  "Rect": [
+    {
+      "property": "x",
+      "type": "number",
+      "required": true
+    },
+    {
+      "property": "y",
+      "type": "number",
+      "required": true
+    },
+    {
+      "property": "width",
+      "type": "number",
+      "required": true
+    },
+    {
+      "property": "height",
+      "type": "number",
+      "required": true
+    }
+  ],
+  "Size": [
+    {
+      "property": "width",
+      "type": "number",
+      "required": true
+    },
+    {
+      "property": "height",
+      "type": "number",
+      "required": true
+    }
+  ],
+  "Collection": [
+    {
+      "property": "children",
+      "type": "CollectionChildren<T>",
+      "required": true,
+      "description": "The contents of the collection."
+    },
+    {
+      "property": "items",
+      "type": "Iterable<T>",
+      "description": "Item objects in the collection."
+    },
+    {
+      "property": "disabledKeys",
+      "type": "Iterable<Key>",
+      "description": "The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with."
+    }
+  ],
+  "Node": [
+    {
+      "property": "type",
+      "type": "string",
+      "required": true,
+      "description": "The type of item this node represents."
+    },
+    {
+      "property": "key",
+      "type": "Key",
+      "required": true,
+      "description": "A unique key for the node."
+    },
+    {
+      "property": "value",
+      "type": "T | null",
+      "required": true,
+      "description": "The object value the node was created from."
+    },
+    {
+      "property": "level",
+      "type": "number",
+      "required": true,
+      "description": "The level of depth this node is at in the hierarchy."
+    },
+    {
+      "property": "hasChildNodes",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether this item has children, even if not loaded yet."
+    },
+    {
+      "property": "childNodes",
+      "type": "Iterable<Node<T>>",
+      "required": true,
+      "description": "The loaded children of this node."
+    },
+    {
+      "property": "rendered",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The rendered contents of this node (e.g. JSX)."
+    },
+    {
+      "property": "textValue",
+      "type": "string",
+      "required": true,
+      "description": "A string value for this node, used for features like typeahead."
+    },
+    {
+      "property": "'aria-label'",
+      "type": "string",
+      "description": "An accessibility label for this node."
+    },
+    {
+      "property": "index",
+      "type": "number",
+      "required": true,
+      "description": "The index of this node within its parent."
+    },
+    {
+      "property": "wrapper",
+      "type": "(element: ReactElement) => ReactElement",
+      "description": "A function that should be called to wrap the rendered node."
+    },
+    {
+      "property": "parentKey",
+      "type": "Key | null",
+      "description": "The key of the parent node."
+    },
+    {
+      "property": "prevKey",
+      "type": "Key | null",
+      "description": "The key of the node before this node."
+    },
+    {
+      "property": "nextKey",
+      "type": "Key | null",
+      "description": "The key of the node after this node."
+    },
+    {
+      "property": "firstChildKey",
+      "type": "Key | null",
+      "description": "The first child key of this node."
+    },
+    {
+      "property": "lastChildKey",
+      "type": "Key | null",
+      "description": "The last child key of this node."
+    },
+    {
+      "property": "props",
+      "type": "any",
+      "description": "Additional properties specific to a particular node type."
+    },
+    {
+      "property": "shouldInvalidate",
+      "type": "(context: any) => boolean"
+    },
+    {
+      "property": "render",
+      "type": "(node: Node<any>) => ReactElement",
+      "description": "A function that renders this node to a React Element in the DOM."
+    }
+  ],
+  "LabelableProps": [
+    {
+      "property": "label",
+      "type": "ReactNode",
+      "description": "The content to display as the label."
+    }
+  ],
+  "SpectrumLabelableProps": [
+    {
+      "property": "labelPosition",
+      "type": "LabelPosition",
+      "default": "'top'",
+      "description": "The label's overall position relative to the element it is labeling."
+    },
+    {
+      "property": "labelAlign",
+      "type": "Alignment",
+      "default": "'start'",
+      "description": "The label's horizontal alignment relative to the element it is labeling."
+    },
+    {
+      "property": "necessityIndicator",
+      "type": "NecessityIndicator",
+      "default": "'icon'",
+      "description": "Whether the required state should be shown as an icon or text."
+    },
+    {
+      "property": "isRequired",
+      "type": "boolean",
+      "description": "Whether the label is labeling a required field or group."
+    },
+    {
+      "property": "contextualHelp",
+      "type": "ReactNode",
+      "description": "A ContextualHelp element to place next to the label."
     }
   ],
   "ButtonProps": [
