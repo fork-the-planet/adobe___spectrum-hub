@@ -1,6 +1,35 @@
 header {
   position: relative;
   visibility: unset;
+  position: sticky;
+  inset: 0;
+  z-index: 1;
+  isolation: isolate;
+
+  /*
+   * Frosted-glass backdrop on a pseudo-element so the header content stays
+   * crisp. The pseudo-element extends ✨50px below the header bottom so the
+   * mask's soft fade dissipates into page content past the header instead of
+   * inside it, avoiding a hard seam at the bottom edge.
+   */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 -50px;
+    z-index: -1;
+    pointer-events: none;
+    background-color: rgb(from var(--se-body-background-color) r g b / 80%);
+    backdrop-filter: blur(20px);
+    mask-image: linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 50%,
+      rgb(0 0 0 / 90%) 60%,
+      rgb(0 0 0 / 70%) 65%,
+      rgb(0 0 0 / 45%) 80%,
+      rgb(0 0 0 / 20%) 92%,
+      transparent 100%);
+  }
 
   .skip-link {
     position: absolute;
