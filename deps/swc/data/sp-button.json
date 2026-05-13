@@ -34,13 +34,12 @@
     "attribute": "quiet",
     "property": "quiet",
     "type": "boolean",
-    "description": "Style this button to be less obvious"
+    "description": "Style this button to be less obvious."
   },
   {
     "attribute": "no-wrap",
     "property": "noWrap",
     "type": "boolean",
-    "default": "false",
     "description": "Disables text wrapping within the button component's label.\nPlease note that this option is not a part of the design specification\nand should be used carefully, with consideration of this overflow behavior\nand the readability of the button's content."
   },
   {
