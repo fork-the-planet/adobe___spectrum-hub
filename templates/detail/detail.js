@@ -17,5 +17,5 @@ export default async function init() {
   await Promise.all([loadBlock(sitenav), loadBlock(pageNav)]);
 
   main.replaceWith(wrapper);
-  wrapper.append(sitenav, pageNav, main);
+  wrapper.append(sitenav, main, pageNav);
 }
