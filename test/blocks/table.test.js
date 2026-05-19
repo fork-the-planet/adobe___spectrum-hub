@@ -85,9 +85,7 @@ describe('table block', () => {
     });
   });
 
-  // ── Shared table structure (buildTableElement) ─────────────────────────────
-
-  describe('the buildTableElement function', () => {
+  describe('the shared table structured, buildTableElement', () => {
     let el;
 
     beforeEach(async () => {
@@ -136,8 +134,6 @@ describe('table block', () => {
       [...el.querySelectorAll('td')].forEach((td) => expect(td.role).to.equal('cell'));
     });
   });
-
-  // ── Post-processing ────────────────────────────────────────────────────────
 
   describe('when init decorates the block', () => {
     let el;
@@ -237,9 +233,7 @@ describe('table block', () => {
     });
   });
 
-  // ── Data table path ────────────────────────────────────────────────────────
-
-  describe('data table path', () => {
+  describe('when content authors opt for the data table path', () => {
     const PROPS = [
       {
         attribute: 'size', type: 'string', default: 'M', description: 'Component size',
