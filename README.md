@@ -13,6 +13,26 @@ Spectrum Hub is built on AEM Edge Delivery Services. Getting started takes a mat
 1. Open the cloned folder in your favorite code editor and build something amazing.
 1. **Recommended:** Install common npm packages like linting and testing: `npm i`.
 
+### Testing
+
+Tests run in the browser using [Web Test Runner](https://modern-web.dev/docs/test-runner/overview/). After installing dependencies with `npm i`, run the full test suite:
+
+```bash
+npm test
+```
+
+To re-run tests automatically as you edit:
+
+```bash
+npm run test:watch
+```
+
+To watch a single file:
+
+```bash
+npm run test:file:watch -- test/scripts/scripts.test.js
+```
+
 ## Noteworthy details
 This project pulls together the very best across the world of Spectrum developer tooling:
 
