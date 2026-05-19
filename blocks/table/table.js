@@ -120,9 +120,12 @@ export default async function init(el) {
   const table = el.querySelector('table');
   const h1 = document.querySelector('h1');
 
-  // finds the appropriate section heading in DA, and creates the table's accessible name
-  // for users who navigate via table landmarks
-  const sectionHeading = el.closest('.section')?.querySelector('h2, h3, h4, h5, h6');
+  // finds the heading that immediately precedes this table in the section, so each table
+  // on the page gets its own accessible name rather than all sharing the first heading
+  const section = el.closest('.section');
+  const sectionHeading = [...(section?.querySelectorAll('h2, h3, h4, h5, h6') ?? [])]
+    .filter((h) => el.compareDocumentPosition(h) & Node.DOCUMENT_POSITION_PRECEDING)
+    .at(-1);
   const labelIds = [h1, sectionHeading].flatMap((heading) => {
     if (!heading) return [];
     if (!heading.id) heading.id = `table-heading-${Math.random().toString(36).slice(2)}`;
