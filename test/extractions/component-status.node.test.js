@@ -112,14 +112,7 @@ describe('getComponentStatus — extraction data shapes', () => {
     { attribute: 'disabled', property: 'disabled', type: 'boolean', since: '0.0.1', inheritedFrom: 'ButtonBase' },
   ];
 
-  // TODO: remove this old data shape
-  // RSP current shape (e.g. ActionButton.json): flat array, no since fields yet
-  const rspFlatFixture = [
-    { property: 'size', type: "'XS' | 'S' | 'M' | 'L' | 'XL'", inheritedFrom: 'ActionButtonStyleProps' },
-    { property: 'children', type: 'ReactNode', required: true },
-  ];
-
-  // RSP future shape (after doc-status extraction): object with top-level status
+  // RSP shape: object with top-level status
   const rspWithDocStatusFixture = {
     status: 'beta',
     props: [
@@ -130,10 +123,6 @@ describe('getComponentStatus — extraction data shapes', () => {
 
   it('returns "stable" for a SWC component whose props all have since', () => {
     assert.equal(getComponentStatus(swcFixture), 'stable');
-  });
-
-  it('returns null for an RSP component with no since fields (pre-extraction)', () => {
-    assert.equal(getComponentStatus(rspFlatFixture), null);
   });
 
   it('returns the doc status for an RSP component with a top-level status field', () => {
