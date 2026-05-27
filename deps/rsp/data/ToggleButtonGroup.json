@@ -1,0 +1,10 @@
+{
+  "props": [
+    {
+      "property": "isEmphasized",
+      "type": "boolean",
+      "description": "Whether the button should be displayed with an [emphasized style](https://spectrum.adobe.com/page/action-button/#Emphasis)."
+    }
+  ],
+  "status": "stable"
+}
