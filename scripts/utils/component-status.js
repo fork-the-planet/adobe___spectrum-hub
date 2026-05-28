@@ -9,7 +9,7 @@
  * Prop-level `status: "internal"` on SWC rows is not the same field as RSP top-level `status`.
  */
 
-const SWC_PRERELEASE = new Set(['alpha', 'beta', 'rc']);
+const PRERELEASE_TAGS = new Set(['alpha', 'beta', 'rc']);
 
 /**
  * @param {unknown} data Raw JSON from a component extraction file.
@@ -69,5 +69,5 @@ export function getComponentProps(data) {
  * @returns {boolean}
  */
 export function isPrereleaseStatus(status) {
-  return SWC_PRERELEASE.has(status);
+  return PRERELEASE_TAGS.has(status);
 }
