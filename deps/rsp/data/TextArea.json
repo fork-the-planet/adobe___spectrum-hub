@@ -6,6 +6,12 @@
       "default": "'M'",
       "description": "The size of the text field.",
       "inheritedFrom": "TextFieldProps"
+    },
+    {
+      "property": "prefix",
+      "type": "ReactNode",
+      "description": "The prefix to display in the text field. A non-interactive element that appears before the input.",
+      "inheritedFrom": "TextFieldProps"
     }
   ],
   "status": "stable"

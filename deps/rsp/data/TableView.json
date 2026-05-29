@@ -63,6 +63,13 @@
       "inheritedFrom": "S2TableProps"
     },
     {
+      "property": "selectionStyle",
+      "type": "'checkbox' | 'highlight'",
+      "default": "'checkbox'",
+      "description": "How selection should be displayed.",
+      "inheritedFrom": "S2TableProps"
+    },
+    {
       "property": "styles",
       "type": "StylesPropWithHeight",
       "description": "Spectrum-defined styles, returned by the `style()` macro."
@@ -76,14 +83,14 @@
     {
       "property": "selectionBehavior",
       "type": "SelectionBehavior",
-      "default": "\"toggle\"",
+      "default": "'toggle'",
       "description": "How multiple selection should behave in the collection.",
       "inheritedFrom": "TableProps"
     },
     {
       "property": "disabledBehavior",
       "type": "DisabledBehavior",
-      "default": "\"all\"",
+      "default": "'all'",
       "description": "Whether `disabledKeys` applies to all interactions, or only selection.",
       "inheritedFrom": "TableProps"
     },

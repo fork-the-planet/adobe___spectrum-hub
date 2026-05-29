@@ -61,7 +61,7 @@
     {
       "property": "selectionBehavior",
       "type": "SelectionBehavior",
-      "default": "\"toggle\"",
+      "default": "'toggle'",
       "description": "How multiple selection should behave in the collection.",
       "inheritedFrom": "GridListProps"
     },

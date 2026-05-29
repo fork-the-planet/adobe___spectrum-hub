@@ -37,6 +37,12 @@
       "inheritedFrom": "RowProps"
     },
     {
+      "property": "disabledBehavior",
+      "type": "DisabledBehavior",
+      "description": "Whether `disabledKeys` applies to all interactions, or only selection.",
+      "inheritedFrom": "RowProps"
+    },
+    {
       "property": "onAction",
       "type": "() => void",
       "description": "Handler that is called when a user performs an action on the row. The exact user event depends on the collection's `selectionBehavior` prop and the interaction modality.",

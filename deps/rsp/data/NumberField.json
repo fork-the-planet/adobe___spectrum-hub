@@ -13,6 +13,11 @@
       "description": "The size of the NumberField."
     },
     {
+      "property": "prefix",
+      "type": "ReactNode",
+      "description": "The prefix to display in the NumberField. A non-interactive element that appears before the input."
+    },
+    {
       "property": "styles",
       "type": "StylesProp",
       "description": "Spectrum-defined styles, returned by the `style()` macro.",

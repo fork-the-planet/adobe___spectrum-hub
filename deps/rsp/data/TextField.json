@@ -7,6 +7,11 @@
       "description": "The size of the text field."
     },
     {
+      "property": "prefix",
+      "type": "ReactNode",
+      "description": "The prefix to display in the text field. A non-interactive element that appears before the input."
+    },
+    {
       "property": "isInvalid",
       "type": "boolean",
       "description": "Whether the value is invalid.",

@@ -14,7 +14,7 @@
     {
       "property": "visibleDuration",
       "type": "DateDuration",
-      "default": "{months: 1}",
+      "default": "{ months: 1 }",
       "description": "The amount of days that will be displayed at once. This affects how pagination works.",
       "inheritedFrom": "RangeCalendarProps"
     },

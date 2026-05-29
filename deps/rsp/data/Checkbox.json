@@ -22,7 +22,7 @@
       "property": "inputRef",
       "type": "RefObject<HTMLInputElement | null>",
       "description": "A ref for the HTML input element.",
-      "inheritedFrom": "CheckboxProps"
+      "inheritedFrom": "CheckboxFieldProps"
     },
     {
       "property": "styles",

@@ -31,7 +31,7 @@
   "AsyncLoadable": [
     {
       "property": "isLoading",
-      "type": "boolean, // possibly isLoadingMore",
+      "type": "boolean; // possibly isLoadingMore",
       "description": "Whether the items are currently loading."
     },
     {
@@ -43,17 +43,17 @@
   "BoxAlignmentStyleProps": [
     {
       "property": "justifyContent",
-      "type": "Responsive<'start' | 'end' | 'center' | 'left' | 'right' | 'space-between' | 'space-around' | 'space-evenly' | 'stretch' | 'baseline' | 'first baseline' | 'last baseline' | 'safe center' | 'unsafe center'>",
+      "type": "Responsive<",
       "description": "The distribution of space around items along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content)."
     },
     {
       "property": "alignContent",
-      "type": "Responsive<'start' | 'end' | 'center' | 'space-between' | 'space-around' | 'space-evenly' | 'stretch' | 'baseline' | 'first baseline' | 'last baseline' | 'safe center' | 'unsafe center'>",
+      "type": "Responsive<",
       "description": "The distribution of space around child items along the cross axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content)."
     },
     {
       "property": "alignItems",
-      "type": "Responsive<'start' | 'end' | 'center' | 'stretch' | 'self-start' | 'self-end' | 'baseline' | 'first baseline' | 'last baseline' | 'safe center' | 'unsafe center'>",
+      "type": "Responsive<",
       "description": "The alignment of children within their container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)."
     },
     {
@@ -322,7 +322,7 @@
     {
       "property": "weekdayStyle",
       "type": "'narrow' | 'short' | 'long'",
-      "default": "\"narrow\"",
+      "default": "'narrow'",
       "description": "The style of weekday names to display in the calendar grid header, e.g. single letter, abbreviation, or full day name."
     }
   ],
@@ -334,17 +334,33 @@
       "description": "The CSS [className](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) for the element."
     }
   ],
+  "CalendarHeadingProps": [
+    {
+      "property": "className",
+      "type": "string",
+      "default": "'react-aria-CalendarHeading'",
+      "description": "The CSS [className](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) for the element."
+    }
+  ],
+  "CalendarMonthPickerProps": [
+    {
+      "property": "children",
+      "type": "(renderProps: CalendarMonthPickerAria) => JSX.Element",
+      "required": true,
+      "description": "A function to render the month picker."
+    }
+  ],
   "CalendarProps": [
     {
       "property": "className",
-      "type": "ClassNameOrFunction<CalendarRenderProps>",
+      "type": "ClassNameOrFunction<CalendarRenderProps<M>>",
       "default": "'react-aria-Calendar'",
       "description": "The CSS [className](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) for the element. A function may be provided to compute the class based on component state."
     },
     {
       "property": "visibleDuration",
       "type": "DateDuration",
-      "default": "{months: 1}",
+      "default": "{ months: 1 }",
       "description": "The amount of days that will be displayed at once. This affects how pagination works."
     },
     {
@@ -362,7 +378,7 @@
     },
     {
       "property": "state",
-      "type": "CalendarState",
+      "type": "CalendarState<M>",
       "required": true,
       "description": "State of the calendar."
     },
@@ -371,6 +387,14 @@
       "type": "boolean",
       "required": true,
       "description": "Whether the calendar is invalid."
+    }
+  ],
+  "CalendarYearPickerProps": [
+    {
+      "property": "children",
+      "type": "(renderProps: CalendarYearPickerAria) => JSX.Element",
+      "required": true,
+      "description": "A function to render the year picker."
     }
   ],
   "CellProps": [
@@ -434,6 +458,12 @@
       "description": "Whether the parent row is non-interactive, i.e. both selection and actions are disabled and the item may not be focused. Dependent on `disabledKeys` and `disabledBehavior`."
     },
     {
+      "property": "isFocusVisibleWithinRow",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether keyboard focus is visible anywhere within the parent row."
+    },
+    {
       "property": "id",
       "type": "Key",
       "description": "The unique id of the cell."
@@ -466,6 +496,65 @@
       "type": "number",
       "required": true,
       "description": "What level the parent row has within the table."
+    }
+  ],
+  "CheckboxButtonProps": [
+    {
+      "property": "className",
+      "type": "ClassNameOrFunction<CheckboxButtonRenderProps>",
+      "default": "'react-aria-CheckboxButton'",
+      "description": "The CSS [className](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) for the element. A function may be provided to compute the class based on component state."
+    }
+  ],
+  "CheckboxFieldProps": [
+    {
+      "property": "className",
+      "type": "ClassNameOrFunction<CheckboxFieldRenderProps>",
+      "default": "'react-aria-CheckboxField'",
+      "description": "The CSS [className](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) for the element. A function may be provided to compute the class based on component state."
+    },
+    {
+      "property": "inputRef",
+      "type": "RefObject<HTMLInputElement | null>",
+      "description": "A ref for the HTML input element."
+    }
+  ],
+  "CheckboxFieldRenderProps": [
+    {
+      "property": "isSelected",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the checkbox is selected."
+    },
+    {
+      "property": "isIndeterminate",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the checkbox is indeterminate."
+    },
+    {
+      "property": "isDisabled",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the checkbox is disabled."
+    },
+    {
+      "property": "isReadOnly",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the checkbox is read only."
+    },
+    {
+      "property": "isInvalid",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the checkbox invalid."
+    },
+    {
+      "property": "isRequired",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the checkbox is required."
     }
   ],
   "CheckboxGroupProps": [
@@ -1586,7 +1675,7 @@
     {
       "property": "render",
       "type": "DOMRenderFunction<E, T>",
-      "description": "Overrides the default DOM element with a custom render function. This allows rendering existing components with built-in styles and behaviors such as router links, animation libraries, and pre-styled components. Requirements: * You must render the expected element type (e.g. if `<button>` is expected, you cannot render an `<a>`). * Only a single root DOM element can be rendered (no fragments). * You must pass through props and ref to the underlying DOM element, merging with your own prop as appropriate."
+      "description": "Overrides the default DOM element with a custom render function. This allows rendering existing components with built-in styles and behaviors such as router links, animation libraries, and pre-styled components. Requirements: - You must render the expected element type (e.g. if `<button>` is expected, you cannot render an `<a>`). - Only a single root DOM element can be rendered (no fragments). - You must pass through props and ref to the underlying DOM element, merging with your own prop as appropriate."
     }
   ],
   "DragAndDrop": [
@@ -1867,8 +1956,23 @@
     },
     {
       "property": "getDropOperation",
-      "type": "(target: DropTarget, types: DragTypes, allowedOperations: DropOperation[]) => DropOperation",
+      "type": "(",
       "description": "A function returning the drop operation to be performed when items matching the given types are dropped on the drop target."
+    },
+    {
+      "property": "target",
+      "type": "DropTarget",
+      "required": true
+    },
+    {
+      "property": "types",
+      "type": "DragTypes",
+      "required": true
+    },
+    {
+      "property": "allowedOperations",
+      "type": "DropOperation[]",
+      "required": true
     }
   ],
   "DroppableCollectionDropEvent": [
@@ -2019,6 +2123,23 @@
       "property": "shouldAcceptItemDrop",
       "type": "(target: ItemDropTarget, types: DragTypes) => boolean",
       "description": "A function returning whether a given target in the droppable collection is a valid \"on\" drop target for the current drag types."
+    }
+  ],
+  "DropTargetDelegate": [
+    {
+      "property": "x",
+      "type": "number",
+      "required": true
+    },
+    {
+      "property": "y",
+      "type": "number",
+      "required": true
+    },
+    {
+      "property": "isValidDropTarget",
+      "type": "(target: DropTarget) => boolean",
+      "required": true
     }
   ],
   "DropZoneProps": [
@@ -2523,6 +2644,12 @@
       "description": "The unique id of the item."
     },
     {
+      "property": "isFocusVisibleWithin",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the item's children have keyboard focus."
+    },
+    {
       "property": "state",
       "type": "ListState<unknown>",
       "required": true,
@@ -2563,7 +2690,7 @@
     {
       "property": "selectionBehavior",
       "type": "SelectionBehavior",
-      "default": "\"toggle\"",
+      "default": "'toggle'",
       "description": "How multiple selection should behave in the collection."
     },
     {
@@ -2674,7 +2801,7 @@
     },
     {
       "property": "justifyItems",
-      "type": "Responsive<'auto' | 'normal' | 'start' | 'end' | 'center' | 'left' | 'right' | 'stretch' | 'self-start' | 'self-end' | 'baseline' | 'first baseline' | 'last baseline' | 'safe center' | 'unsafe center' | 'legacy right' | 'legacy left' | 'legacy center'>",
+      "type": "Responsive<",
       "description": "Defines the default `justifySelf` for all items in the grid. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-items)."
     }
   ],
@@ -2747,8 +2874,16 @@
   ],
   "HeadingProps": [
     {
+      "property": "className",
+      "type": "string",
+      "default": "'react-aria-Heading'",
+      "description": "The CSS [className](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) for the element."
+    },
+    {
       "property": "level",
-      "type": "number"
+      "type": "number",
+      "default": "3",
+      "description": "The heading level."
     }
   ],
   "HelpTextProps": [
@@ -2912,7 +3047,7 @@
     },
     {
       "property": "title",
-      "type": "ReactNode, // label?? contents?",
+      "type": "ReactNode; // label?? contents?",
       "description": "Rendered contents of the item if `children` contains child items."
     },
     {
@@ -3180,7 +3315,7 @@
     {
       "property": "selectionBehavior",
       "type": "SelectionBehavior",
-      "default": "\"toggle\"",
+      "default": "'toggle'",
       "description": "How multiple selection should behave in the collection."
     },
     {
@@ -3751,7 +3886,7 @@
     {
       "property": "render",
       "type": "(props: DetailedHTMLProps<LinkWithRequiredHref, HTMLAnchorElement> | React.JSX.IntrinsicElements[Fallback], renderProps: T) => ReactElement",
-      "description": "Overrides the default DOM element with a custom render function. This allows rendering existing components with built-in styles and behaviors such as router links, animation libraries, and pre-styled components. Note: You can check if `'href' in props` in order to tell whether to render an `<a>` element. Requirements: * You must render the expected element type (e.g. if `<a>` is expected, you cannot render a `<button>`). * Only a single root DOM element can be rendered (no fragments). * You must pass through props and ref to the underlying DOM element, merging with your own prop as appropriate."
+      "description": "Overrides the default DOM element with a custom render function. This allows rendering existing components with built-in styles and behaviors such as router links, animation libraries, and pre-styled components. Note: You can check if `'href' in props` in order to tell whether to render an `<a>` element. Requirements: - You must render the expected element type (e.g. if `<a>` is expected, you cannot render a `<button>`). - Only a single root DOM element can be rendered (no fragments). - You must pass through props and ref to the underlying DOM element, merging with your own prop as appropriate."
     }
   ],
   "PressEvent": [
@@ -3883,6 +4018,59 @@
       "description": "Whether to use native HTML form validation to prevent form submission when the value is missing or invalid, or mark the field as required or invalid via ARIA."
     }
   ],
+  "RadioButtonProps": [
+    {
+      "property": "className",
+      "type": "ClassNameOrFunction<RadioButtonRenderProps>",
+      "default": "'react-aria-RadioButton'",
+      "description": "The CSS [className](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) for the element. A function may be provided to compute the class based on component state."
+    }
+  ],
+  "RadioFieldProps": [
+    {
+      "property": "className",
+      "type": "ClassNameOrFunction<RadioFieldRenderProps>",
+      "default": "'react-aria-RadioField'",
+      "description": "The CSS [className](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) for the element. A function may be provided to compute the class based on component state."
+    },
+    {
+      "property": "inputRef",
+      "type": "RefObject<HTMLInputElement | null>",
+      "description": "A ref for the HTML input element."
+    }
+  ],
+  "RadioFieldRenderProps": [
+    {
+      "property": "isSelected",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the radio is selected."
+    },
+    {
+      "property": "isDisabled",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the radio is disabled."
+    },
+    {
+      "property": "isReadOnly",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the radio is read only."
+    },
+    {
+      "property": "isInvalid",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the radio is invalid."
+    },
+    {
+      "property": "isRequired",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the checkbox is required."
+    }
+  ],
   "RadioGroupProps": [
     {
       "property": "className",
@@ -4008,7 +4196,7 @@
     {
       "property": "visibleDuration",
       "type": "DateDuration",
-      "default": "{months: 1}",
+      "default": "{ months: 1 }",
       "description": "The amount of days that will be displayed at once. This affects how pagination works."
     },
     {
@@ -4038,7 +4226,7 @@
     },
     {
       "property": "step",
-      "type": "T // ??",
+      "type": "T; // ??",
       "description": "The amount that the input value changes with each increment or decrement \"tick\"."
     }
   ],
@@ -4133,6 +4321,13 @@
       "description": "The event type."
     }
   ],
+  "RowFocusContextValue": [
+    {
+      "property": "isFocusVisibleWithinRow",
+      "type": "boolean",
+      "required": true
+    }
+  ],
   "RowProps": [
     {
       "property": "className",
@@ -4169,6 +4364,11 @@
       "property": "isDisabled",
       "type": "boolean",
       "description": "Whether the row is disabled."
+    },
+    {
+      "property": "disabledBehavior",
+      "type": "DisabledBehavior",
+      "description": "Whether `disabledKeys` applies to all interactions, or only selection."
     },
     {
       "property": "onAction",
@@ -4215,6 +4415,12 @@
       "type": "number",
       "required": true,
       "description": "What level the row has within the table."
+    },
+    {
+      "property": "state",
+      "type": "TableState<unknown>",
+      "required": true,
+      "description": "State of the table."
     }
   ],
   "ScrollEvent": [
@@ -4333,6 +4539,20 @@
       "property": "isSelected",
       "type": "boolean",
       "description": "Whether the SelectionIndicator is visible. This is usually set automatically by the parent component."
+    }
+  ],
+  "SelectProps": [
+    {
+      "property": "className",
+      "type": "ClassNameOrFunction<SelectRenderProps>",
+      "default": "'react-aria-Select'",
+      "description": "The CSS [className](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) for the element. A function may be provided to compute the class based on component state."
+    },
+    {
+      "property": "placeholder",
+      "type": "string",
+      "default": "'Select an item' (localized)",
+      "description": "Temporary text that occupies the select when it is empty."
     }
   ],
   "SelectRenderProps": [
@@ -4474,6 +4694,28 @@
       "property": "height",
       "type": "number",
       "required": true
+    }
+  ],
+  "SliderFillProps": [
+    {
+      "property": "offset",
+      "type": "number",
+      "default": "0",
+      "description": "The offset from which to start the fill."
+    },
+    {
+      "property": "className",
+      "type": "ClassNameOrFunction<SliderFillRenderProps>",
+      "default": "'react-aria-SliderFill'",
+      "description": "The CSS [className](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) for the element. A function may be provided to compute the class based on component state."
+    }
+  ],
+  "SliderFillRenderProps": [
+    {
+      "property": "isHovered",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the slider fill is currently hovered with a mouse."
     }
   ],
   "SliderOutputProps": [
@@ -4713,6 +4955,85 @@
       "description": "The delay time in milliseconds for the submenu to appear after hovering over the trigger."
     }
   ],
+  "SwitchButtonProps": [
+    {
+      "property": "className",
+      "type": "ClassNameOrFunction<SwitchButtonRenderProps>",
+      "default": "'react-aria-SwitchButton'",
+      "description": "The CSS [className](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) for the element. A function may be provided to compute the class based on component state."
+    }
+  ],
+  "SwitchButtonRenderProps": [
+    {
+      "property": "isInvalid",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the switch invalid."
+    },
+    {
+      "property": "isRequired",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the switch is required."
+    },
+    {
+      "property": "state",
+      "type": "ToggleState",
+      "required": true,
+      "description": "State of the switch."
+    }
+  ],
+  "SwitchFieldProps": [
+    {
+      "property": "className",
+      "type": "ClassNameOrFunction<SwitchFieldRenderProps>",
+      "default": "'react-aria-SwitchField'",
+      "description": "The CSS [className](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) for the element. A function may be provided to compute the class based on component state."
+    },
+    {
+      "property": "inputRef",
+      "type": "RefObject<HTMLInputElement | null>",
+      "description": "A ref for the HTML input element."
+    }
+  ],
+  "SwitchFieldRenderProps": [
+    {
+      "property": "isSelected",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the switch is selected."
+    },
+    {
+      "property": "isDisabled",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the switch is disabled."
+    },
+    {
+      "property": "isReadOnly",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the switch is read only."
+    },
+    {
+      "property": "isInvalid",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the switch invalid."
+    },
+    {
+      "property": "isRequired",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the switch is required."
+    },
+    {
+      "property": "state",
+      "type": "ToggleState",
+      "required": true,
+      "description": "State of the switch."
+    }
+  ],
   "SwitchProps": [
     {
       "property": "className",
@@ -4801,6 +5122,14 @@
       "type": "boolean",
       "required": true,
       "description": "Whether the Table is currently the active drop target."
+    }
+  ],
+  "TableFooterProps": [
+    {
+      "property": "className",
+      "type": "string",
+      "default": "'react-aria-TableFooter'",
+      "description": "The CSS [className](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) for the element."
     }
   ],
   "TableHeaderProps": [
@@ -4893,13 +5222,13 @@
     {
       "property": "selectionBehavior",
       "type": "SelectionBehavior",
-      "default": "\"toggle\"",
+      "default": "'toggle'",
       "description": "How multiple selection should behave in the collection."
     },
     {
       "property": "disabledBehavior",
       "type": "DisabledBehavior",
-      "default": "\"all\"",
+      "default": "'all'",
       "description": "Whether `disabledKeys` applies to all interactions, or only selection."
     },
     {
@@ -5247,47 +5576,47 @@
   "TextInputDOMEvents": [
     {
       "property": "onCopy",
-      "type": "ClipboardEventHandler<HTMLInputElement>",
+      "type": "ClipboardEventHandler<T>",
       "description": "Handler that is called when the user copies text. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/oncopy)."
     },
     {
       "property": "onCut",
-      "type": "ClipboardEventHandler<HTMLInputElement>",
+      "type": "ClipboardEventHandler<T>",
       "description": "Handler that is called when the user cuts text. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/oncut)."
     },
     {
       "property": "onPaste",
-      "type": "ClipboardEventHandler<HTMLInputElement>",
+      "type": "ClipboardEventHandler<T>",
       "description": "Handler that is called when the user pastes text. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/onpaste)."
     },
     {
       "property": "onCompositionStart",
-      "type": "CompositionEventHandler<HTMLInputElement>",
+      "type": "CompositionEventHandler<T>",
       "description": "Handler that is called when a text composition system starts a new text composition session. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/compositionstart_event)."
     },
     {
       "property": "onCompositionEnd",
-      "type": "CompositionEventHandler<HTMLInputElement>",
+      "type": "CompositionEventHandler<T>",
       "description": "Handler that is called when a text composition system completes or cancels the current text composition session. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/compositionend_event)."
     },
     {
       "property": "onCompositionUpdate",
-      "type": "CompositionEventHandler<HTMLInputElement>",
+      "type": "CompositionEventHandler<T>",
       "description": "Handler that is called when a new character is received in the current text composition session. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/compositionupdate_event)."
     },
     {
       "property": "onSelect",
-      "type": "ReactEventHandler<HTMLInputElement>",
+      "type": "ReactEventHandler<T>",
       "description": "Handler that is called when text in the input is selected. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/select_event)."
     },
     {
       "property": "onBeforeInput",
-      "type": "FormEventHandler<HTMLInputElement>",
+      "type": "FormEventHandler<T>",
       "description": "Handler that is called when the input value is about to be modified. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/beforeinput_event)."
     },
     {
       "property": "onInput",
-      "type": "FormEventHandler<HTMLInputElement>",
+      "type": "FormEventHandler<T>",
       "description": "Handler that is called when the input value is modified. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event)."
     }
   ],
@@ -5711,7 +6040,7 @@
     {
       "property": "selectionBehavior",
       "type": "SelectionBehavior",
-      "default": "\"toggle\"",
+      "default": "'toggle'",
       "description": "How multiple selection should behave in the tree."
     },
     {
@@ -5761,6 +6090,12 @@
       "type": "boolean",
       "required": true,
       "description": "Whether the tree allows dragging."
+    },
+    {
+      "property": "isDropTarget",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the tree is currently the active drop target."
     },
     {
       "property": "state",

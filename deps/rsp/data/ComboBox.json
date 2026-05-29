@@ -8,6 +8,12 @@
       "inheritedFrom": "ComboboxStyleProps"
     },
     {
+      "property": "prefix",
+      "type": "ReactNode",
+      "description": "The prefix to display in the ComboBox. A non-interactive element that appears before the input.",
+      "inheritedFrom": "ComboboxStyleProps"
+    },
+    {
       "property": "children",
       "type": "ReactNode | ((item: T) => ReactNode)",
       "required": true,
@@ -63,7 +69,7 @@
     {
       "property": "selectionBehavior",
       "type": "SelectionBehavior",
-      "default": "\"toggle\"",
+      "default": "'toggle'",
       "description": "How multiple selection should behave in the collection.",
       "inheritedFrom": "ListBoxProps"
     },

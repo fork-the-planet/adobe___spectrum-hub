@@ -3,7 +3,7 @@
     {
       "property": "variant",
       "type": "'fullscreen' | 'fullscreenTakeover'",
-      "default": "\"fullscreen\"",
+      "default": "'fullscreen'",
       "description": "The variant of fullscreen dialog to display."
     },
     {

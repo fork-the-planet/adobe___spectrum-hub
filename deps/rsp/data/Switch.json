@@ -21,7 +21,7 @@
       "property": "inputRef",
       "type": "RefObject<HTMLInputElement | null>",
       "description": "A ref for the HTML input element.",
-      "inheritedFrom": "SwitchProps"
+      "inheritedFrom": "SwitchFieldProps"
     },
     {
       "property": "styles",

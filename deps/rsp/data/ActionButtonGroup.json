@@ -14,13 +14,13 @@
     {
       "property": "size",
       "type": "'XS' | 'S' | 'M' | 'L' | 'XL'",
-      "default": "\"M\"",
+      "default": "'M'",
       "description": "Size of the buttons."
     },
     {
       "property": "density",
       "type": "'compact' | 'regular'",
-      "default": "\"regular\"",
+      "default": "'regular'",
       "description": "Spacing between the buttons."
     },
     {

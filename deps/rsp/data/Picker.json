@@ -47,6 +47,13 @@
       "description": "Custom renderer for the picker value. Allows one to provide a custom element to render selected items."
     },
     {
+      "property": "placeholder",
+      "type": "string",
+      "default": "'Select an item' (localized)",
+      "description": "Temporary text that occupies the select when it is empty.",
+      "inheritedFrom": "SelectProps"
+    },
+    {
       "property": "styles",
       "type": "StylesProp",
       "description": "Spectrum-defined styles, returned by the `style()` macro.",
@@ -55,7 +62,7 @@
     {
       "property": "selectionBehavior",
       "type": "SelectionBehavior",
-      "default": "\"toggle\"",
+      "default": "'toggle'",
       "description": "How multiple selection should behave in the collection.",
       "inheritedFrom": "ListBoxProps"
     },

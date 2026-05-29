@@ -150,7 +150,7 @@
       "CheckboxStyleProps"
     ],
     "extends": [
-      "CheckboxProps",
+      "CheckboxFieldProps",
       "StyleProps"
     ]
   },
@@ -361,6 +361,9 @@
       "StyleProps"
     ]
   },
+  "LabeledValue": {
+    "interface": "LabeledValueProps<LabeledValueTypes"
+  },
   "Link": {
     "interface": "LinkProps",
     "includes": [
@@ -569,7 +572,7 @@
       "SwitchStyleProps"
     ],
     "extends": [
-      "SwitchProps",
+      "SwitchFieldProps",
       "StyleProps"
     ]
   },
@@ -578,6 +581,13 @@
     "file": "TableView",
     "extends": [
       "TableBodyProps"
+    ]
+  },
+  "TableFooter": {
+    "interface": "TableFooterProps",
+    "file": "TableView",
+    "extends": [
+      "TableFooterProps"
     ]
   },
   "TableHeader": {
