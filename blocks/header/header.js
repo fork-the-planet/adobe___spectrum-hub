@@ -161,8 +161,7 @@ async function decorateHeader(fragment) {
  * @param {Element} el The header element
  */
 export default async function init(el) {
-  const headerMeta = getMetadata('header');
-  const path = headerMeta || HEADER_PATH;
+  const path = getMetadata('header-path') || HEADER_PATH;
   const { fragment } = await loadFragment(`${locale.prefix}${path}`);
   if (!fragment) { return; }
   fragment.classList.add('header-content');
