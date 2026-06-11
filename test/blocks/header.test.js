@@ -33,7 +33,7 @@ describe('header block', () => {
 
   afterEach(() => {
     sandbox.restore();
-    document.head.querySelectorAll('meta[name="header"]').forEach((m) => m.remove());
+    document.head.querySelectorAll('meta[name="header-path"]').forEach((m) => m.remove());
   });
 
   describe('when using the fragments for content', () => {
@@ -45,7 +45,7 @@ describe('header block', () => {
 
     it('calls fetch with the metadata override path when header metadata is set', async () => {
       const meta = document.createElement('meta');
-      meta.name = 'header';
+      meta.name = 'header-path';
       meta.content = '/custom/nav';
       document.head.append(meta);
       const stub = stubFetch(sandbox);
