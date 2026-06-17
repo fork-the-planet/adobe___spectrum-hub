@@ -310,7 +310,7 @@
   --se-grid-gutter-width: 8.3%;
 
   /* nav */
-  --sh-nav-height: 80px;
+  --sh-header-height: 56px;
   --sh-z-pagenav: 1; /* in-page TOC */
   --sh-z-sitenav: 2; /* section nav mobile disclosure; above page-nav */
   --sh-z-mobile-menu: 3; /* header mobile-nav drawer; above all section chrome */
@@ -353,7 +353,7 @@ div[data-status],
       display: grid;
       grid-template-rows: auto 1fr auto;
       min-height: 100svh;
-      margin: 0;
+      margin: var(--s2-spacing-100);
       background-color: var(--se-body-background-color);
       color: var(--se-body-color);
       font-family: 'Adobe Clean', 'Trebuchet MS', sans-serif;
@@ -362,7 +362,7 @@ div[data-status],
 
       header {
         visibility: hidden;
-        height: var(--sh-nav-height);
+        height: var(--sh-header-height);
       }
 
       footer {
@@ -375,7 +375,7 @@ div[data-status],
       }
 
       &.no-header {
-        --sh-nav-height: 0;
+        --sh-header-height: 0;
       }
     }
 

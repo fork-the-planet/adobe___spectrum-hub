@@ -1,56 +1,35 @@
 header {
+  --header-border-radius: 12px;
+
   visibility: unset;
   position: sticky;
-  inset: 0;
+  inset: var(--s2-spacing-100); /* matches the margin around the `body` so the header doesn't scroll */
   z-index: var(--sh-z-mobile-menu);
-  isolation: isolate;
-
-  /*
-   * Frosted-glass backdrop on a pseudo-element so the header content stays
-   * crisp. The pseudo-element extends ✨50px below the header bottom so the
-   * mask's soft fade dissipates into page content past the header instead of
-   * inside it, avoiding a hard seam at the bottom edge.
-   */
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0 0 -50px;
-    z-index: -1;
-    pointer-events: none;
-    background-color: rgb(from var(--se-body-background-color) r g b / 80%);
-    backdrop-filter: blur(20px);
-    mask-image: linear-gradient(
-      to bottom,
-      #000 0%,
-      #000 50%,
-      rgb(0 0 0 / 90%) 60%,
-      rgb(0 0 0 / 70%) 65%,
-      rgb(0 0 0 / 45%) 80%,
-      rgb(0 0 0 / 20%) 92%,
-      transparent 100%);
-  }
+  background-color: var(--s2-gray-50);
+  border-radius: var(--header-border-radius);
+  padding-inline: var(--s2-spacing-300);
 
   .skip-link {
     position: absolute;
     z-index: 1;
-    inset-inline-start: 4px;
-    inset-block-start: 4px;
-    width: auto;
-    height: auto;
+    inset-inline-start: var(--s2-spacing-75);
+    inset-block-start: var(--s2-spacing-75);
+    inline-size: auto;
+    block-size: auto;
     overflow: visible;
     white-space: normal;
     clip-path: none;
     background-color: var(--s2-gray-25);
     border-radius: 6px;
     padding: var(--s2-spacing-100) var(--s2-spacing-200);
-    transform: translateY(calc(-100% - 4px));
+    transform: translateY(calc(-100% - 12px)); /* 12px is the inset of the skip link itself + the margin around the header */
     transition: transform 0.2s ease;
   }
 
   .skip-link:focus-visible {
     transform: translateY(0);
     outline: 2px solid var(--s2-blue-900);
-    outline-offset: 2px;
+    outline-offset: var(--s2-spacing-50);
   }
 
   p {
@@ -64,8 +43,8 @@ header {
   }
 
   .header-content {
-    max-width: var(--se-grid-container-width);
-    height: 100%;
+    min-block-size: var(--sh-header-height);
+    block-size: 100%;
     margin-inline: auto;
     display: flex;
     align-items: center;
@@ -83,8 +62,8 @@ header {
   picture, svg {
     flex: 0 0 auto;
     display: block;
-    width: 32px;
-    height: 32px;
+    inline-size: 32px;
+    block-size: var(--se-component-m-height);
   }
 
   a {
@@ -129,7 +108,7 @@ header {
   a {
     display: flex;
     align-items: center;
-    min-height: 48px;
+    min-block-size: 48px;
     border-radius: 24px;
     padding-inline: var(--s2-spacing-300);
     transition: background-color 0.2s ease-in-out;
@@ -140,7 +119,7 @@ header {
 
     &:focus-visible {
       outline: 2px solid var(--s2-blue-900);
-      outline-offset: 2px;
+      outline-offset: var(--s2-spacing-50);
     }
   }
 
@@ -160,7 +139,7 @@ header {
 
     &:focus-visible {
       outline: 2px solid var(--s2-blue-900);
-      outline-offset: 2px;
+      outline-offset: var(--s2-spacing-50);
     }
 
     @media (width >= 900px) {
@@ -209,8 +188,8 @@ header {
         display: block;
         content: '';
         background-color: var(--s2-gray-200);
-        width: 2px;
-        height: 32px;
+        inline-size: 2px;
+        block-size: var(--se-component-m-height);
         border-radius: var(--se-corner-radius-50);
       }
     }
@@ -218,8 +197,6 @@ header {
 }
 
 .actions-section {
-  display: none;
-
   @media (width >= 900px) {
     display: flex;
   }
@@ -230,7 +207,7 @@ header {
 
   & button:focus-visible {
     outline: 2px solid var(--s2-blue-900);
-    outline-offset: 2px;
+    outline-offset: var(--s2-spacing-50);
   }
 
   ul {
@@ -248,7 +225,7 @@ header {
 
     &:focus-visible {
       outline: 2px solid var(--s2-blue-900);
-      outline-offset: 2px;
+      outline-offset: var(--s2-spacing-50);
     }
   }
 }
