@@ -1,62 +1,167 @@
+/* These columns represent the "Core layout blocks" */
 .columns {
-  --columns-gap: 0;
+  --columns-gap: 56px;
+  --image-corner-radius: 24px;
+  --xs-image-size: 120px;
+  --s-image-size: 316px;
+  --m-image-size: 502px;
 
-  display: grid;
-  gap: var(--columns-gap);
+  max-inline-size: var(--se-grid-container-width);
+  margin-inline: auto;
+  inline-size: 100%;
+  margin-block: var(--s2-spacing-600) var(--s2-spacing-1000);
+  container-type: inline-size;
+  container-name: columns;
 
-  img {
-    display: block;
+  @media (width >= 1200px) {
+    max-inline-size: unset;
+  }  
+
+  /* extra-small */
+  &:not(.small, .medium, .large) {
+    --image-size: var(--xs-image-size);
+  }
+
+  /* small, medium, large, and single-column rows */
+  &.small,
+  &.medium,
+  &.large {
+    --image-size: var(--s-image-size);
+  }
+  
+  @media (width >= 600px) {
+    &.medium {
+      --image-size: var(--m-image-size);
+    }
+
+    /* large & image-only */
+    &.large,
+    &.centered > .row:only-child {
+      --image-size: 100%;
+    }
+
+    &:not(.small, .medium, .large, .align-start, .centered, .grid-layout) > .row {
+      display: grid;
+    }
+
+    /* xs/default will snap to the 2-column layout at 600px (except for when the image is on the right */
+    &:not(.small, .medium, .large, .image-right, .centered, .grid-layout) > .row {
+      grid-template-columns: var(--image-size) auto;
+    }
+
+    @container columns (width > 530px) {
+      /* small layout will snap to the 2-column layout when the .columns container is 530px AFTER the viewport is past 600px wide */
+      &.small:not(.align-start, .image-right, .centered, .grid-layout) > .row {
+        display: grid;
+        grid-template-columns: var(--image-size) auto;
+      }
+    }
+  }
+
+  @media (width >= 900px) {
+    @container columns (width > 725px) {
+      /* medium and large snap to their 2-column layout when the .columns container is 725px AFTER the viewport is past 1200px wide */
+      &.medium:not(.align-start, .image-right, .centered) > .row,
+      &.large:not(.align-start, .centered) > .row {
+        display: grid;
+        align-items: start;
+        grid-template-columns: var(--image-size) auto;
+      }
+    }
   }
 
   .row {
-    display: grid;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
     gap: var(--columns-gap);
   }
 
   .col {
-    :first-child {
-      margin-top: 0;
+    flex-direction: column;
+    display: flex;
+    gap: var(--s2-spacing-300);
+    box-sizing: border-box;
+    text-wrap-style: pretty;
+
+    p, h2, h3, h4, h5, h6 {
+      margin-block: 0;
+      max-inline-size: 80ch;
     }
 
-    :last-child {
-      margin-bottom: 0;
+    &:has(p, h2, h3, h4, h5, h6) {
+      max-inline-size: 80ch;
     }
+  }
+
+  .col:has(img, picture) {
+    border-radius: var(--image-corner-radius);
+    min-inline-size: var(--image-size);
+    block-size: var(--image-size);
+    max-inline-size: var(--image-size);
+    max-block-size: var(--image-size);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--s2-gray-500) url('/img/icons/s2-icon-image-20-n.svg') no-repeat center / contain; /* image fallback */
+    box-sizing: border-box;
+
+    picture {
+      display: flex;
+      align-self: stretch;
+      flex: 1;
+      inline-size: 100%;
+      block-size: 100%;
+      box-sizing: border-box;
+    }
+  
+    img {
+      display: block;
+      box-sizing: border-box;
+      inline-size: var(--image-size);
+      block-size: auto;
+      object-fit: contain;
+      aspect-ratio: auto;
+    }
+  }
+
+  .col:not(:has(img, picture)) {
+    max-inline-size: 80ch;
   }
 
   &.gap-xs {
-    --columns-gap: var(--spacing-xs);
+    --columns-gap: var(--s2-spacing-100);
   }
 
   &.gap-s {
-    --columns-gap: var(--spacing-s);
+    --columns-gap: var(--s2-spacing-200);
   }
 
   &.gap-m {
-    --columns-gap: var(--spacing-m);
+    --columns-gap: var(--s2-spacing-300);
   }
 
   &.gap-l {
-    --columns-gap: var(--spacing-l);
+    --columns-gap: var(--s2-spacing-400);
   }
 
   &.gap-xl {
-    --columns-gap: var(--spacing-xl);
+    --columns-gap: var(--s2-spacing-500);
   }
 
   &.gap-xxl {
-    --columns-gap: var(--spacing-xxl);
+    --columns-gap: var(--s2-spacing-600);
   }
 
   &.image-cover {
     .cover-row {
       .cover-content {
-        padding: var(--spacing-xxl);
+        padding: var(--s2-spacing-600);
       }
 
       .cover-image {
         position: relative;
-        padding-bottom: 100%;
+        padding-block-end: 100%;
 
         picture {
           position: absolute;
@@ -65,38 +170,98 @@
 
         img {
           object-fit: cover;
-          width: 100%;
-          height: 100%;
+          inline-size: 100%;
+          block-size: 100%;
         }
       }
     }
   }
 
-  &.align-top {
+  /* Centered columns */
+  &.centered {
+    display: flex;
+    flex-direction: column;
+    gap: var(--columns-gap);
+    align-items: center;
+    text-align: center;
+  }
+
+  &.image-right {
+    @media (width >= 600px) {
+      /* image-right flips the column sizing */
+      &:not(.medium, .large, .centered) .row {
+        display: grid;
+        grid-template-columns: auto var(--image-size);
+      }
+    }
+
+    @media (width >= 900px) {
+      &.medium:not(.centered) .row {
+        display: grid;
+        grid-template-columns: auto var(--image-size);
+      }
+    }
+  }
+
+  /* start-aligned, stacked/vertical columns */
+  &.align-start {
+    --columns-gap: var(--s2-spacing-600);
+
     .row {
       align-items: start;
     }
   }
 }
 
-@media (width >= 900px) {
-  .columns {
-    .row {
-      grid-template-columns: repeat(var(--child-count), 1fr);
-    }
+/* grid-layout: uniform rows (all-image or all-text, never mixed within a row).
+Small screens: single-column grid with CSS order grouping same-position cols together.
+Large screens: N-column grid driven by container queries on the inner grid wrapper. */
+.columns.grid-layout {
+  --image-size: var(--s-image-size);
 
-    &.image-cover {
-      .cover-row {
-        .cover-content {
-          padding: 0 calc(var(--spacing-xxl) * 2);
-        }
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--columns-gap);
+  }
+
+  .row {
+    display: contents;
+  }
+
+  .col {
+    margin-block-end: calc(56px - var(--columns-gap)); /* we want a total of 56px between images and their text, so include any authored gap value. */
+  }
+
+  &.grid-layout-2 {
+    @container columns (width >= 800px) {
+      .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .col {
+        grid-row: var(--row-idx);
       }
     }
+  }
 
-    &.z-pattern {
-      .row:nth-of-type(odd) .col-1 {
-        order: 2;
+  &.grid-layout-3 {
+    @container columns (width >= 1000px) {
+      .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .col {
+        grid-row: var(--row-idx);
       }
     }
+  }
+}
+
+.columns:has(> .row:only-child > .col:only-child) .row {
+  grid-template-columns: 1fr;
+
+  .col:has(img, picture) {
+    --image-size: 100%;
   }
 }
