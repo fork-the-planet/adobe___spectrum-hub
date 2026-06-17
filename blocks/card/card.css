@@ -1,85 +1,191 @@
 .card {
-  --spacing-default: var(--spacing-l);
+  --card-padding-block: var(--s2-spacing-400);
+  --card-padding-inline: var(--s2-spacing-500);
+  --card-border-radius: 12px;
 
   overflow-wrap: break-word;
-  box-shadow: 0 1px 6px 0 rgb(0 0 0 / 12%);
+  box-shadow: 0 1px 6px 0 rgb(from var(--s2-gray-1000) r g b / 12%);
+  background-color: var(--s2-gray-25);
+  inline-size: 100%;
   overflow: hidden;
-  background-color: light-dark(var(--color-gray-100), var(--color-gray-900));
-  color: light-dark(var(--color-dark), var(--color-light));
+  margin: var(--s2-spacing-400) auto;
+  border-radius: var(--card-border-radius);
+  box-sizing: border-box;
   transition: all 0.25s ease-in-out;
+  container-name: card-container;
+  container-type: inline-size;
 
-  .card-inner {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    height: 100%;
-  }
-
-  &:not(.quiet) {
-    .card-picture-container {
-      position: relative;
-      padding-bottom: 60%;
-
-      picture {
-        position: absolute;
-        inset: 0;
-        opacity: 0.85;
-        transition: opacity 0.25s ease-in-out;
-      }
-
-      img {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
-
-  .card-content-container {
-    padding: var(--spacing-default);
-
-    :first-child {
-      margin-top: 0;
-      font-size: 16px;
-    }
-
-    :last-child {
-      margin-bottom: 0;
-    }
-
-    &:has(+ .card-cta-container) {
-      padding: var(--spacing-default) var(--spacing-default) var(--spacing-m) var(--spacing-default);
-    }
-  }
-
-  .card-cta-container {
-    padding: 0 var(--spacing-default) var(--spacing-default) var(--spacing-default);
-    margin: 0;
-    display: flex;
-    justify-content: end;
-  }
-
-  &:not(.quiet):hover {
+  &:has(.card-link:hover) {
     transform: scale(1.005);
-    box-shadow: 0 2px 8px 0 rgb(0 0 0 / 16%);
+    box-shadow: 0 2px 8px 0 rgb(from var(--s2-gray-1000) r g b / 16%);
+  }
+
+  &:has(.card-link:active) {
+    transform: scale(0.995);
+    box-shadow: 0 2px 8px 0 rgb(from var(--s2-gray-1000) r g b / 16%);
+  }
+
+  &:has(.card-link:focus-visible) {
+    outline: 2px solid var(--s2-blue-900);
+    outline-offset: var(--s2-spacing-75);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+  
+  .card-link {
+    display: block;
+    block-size: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card-content-container:not(:has(img, picture)) {
+    display: flex;
+    justify-content: center;
+    padding: var(--card-padding-block) var(--card-padding-inline);
+    box-sizing: border-box;
+    gap: var(--s2-spacing-300);
+    
+    > .card-text-container {
+      padding: 0;
+      margin: 0;
+    }
+  }
+  
+  .card-content-container:has(img, picture) {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--s2-spacing-500);
+    padding: 0;
+    block-size: 100%;
+    box-sizing: border-box;
+
+    @container card-container (width >= 400px) {
+      grid-template-columns: auto 1fr;
+    }
+
+    .card-picture-container {
+      box-sizing: border-box;
+      inline-size: 100%;
+      block-size: auto;
+      background-color: var(--s2-gray-600); /* fallback bg color */
+
+      @container card-container (width >= 400px) {
+        inline-size: 180px;
+      }
+    }
 
     picture {
-      opacity: 1;
+      box-sizing: border-box;
+      display: flex;
+      align-self: stretch;
+      flex: 1;
+      inline-size: 100%;
+      block-size: 100%;
+    }
+
+    img {
+      inline-size: 100%;
+      block-size: auto;
+      object-fit: contain;
     }
   }
 
-  /* Variations */
-  &.center {
-    text-align: center;
+  .card-text-container {
+    padding-inline: var(--card-padding-inline);
+    margin-block-end: var(--card-padding-block);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s2-spacing-100);
+    justify-content: start;
+
+    & h3,
+    & p {
+      margin: 0;
+    }
+
+    @container card-container (width >= 400px) {
+      padding-inline-start: 0;
+      margin-block: var(--card-padding-block);
+    }
   }
 
-  &.quiet {
-    --spacing-default: 0;
+  .card-text-container:has(.card-text-content + .card-link-out) {
+    display: flex;
+    flex-direction: row;
+    gap: var(--s2-spacing-300);
+  }
 
-    box-shadow: initial;
-    background-color: initial;
+  .card-text-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s2-spacing-100);
+  }
 
-    .card-content-container * {
-      margin: 6px;
+  .card-text-container:not(:has(p)) {
+    justify-content: center;
+  }
+
+  .card-link-out > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    min-inline-size: 24px;
+    min-block-size: 24px;
+
+    &:focus-visible {
+      outline: 2px solid var(--s2-blue-900);
+      outline-offset: var(--s2-spacing-50);
+      border-radius: var(--s2-corner-radius-100); /* outline width + outline offset */
     }
+  }
+
+  .card-button-container {
+    padding-inline-start: var(--s2-spacing-300);
+    margin: 0;
+    display: flex;
+    justify-content: start;
+
+    > a {
+      box-sizing: border-box;
+      min-block-size: var(--se-component-m-height);
+      padding-inline: 16px;
+      padding-block: 7px;
+      border-radius: calc(var(--se-component-m-height) + 4px / 2 ); /* min-height / 2 + border width on top/bottom */
+      background-color: transparent;
+      color: var(--s2-gray-800);
+      text-decoration: none;
+      border: 2px solid var(--s2-gray-800);
+    }
+  }
+
+  /* TODO: design is still ongoing, so do we need to support buttons in cards? or are those being removed? */
+  
+  /* .card-content-container:has(.card-button-container) {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    display: grid;
+    grid-template-columns: 0.2fr 0.8fr;
+  } */
+}
+
+.card.vertical {
+  .card-content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .card-content-container:has(img, picture) .card-picture-container {
+    inline-size: 100%;
+  }
+
+  .card-content-container:has(.card-text-container) .card-text-container {
+    padding: var(--card-padding-block) var(--card-padding-inline);
+    margin: 0;
   }
 }
