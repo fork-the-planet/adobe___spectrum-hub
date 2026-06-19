@@ -90,6 +90,12 @@
       "default": "'vertical'",
       "description": "The primary orientation of the items. Usually this is the direction that the collection scrolls.",
       "inheritedFrom": "GridListProps"
+    },
+    {
+      "property": "UNSTABLE_focusOnEntry",
+      "type": "'first' | 'last'",
+      "description": "Which item in the collection to focus when tabbing into the collection. Overrides default roving tab index like behavior.",
+      "inheritedFrom": "GridListProps"
     }
   ],
   "status": "stable"

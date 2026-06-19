@@ -11,6 +11,11 @@
       "type": "React.ReactNode",
       "required": true,
       "description": "The contents of the disclosure header."
+    },
+    {
+      "property": "styles",
+      "type": "StylesPropWithFont",
+      "description": "Spectrum-defined styles, returned by the `style()` macro. Only allows overriding `font`, `fontFamily`, `fontWeight`, `fontSize`, and `lineHeight`."
     }
   ]
 }
