@@ -15,18 +15,18 @@
     inset-block-start: var(--sh-header-height, 56px);
   }
 
-  .page-nav__list {
+  & ul {
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
-  .page-nav__item + .page-nav__item {
+  & li + li {
     margin-block-start: var(--s2-spacing-50);
   }
 }
 
-.page-nav > .page-nav__details {
+.page-nav > details {
   position: relative;
 
   @media (width >= 1200px) {
@@ -34,7 +34,7 @@
   }
 }
 
-.page-nav > .page-nav__details[open] > .page-nav__list {
+.page-nav > details[open] > ul {
   position: absolute;
   inset-block-start: 100%;
   inset-inline: 0;
@@ -56,7 +56,7 @@
 
 /* The disclosure summary is the mobile-only approach: a full-width bar showing the current section name and a chevron.
 Hidden at desktop where the list renders inline in the rail. */
-.page-nav__summary {
+.page-nav-summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -78,7 +78,7 @@ Hidden at desktop where the list renders inline in the rail. */
   }
 
   &:focus-visible {
-    outline: var(--se-focus-indicator-width) solid var(--s2-blue-800);
+    outline: 2px solid var(--s2-blue-900);
     outline-offset: var(--s2-spacing-50);
   }
 
@@ -100,11 +100,11 @@ Hidden at desktop where the list renders inline in the rail. */
   }
 }
 
-.page-nav > .page-nav__details[open] > .page-nav__summary::after {
+.page-nav > details[open] > .page-nav-summary::after {
   transform: rotate(90deg);
 }
 
-.page-nav__link {
+.page-nav a {
   display: block;
   padding-block: var(--s2-spacing-100);
   padding-inline: var(--s2-spacing-200);
@@ -117,12 +117,12 @@ Hidden at desktop where the list renders inline in the rail. */
   }
 
   &:focus-visible {
-    outline: var(--se-focus-indicator-width) solid var(--s2-blue-800);
+    outline: 2px solid var(--s2-blue-900);
     outline-offset: var(--s2-spacing-50);
   }
 }
 
-.page-nav__link[aria-current="location"] {
+.page-nav a[aria-current="location"] {
   background-color: rgb(from var(--s2-gray-1000) r g b / 16%);
   font-weight: var(--s2-component-m-bold-font-weight);
 }
@@ -131,7 +131,6 @@ Hidden at desktop where the list renders inline in the rail. */
 the sticky chrome. Mobile leaves room for the site header AND the page-nav summary bar; desktop only
 needs to clear the site header (the page-nav lives in the side rail, not above content). The 60px is an
 estimate of the summary's rendered height. */
-.page-nav__target,
 .page-nav-target {
   scroll-margin-block-start: calc(var(--sh-header-height, 56px) + var(--sitenav-summary-height, 0px) + 60px); /* TODO: account for height of the collapsed sitenav */
 
