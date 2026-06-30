@@ -290,6 +290,11 @@
   --s2-component-xl-bold-font-size: 18px;
   --s2-component-xl-bold-font-weight: 700;
   --s2-component-xl-bold-line-height: 22px;
+  --s2-component-s-height: 24px;
+  --s2-component-m-height: 32px;
+  --s2-component-l-height: 40px;
+  --s2-component-xl-height: 48px;
+
 
   /* --- End generated --- */
 
@@ -302,7 +307,8 @@
   --se-corner-radius-50: 1px;
   --se-body-background-color: light-dark(#fff, #000);
   --se-body-color: light-dark(#000, #fff);
-  --se-component-m-height: 32px;
+  --se-border-width-200: 2px;
+  --se-focus-indicator-width: 2px;
 
   /* grid */
   --se-grid-container-width: 83.4%;
@@ -320,6 +326,29 @@
 
   /* color schemes */
   color-scheme: light dark;
+}
+
+/*
+ * @adobe/spectrum-wc tokens for swc-tooltip.
+ *
+ * The swc-tooltip element reads --swc-* tokens, but we are not loading tokens.css
+ * into the page (it's a lot of tokens and we're not using all of them). instead, we
+ * alias the primitives for the neutral tooltip to our --s2-* equivalents here at 
+ * :root. They should inherit across shadow boundaries into any swc-tooltip (including
+ * ones nested in block shadow DOM).
+ *
+ * Kept out of the generated :root block above so the token build won't drop it.
+ */
+/* stylelint-disable-next-line no-duplicate-selectors -- generated :root above is not editable */
+:root {
+  --swc-gray-25: var(--s2-gray-25);
+  --swc-gray-800: var(--s2-gray-800);
+  --swc-tooltip-tip-height: 5px;
+  --swc-component-height-75: 24px;
+  --swc-component-padding-vertical-75: var(--s2-spacing-75);
+  --swc-component-edge-to-text-75: 9px;
+  --swc-font-size-75: var(--s2-component-s-regular-font-size);
+  --swc-line-height-font-size-75: var(--s2-component-s-regular-line-height);
 }
 
 @media (width >= 1800px) {
