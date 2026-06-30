@@ -104,15 +104,16 @@ describe('table block', () => {
       expect(el.querySelector('table').role).to.equal('table');
     });
 
-    it('creates <thead> that has class "header-row" and role="rowgroup"', () => {
+    it('creates <thead> that has class "table__header-row" and role="rowgroup"', () => {
       const thead = el.querySelector('thead');
-      expect(thead.classList.contains('header-row')).to.be.true;
+      expect(thead.classList.contains('table__header-row')).to.be.true;
       expect(thead.role).to.equal('rowgroup');
     });
 
-    it('has a header <tr> that has class "row" and role="row"', () => {
+    it('has a header <tr> that has class "table__row" and role="row"', () => {
       const tr = el.querySelector('thead tr');
-      expect(tr.classList.contains('row')).to.be.true;
+      expect(tr.classList.contains('table__row')).to.be.true;
+      expect(tr.classList.contains('table__row--head')).to.be.true;
       expect(tr.role).to.equal('row');
     });
 
@@ -126,7 +127,8 @@ describe('table block', () => {
 
     it('creates a body <tr> that has class "row" and role="row"', () => {
       const tr = el.querySelector('tbody tr');
-      expect(tr.classList.contains('row')).to.be.true;
+      expect(tr.classList.contains('table__row')).to.be.true;
+      expect(tr.classList.contains('table__row--body')).to.be.true;
       expect(tr.role).to.equal('row');
     });
 

@@ -1,6 +1,6 @@
 .table {
-  --table-head-row-min-block-size: 32px;
-  --table-body-row-min-block-size: 40px;
+  --table-head-row-min-block-size: var(--s2-component-m-height);;
+  --table-body-row-min-block-size: var(--s2-component-l-height);;
   --table-border-width: 1px;
   --table-head-row-padding-block: 7px;
   --table-body-row-padding-block: 11px;
