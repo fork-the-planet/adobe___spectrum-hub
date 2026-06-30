@@ -319,7 +319,7 @@
   --sh-header-height: 56px;
   --sh-z-pagenav: 1; /* in-page TOC */
   --sh-z-sitenav: 2; /* section nav mobile disclosure; above page-nav */
-  --sh-z-mobile-menu: 3; /* header mobile-nav drawer; above all section chrome */
+  --sh-z-header: 3; /* header mobile-nav drawer; above all section chrome */
 
   /* options table buttons */
   --sh-content-color-white: rgb(255 255 255);
@@ -376,22 +376,86 @@ div[data-status],
 /* --- Spectrum Edge default styles --- */
 @layer spectrum-edge {
   html.spectrum-edge {
+    --s2-home-gradient: radial-gradient(
+      40% 20% at 40% 0%,
+      light-dark(rgb(from var(--s2-gray-75) r g b / 25%), rgb(from var(--s2-gray-25) r g b / 35%)) 0%,
+      light-dark(rgb(from var(--s2-cyan-400) r g b / 18%), rgb(from var(--s2-blue-100) r g b / 80%)) 25%,
+      light-dark(rgb(from var(--s2-cyan-800) r g b  / 18%), rgb(from var(--s2-cyan-100) r g b / 80%)) 40%,
+      light-dark(rgb(from var(--s2-blue-900) r g b / 14%), rgb(from var(--s2-cyan-100) r g b  / 85%)) 75%,
+      light-dark(rgb(from var(--s2-gray-25) r g b / 18%), rgb(from var(--s2-gray-25) r g b / 18%)) 100%
+    );
+
     scroll-behavior: smooth;
+    position: relative;
+    isolation: isolate;
+
+    &::before,
+    &::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    &::before {
+      inline-size: 45vw;
+      block-size: 35vw;
+      inset-block-start: 50vw;
+      inset-inline-end: -15vw;
+      background-image: radial-gradient(circle, var(--s2-cyan-600), transparent 70%);
+      opacity: 0.4;
+    }
+
+    &::after {
+      inline-size: 55vw;
+      block-size: 45vw;
+      inset-block-start: 15vw;
+      inset-inline-start: -10vw;
+      background: radial-gradient(circle, var(--s2-blue-1100), transparent 70%);
+      opacity: 0.3;
+    }
+
+    @media (width >= 900px) {
+      &::before {
+        block-size: 25vw;
+        inset-block-start: -5vw;
+        inset-inline-end: -5vw;
+      }
+
+      &::after {
+        inline-size: 35vw;
+        block-size: 35vw;
+        inset-block-start: -5vw;
+      }
+    }
 
     body {
       display: grid;
       grid-template-rows: auto 1fr auto;
       min-height: 100svh;
       margin: var(--s2-spacing-100);
-      background-color: var(--se-body-background-color);
+      position: relative;
+      z-index: 1;
+      background:
+        var(--s2-home-gradient),
+        var(--se-body-background-color);
+      background-attachment: fixed, scroll;
+      background-repeat: no-repeat, no-repeat;
+      background-position: 0 -15vw;
       color: var(--se-body-color);
       font-family: 'Adobe Clean', 'Trebuchet MS', sans-serif;
       font-size: var(--s2-body-size-m);
       line-height: var(--s2-body-line-height);
 
+      @media (width >= 600px) {
+        background-position: 0 0;
+      }
+
       header {
         visibility: hidden;
-        height: var(--sh-header-height);
+        block-size: var(--sh-header-height);
       }
 
       footer {
