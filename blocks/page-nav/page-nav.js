@@ -79,7 +79,7 @@ export default async function init(el) {
     h.setAttribute('tabindex', '-1');
     // .page-nav-target opts the heading into scroll-margin compensation
     // so anchor scrolls clear the sticky header/sitenav
-    h.classList.add('page-nav-target');
+    h.classList.add('page-nav__target', 'page-nav-target');
   });
 
   // The page's h1 acts as the "top" of the page for the back-to-top link.
@@ -99,12 +99,13 @@ export default async function init(el) {
     }
     usedIds.add(h1.id);
     h1.setAttribute('tabindex', '-1');
-    h1.classList.add('page-nav-target');
+    h1.classList.add('page-nav__target', 'page-nav-target');
   }
 
   const details = document.createElement('details');
+  details.classList.add('page-nav__details');
   const summary = document.createElement('summary');
-  summary.classList.add('page-nav-summary');
+  summary.classList.add('page-nav__summary');
   // TODO: VoiceOver announces a <summary> twice on navigation: once via
   // its computed accessible name (e.g. "Button, summary, collapsed") and
   // once via the descendant text node. Could be silenced with aria-label
@@ -112,17 +113,20 @@ export default async function init(el) {
   // duplicate the label string across an attribute and the DOM. This is the
   // same "accepted-as-is" stance as the sitenav's segment summaries.
   const currentLabel = document.createElement('span');
-  currentLabel.classList.add('page-nav-current');
+  currentLabel.classList.add('page-nav__current');
   const pageName = getPageName();
   currentLabel.textContent = pageName;
   summary.append(currentLabel);
   details.append(summary);
 
   const list = document.createElement('ul');
+  list.classList.add('page-nav__list');
   const linkById = new Map();
   headings.forEach((h) => {
     const li = document.createElement('li');
+    li.classList.add('page-nav__item');
     const a = document.createElement('a');
+    a.classList.add('page-nav__link');
     a.href = `#${h.id}`;
     a.textContent = h.textContent;
     li.append(a);
@@ -133,7 +137,9 @@ export default async function init(el) {
   // Append the back-to-top item after the section links.
   if (h1) {
     const topLi = document.createElement('li');
+    topLi.classList.add('page-nav__item');
     const topLink = document.createElement('a');
+    topLink.classList.add('page-nav__link');
     topLink.href = `#${h1.id}`;
     topLink.textContent = 'Back to top';
     topLi.append(topLink);

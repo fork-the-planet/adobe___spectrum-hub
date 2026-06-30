@@ -68,7 +68,7 @@ describe('page-nav block', () => {
     });
 
     it('summary shows the h1 text as the current section label', () => {
-      expect(el.querySelector('.page-nav-current').textContent).to.equal('Page Title');
+      expect(el.querySelector('.page-nav__current').textContent).to.equal('Page Title');
     });
 
     it('creates one list item per h2 heading plus a back-to-top entry', () => {
@@ -107,7 +107,7 @@ describe('page-nav block', () => {
       document.title = 'Test Doc Title';
       makeDOM({ h1Text: null });
       await init(el);
-      expect(el.querySelector('.page-nav-current').textContent).to.equal('Test Doc Title');
+      expect(el.querySelector('.page-nav__current').textContent).to.equal('Test Doc Title');
     });
 
     it('does not include a back-to-top link', async () => {
@@ -169,7 +169,7 @@ describe('page-nav block', () => {
       makeDOM();
       await init(el);
       document.querySelectorAll('main h2').forEach((h) => {
-        expect(h.classList.contains('page-nav-target')).to.be.true;
+        expect(h.classList.contains('page-nav__target')).to.be.true;
       });
     });
 
@@ -182,7 +182,7 @@ describe('page-nav block', () => {
     it('adds page-nav-target class to the h1', async () => {
       makeDOM();
       await init(el);
-      expect(document.querySelector('main h1').classList.contains('page-nav-target')).to.be.true;
+      expect(document.querySelector('main h1').classList.contains('page-nav__target')).to.be.true;
     });
   });
 
