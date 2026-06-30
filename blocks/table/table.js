@@ -22,24 +22,23 @@ const EXCLUDED_COLUMNS = new Set(['status', 'since']);
 
 const buildTableElement = (headerCells, dataCells) => {
   const tableHead = document.createElement('thead');
-  tableHead.classList.add('table__header-row');
+  tableHead.classList.add('header-row');
   // explicitly resetting table roles so that when the CSS display property changes on
   // small screens, no accessibility issues arise (WCAG 1.3.1 (Info and Relationships))
   tableHead.role = 'rowgroup';
 
   const headRow = document.createElement('tr');
-  headRow.classList.add('table__row', 'table__row--head');
+  headRow.classList.add('row');
   headRow.role = 'row';
   headerCells.forEach((cell) => { cell.role = 'columnheader'; });
   headRow.append(...headerCells);
   tableHead.append(headRow);
 
   const tableBody = document.createElement('tbody');
-  tableBody.classList.add('table__body');
   tableBody.role = 'rowgroup';
   for (const cells of dataCells) {
     const bodyRow = document.createElement('tr');
-    bodyRow.classList.add('table__row', 'table__row--body');
+    bodyRow.classList.add('row');
     bodyRow.role = 'row';
     cells.forEach((cell) => { cell.role = 'cell'; });
     bodyRow.append(...cells);
