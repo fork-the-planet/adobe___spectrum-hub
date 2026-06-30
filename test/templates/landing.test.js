@@ -29,12 +29,18 @@ describe('landing template', () => {
     expect(document.body.firstElementChild.classList.contains('template-wrapper')).to.be.true;
   });
 
-  it('places a nav.sitenav as the first child of template-wrapper', async () => {
+  it('places an aside.nav-rail as the first child of template-wrapper', async () => {
     await init();
     const wrapper = document.querySelector('.template-wrapper');
     const firstChildElement = wrapper.firstElementChild;
-    expect(firstChildElement.tagName.toLowerCase()).to.equal('nav');
-    expect(firstChildElement.classList.contains('sitenav')).to.be.true;
+    expect(firstChildElement.tagName.toLowerCase()).to.equal('aside');
+    expect(firstChildElement.classList.contains('nav-rail')).to.be.true;
+  });
+
+  it('places the sitenav inside the nav-rail', async () => {
+    await init();
+    const sitenav = document.querySelector('.nav-rail nav.sitenav');
+    expect(sitenav).to.not.be.null;
   });
 
   it('adds aria-label "Second-level site navigation" to the sitenav', async () => {
