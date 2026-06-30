@@ -62,17 +62,17 @@ describe('footer block', () => {
     });
 
     it('appends the fragment with footer-content class to the footer element', () => {
-      expect(el.querySelector('.footer-content')).to.not.be.null;
+      expect(el.querySelector('.footer__content')).to.not.be.null;
     });
 
     it('adds section-copyright class to the last section', () => {
       const sections = [...el.querySelectorAll('.section')];
-      expect(sections.at(-1).classList.contains('section-copyright')).to.be.true;
+      expect(sections.at(-1).classList.contains('footer__copyright')).to.be.true;
     });
 
     it('adds section-legal class to the second-to-last section', () => {
       const sections = [...el.querySelectorAll('.section')];
-      expect(sections.at(-2).classList.contains('section-legal')).to.be.true;
+      expect(sections.at(-2).classList.contains('footer__legal')).to.be.true;
     });
   });
 });
