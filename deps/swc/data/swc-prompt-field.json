@@ -1,0 +1,72 @@
+[
+  {
+    "attribute": "mode",
+    "property": "mode",
+    "type": "PromptFieldMode",
+    "default": "'default'",
+    "description": "Visual mode for the prompt field action/interaction state."
+  },
+  {
+    "attribute": "label",
+    "property": "label",
+    "type": "string",
+    "default": "'Prompt'",
+    "description": "Accessible label shown above the textarea."
+  },
+  {
+    "attribute": "accessible-label",
+    "property": "accessibleLabel",
+    "type": "string",
+    "default": "''",
+    "description": "Optional accessible label override for the textarea."
+  },
+  {
+    "attribute": "send-label",
+    "property": "sendLabel",
+    "type": "string",
+    "default": "'Send'",
+    "description": "Accessible label for the send action button."
+  },
+  {
+    "attribute": "stop-label",
+    "property": "stopLabel",
+    "type": "string",
+    "default": "'Stop generating'",
+    "description": "Accessible label for the stop action button in loading mode."
+  },
+  {
+    "attribute": "upload-label",
+    "property": "uploadLabel",
+    "type": "string",
+    "default": "'Add attachment'",
+    "description": "Accessible label for the upload button."
+  },
+  {
+    "attribute": "placeholder",
+    "property": "placeholder",
+    "type": "string",
+    "default": "'Ready to get started? Ask a question, share an idea, or add a task.'",
+    "description": "Placeholder text shown inside the textarea."
+  },
+  {
+    "attribute": "value",
+    "property": "value",
+    "type": "string",
+    "default": "''",
+    "description": "The current textarea value; internally updated and externally mirrorable."
+  },
+  {
+    "attribute": "min-rows",
+    "property": "minRows",
+    "type": "number",
+    "default": "1",
+    "description": "Minimum visible textarea rows before growth."
+  },
+  {
+    "attribute": "max-rows",
+    "property": "maxRows",
+    "type": "number",
+    "default": "4",
+    "description": "Maximum visible textarea rows before internal scrolling."
+  }
+]

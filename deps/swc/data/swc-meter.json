@@ -1,0 +1,80 @@
+[
+  {
+    "attribute": "variant",
+    "property": "variant",
+    "type": "MeterVariant",
+    "default": "'informative'",
+    "description": "The variant of the meter. Drives the bar fill color.",
+    "inheritedFrom": "MeterBase",
+    "since": "2.0.0"
+  },
+  {
+    "attribute": "value",
+    "property": "value",
+    "type": "number",
+    "default": "0",
+    "description": "Current value. Sanitized via `clampedValue` for rendering and\n`aria-valuenow`.",
+    "inheritedFrom": "LinearProgressMixin",
+    "since": "2.0.0"
+  },
+  {
+    "attribute": "min-value",
+    "property": "minValue",
+    "type": "number",
+    "default": "0",
+    "description": "Bottom of the value range.",
+    "inheritedFrom": "LinearProgressMixin",
+    "since": "2.0.0"
+  },
+  {
+    "attribute": "max-value",
+    "property": "maxValue",
+    "type": "number",
+    "default": "100",
+    "description": "Top of the value range.",
+    "inheritedFrom": "LinearProgressMixin",
+    "since": "2.0.0"
+  },
+  {
+    "attribute": "accessible-label",
+    "property": "accessibleLabel",
+    "type": "string",
+    "default": "''",
+    "description": "Rare-case accessible-name fallback used when there is no visible\n`label` slot content (for example, a data grid of meters).\nRenders into `aria-label` on the role element when set.",
+    "inheritedFrom": "LinearProgressMixin",
+    "since": "2.0.0"
+  },
+  {
+    "attribute": "value-label",
+    "property": "valueLabel",
+    "type": "string | undefined",
+    "description": "Custom value text (e.g. `\"1 of 4\"`). Overrides the auto-formatted\nvalue in both rendered text and `aria-valuetext`.",
+    "inheritedFrom": "LinearProgressMixin",
+    "since": "2.0.0"
+  },
+  {
+    "attribute": "label-position",
+    "property": "labelPosition",
+    "type": "LinearProgressLabelPosition",
+    "default": "'top'",
+    "description": "Position of the label relative to the bar.",
+    "inheritedFrom": "LinearProgressMixin",
+    "since": "2.0.0"
+  },
+  {
+    "attribute": "static-color",
+    "property": "staticColor",
+    "type": "LinearProgressStaticColor | undefined",
+    "description": "Static color override for use on images or colored backgrounds.",
+    "inheritedFrom": "LinearProgressMixin",
+    "since": "2.0.0"
+  },
+  {
+    "attribute": "size",
+    "property": "size",
+    "type": "ElementSize",
+    "description": "The size of the meter.",
+    "inheritedFrom": "SizedMixin",
+    "since": "2.0.0"
+  }
+]

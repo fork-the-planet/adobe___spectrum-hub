@@ -1,4 +1,67 @@
 {
+  "AccordionBase": [
+    {
+      "attribute": "allowMultiple",
+      "type": "boolean",
+      "description": "Reflected as `allow-multiple`. When set, multiple items may be open at the same time."
+    },
+    {
+      "attribute": "level",
+      "property": "level",
+      "type": "AccordionHeadingLevel",
+      "default": "3",
+      "description": "Heading level applied to every item header (2–6). Defaults to 3.\nValues outside that range are clamped."
+    },
+    {
+      "attribute": "density",
+      "property": "density",
+      "type": "AccordionDensity",
+      "default": "'regular'",
+      "description": "Controls vertical spacing between items."
+    },
+    {
+      "attribute": "quiet",
+      "property": "quiet",
+      "type": "boolean",
+      "default": "false",
+      "description": "Renders the accordion in its quiet (no-border) visual variant."
+    },
+    {
+      "attribute": "disabled",
+      "property": "disabled",
+      "type": "boolean",
+      "default": "false",
+      "description": "Disables all items in the accordion. Individual items may also be\ndisabled independently."
+    },
+    {
+      "attribute": "allow-multiple",
+      "property": "allowMultiple",
+      "type": "boolean",
+      "default": "false",
+      "description": "When set, multiple items may be open at the same time. By default only\none item can be open."
+    }
+  ],
+  "AccordionItemBase": [
+    {
+      "attribute": "open",
+      "property": "open",
+      "type": "boolean",
+      "description": "Whether the accordion item panel is expanded."
+    },
+    {
+      "attribute": "disabled",
+      "property": "disabled",
+      "type": "boolean",
+      "default": "false",
+      "description": "Whether the accordion item is disabled. A disabled item keeps its header\nin the tab order but blocks toggling."
+    },
+    {
+      "attribute": "size",
+      "property": "size",
+      "type": "AccordionSize | undefined",
+      "description": "The size of the item. Inherited from the parent accordion; controls which\nchevron icon is displayed. Has no effect when the item is used standalone."
+    }
+  ],
   "AssetBase": [
     {
       "attribute": "variant",
@@ -107,6 +170,29 @@
       "description": "Custom accessible label used during the pending state. When omitted,\nthe pending label is derived from the resolved non-busy accessible name\nplus a busy suffix (e.g. \"Save, busy\")."
     }
   ],
+  "ButtonGroupBase": [
+    {
+      "attribute": "orientation",
+      "property": "orientation",
+      "type": "ButtonGroupOrientation",
+      "default": "'horizontal'",
+      "description": "The layout direction of the button group.\n\nNote: this property does NOT set `aria-orientation` on the host because\n`aria-orientation` is only meaningful for roles that manage arrow-key\nnavigation (e.g. `toolbar`, `listbox`). Since button-group uses\nsequential Tab navigation (not roving tabindex), the attribute would\nbe invalid."
+    },
+    {
+      "attribute": "disabled",
+      "property": "disabled",
+      "type": "boolean",
+      "default": "false",
+      "description": "Whether all buttons in the group are disabled. When `true`, forces\nevery slotted button child to `disabled`. When `false`, children\nretain their individual disabled state — a button slotted with\n`disabled` remains disabled even when the group is enabled."
+    },
+    {
+      "attribute": "align",
+      "property": "align",
+      "type": "ButtonGroupAlignment",
+      "default": "'start'",
+      "description": "The alignment of buttons within the group along the main axis."
+    }
+  ],
   "ColorLoupeBase": [
     {
       "attribute": "open",
@@ -161,6 +247,64 @@
       "type": "IllustratedMessageOrientation",
       "default": "'vertical'",
       "description": "The layout orientation"
+    }
+  ],
+  "LinearProgressMixin": [
+    {
+      "attribute": "value",
+      "property": "value",
+      "type": "number",
+      "default": "0",
+      "description": "Current value. Sanitized via `clampedValue` for rendering and\n`aria-valuenow`."
+    },
+    {
+      "attribute": "min-value",
+      "property": "minValue",
+      "type": "number",
+      "default": "0",
+      "description": "Bottom of the value range."
+    },
+    {
+      "attribute": "max-value",
+      "property": "maxValue",
+      "type": "number",
+      "default": "100",
+      "description": "Top of the value range."
+    },
+    {
+      "attribute": "accessible-label",
+      "property": "accessibleLabel",
+      "type": "string",
+      "default": "''",
+      "description": "Rare-case accessible-name fallback used when there is no visible\n`label` slot content (for example, a data grid of meters).\nRenders into `aria-label` on the role element when set."
+    },
+    {
+      "attribute": "value-label",
+      "property": "valueLabel",
+      "type": "string | undefined",
+      "description": "Custom value text (e.g. `\"1 of 4\"`). Overrides the auto-formatted\nvalue in both rendered text and `aria-valuetext`."
+    },
+    {
+      "attribute": "label-position",
+      "property": "labelPosition",
+      "type": "LinearProgressLabelPosition",
+      "default": "'top'",
+      "description": "Position of the label relative to the bar."
+    },
+    {
+      "attribute": "static-color",
+      "property": "staticColor",
+      "type": "LinearProgressStaticColor | undefined",
+      "description": "Static color override for use on images or colored backgrounds."
+    }
+  ],
+  "MeterBase": [
+    {
+      "attribute": "variant",
+      "property": "variant",
+      "type": "MeterVariant",
+      "default": "'informative'",
+      "description": "The variant of the meter. Drives the bar fill color."
     }
   ],
   "ProgressCircleBase": [
@@ -272,6 +416,91 @@
       "type": "string",
       "default": "''",
       "description": "The `tab-id` of the currently selected tab. Setting this property\nupdates which tab appears selected and which panel is visible."
+    }
+  ],
+  "TooltipBase": [
+    {
+      "attribute": "variant",
+      "property": "variant",
+      "type": "TooltipVariant",
+      "default": "'neutral'",
+      "description": "The semantic variant of the tooltip."
+    },
+    {
+      "attribute": "placement",
+      "property": "placement",
+      "type": "TooltipPlacement",
+      "default": "'top'",
+      "description": "Preferred placement of the tooltip relative to its trigger. This is always\nthe consumer's requested side; the resolved physical side (after any\nviewport-driven flip) is reflected as `actual-placement`."
+    },
+    {
+      "attribute": "open",
+      "property": "open",
+      "type": "boolean",
+      "default": "false",
+      "description": "Whether the tooltip is visible."
+    },
+    {
+      "attribute": "for",
+      "property": "for",
+      "type": "string | undefined",
+      "description": "The `id` of the trigger element in the same document tree root."
+    },
+    {
+      "attribute": "delay",
+      "property": "delay",
+      "type": "number",
+      "default": "1500",
+      "description": "Warm-up delay in milliseconds before the tooltip opens on pointer hover.\nSet to `0` to open immediately. Keyboard focus always opens immediately."
+    },
+    {
+      "attribute": "disabled",
+      "property": "disabled",
+      "type": "boolean",
+      "default": "false",
+      "description": "When set, the tooltip does not respond to hover or focus events and cannot\nbe opened. `disabled` takes priority over `open`: setting `open` to `true`\nwhile disabled is a no-op, and disabling an open tooltip closes it. Applies\nin `manual` mode as well."
+    },
+    {
+      "attribute": "manual",
+      "property": "manual",
+      "type": "boolean",
+      "default": "false",
+      "description": "Suppresses automatic hover and focus wiring.\nThe consumer manages visibility via the `open` property or the popover API."
+    },
+    {
+      "attribute": "offset",
+      "property": "offset",
+      "type": "number",
+      "default": "4",
+      "description": "Pixel gap along the placement axis between the trigger and the tooltip bubble."
+    },
+    {
+      "attribute": "cross-offset",
+      "property": "crossOffset",
+      "type": "number",
+      "default": "0",
+      "description": "Slide along the trigger edge perpendicular to the placement direction, in pixels."
+    },
+    {
+      "attribute": "container-padding",
+      "property": "containerPadding",
+      "type": "number",
+      "default": "12",
+      "description": "Minimum inset from the viewport edge, in pixels, for collision detection."
+    },
+    {
+      "attribute": "should-flip",
+      "property": "shouldFlip",
+      "type": "boolean",
+      "default": "true",
+      "description": "Whether the tooltip may reposition to the opposite side when the requested\nplacement does not fit within the viewport."
+    },
+    {
+      "attribute": "labeling",
+      "property": "labeling",
+      "type": "boolean",
+      "default": "false",
+      "description": "When set, the tooltip acts as the trigger's accessible name rather than its description.\nUse for icon-only triggers where the tooltip text is the sole accessible name."
     }
   ]
 }
