@@ -49,11 +49,12 @@ describe('detail template', () => {
     expect(sitenav.getAttribute('aria-label')).to.equal('Second-level site navigation');
   });
 
-  it('places main as the second child of template-wrapper', async () => {
+  it('places nav.page-nav as the second child of template-wrapper', async () => {
     await init();
     const wrapper = document.querySelector('.template-wrapper');
-    const secondChildElement = wrapper.children[1];
-    expect(secondChildElement.tagName.toLowerCase()).to.equal('main');
+    const secondChild = wrapper.children[1];
+    expect(secondChild.tagName.toLowerCase()).to.equal('nav');
+    expect(secondChild.classList.contains('page-nav')).to.be.true;
   });
 
   it('preserves the original main element (not a copy)', async () => {
@@ -67,12 +68,11 @@ describe('detail template', () => {
     expect(document.querySelector('main p')).to.not.be.null;
   });
 
-  it('places nav.page-nav as the last child of template-wrapper', async () => {
+  it('places main as the last child of template-wrapper', async () => {
     await init();
     const wrapper = document.querySelector('.template-wrapper');
     const lastChild = wrapper.lastElementChild;
-    expect(lastChild.tagName.toLowerCase()).to.equal('nav');
-    expect(lastChild.classList.contains('page-nav')).to.be.true;
+    expect(lastChild.tagName.toLowerCase()).to.equal('main');
   });
 
   it('adds aria-label "On this page" to the page-nav', async () => {
