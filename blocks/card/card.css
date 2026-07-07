@@ -127,7 +127,7 @@
 
   .card-link-out {
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     color: inherit;
     min-inline-size: 24px;
