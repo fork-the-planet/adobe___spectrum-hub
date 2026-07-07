@@ -9,7 +9,7 @@ function isExternal(href) {
 // link-out container + icon
 function buildLinkOut() {
   const div = document.createElement('div');
-  div.className = 'card__link-out';
+  div.className = 'card-link-out';
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   svg.setAttribute('aria-hidden', 'true');
   const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
@@ -52,7 +52,7 @@ function buildCardLink(contentCell, hashAware) {
 
   const link = document.createElement('a');
   link.href = href;
-  link.className = 'card__link';
+  link.className = 'card-link';
   link.setAttribute('aria-label', label);
   if (blank) {
     link.target = '_blank';
@@ -92,12 +92,12 @@ export default function init(el) {
       const pic = picCell.querySelector('picture, img');
       const picPara = pic.closest('p');
       picContainer = document.createElement('div');
-      picContainer.className = 'card__picture-container';
+      picContainer.className = 'card-picture-container';
       picContainer.append(pic);
       if (picPara) { picPara.remove(); }
     }
     contentCell = cells.find((cell) => cell !== picCell) || picCell;
-    if (contentCell) { contentCell.classList.add('card__text-container'); }
+    if (contentCell) { contentCell.classList.add('card-text-container'); }
     row.remove();
   });
 
@@ -105,12 +105,12 @@ export default function init(el) {
   const { cardLink, linkOut } = (contentCell && buildCardLink(contentCell, hashAware)) || {};
 
   const content = document.createElement('div');
-  content.className = 'card__content-container';
+  content.className = 'card-content-container';
 
   if (picContainer) { content.append(picContainer); }
   if (contentCell) {
     const textContent = document.createElement('div');
-    textContent.className = 'card__text-content';
+    textContent.className = 'card-text-content';
     textContent.append(...contentCell.childNodes);
     contentCell.append(textContent);
     if (linkOut) { contentCell.append(linkOut); }

@@ -127,13 +127,13 @@ describe('card block', () => {
     it('always creates a card-content-container div', () => {
       const el = makeCard(SINGLE_COL_NO_IMAGE);
       init(el);
-      expect(el.querySelector('.card__content-container')).to.not.be.null;
+      expect(el.querySelector('.card-content-container')).to.not.be.null;
     });
 
     it('removes all original authored rows', () => {
       const el = makeCard(SINGLE_COL_WITH_IMAGE);
       init(el);
-      expect(el.querySelectorAll(':scope > div:not(.card__content-container)').length).to.equal(0);
+      expect(el.querySelectorAll(':scope > div:not(.card-content-container)').length).to.equal(0);
     });
   });
 
@@ -145,32 +145,32 @@ describe('card block', () => {
     });
 
     it('creates a card-picture-container', () => {
-      expect(el.querySelector('.card__picture-container')).to.not.be.null;
+      expect(el.querySelector('.card-picture-container')).to.not.be.null;
     });
 
     it('moves the picture into card-picture-container', () => {
-      expect(el.querySelector('.card__picture-container picture')).to.not.be.null;
+      expect(el.querySelector('.card-picture-container picture')).to.not.be.null;
     });
 
     it('removes the picture paragraph from card-text-container', () => {
-      expect(el.querySelector('.card__text-container > p > picture')).to.be.null;
+      expect(el.querySelector('.card-text-container > p > picture')).to.be.null;
     });
 
     it('places card-picture-container before card-text-container inside card-content-container', () => {
-      const content = el.querySelector('.card__content-container');
-      expect(content.firstElementChild.classList.contains('card__picture-container')).to.be.true;
+      const content = el.querySelector('.card-content-container');
+      expect(content.firstElementChild.classList.contains('card-picture-container')).to.be.true;
     });
 
     it('creates a card-text-container', () => {
-      expect(el.querySelector('.card__text-container')).to.not.be.null;
+      expect(el.querySelector('.card-text-container')).to.not.be.null;
     });
 
     it('wraps remaining text nodes in card-text-content', () => {
-      expect(el.querySelector('.card__text-container .card__text-content')).to.not.be.null;
+      expect(el.querySelector('.card-text-container .card-text-content')).to.not.be.null;
     });
 
     it('preserves heading and paragraph inside card-text-content', () => {
-      const textContent = el.querySelector('.card__text-content');
+      const textContent = el.querySelector('.card-text-content');
       expect(textContent.querySelector('h3')).to.not.be.null;
       expect(textContent.querySelector('p')).to.not.be.null;
     });
@@ -184,15 +184,15 @@ describe('card block', () => {
     });
 
     it('does not create a card-picture-container', () => {
-      expect(el.querySelector('.card__picture-container')).to.be.null;
+      expect(el.querySelector('.card-picture-container')).to.be.null;
     });
 
     it('creates a card-text-container', () => {
-      expect(el.querySelector('.card__text-container')).to.not.be.null;
+      expect(el.querySelector('.card-text-container')).to.not.be.null;
     });
 
     it('wraps text in card-text-content', () => {
-      expect(el.querySelector('.card__text-content')).to.not.be.null;
+      expect(el.querySelector('.card-text-content')).to.not.be.null;
     });
   });
 
@@ -204,21 +204,21 @@ describe('card block', () => {
     });
 
     it('creates a card-picture-container', () => {
-      expect(el.querySelector('.card__picture-container')).to.not.be.null;
+      expect(el.querySelector('.card-picture-container')).to.not.be.null;
     });
 
     it('moves the picture into card-picture-container', () => {
-      expect(el.querySelector('.card__picture-container picture')).to.not.be.null;
+      expect(el.querySelector('.card-picture-container picture')).to.not.be.null;
     });
 
     it('uses the text column as card-text-container', () => {
-      const textContainer = el.querySelector('.card__text-container');
+      const textContainer = el.querySelector('.card-text-container');
       expect(textContainer).to.not.be.null;
       expect(textContainer.querySelector('h3')).to.not.be.null;
     });
 
     it('does not include the picture inside card-text-container', () => {
-      expect(el.querySelector('.card__text-container picture')).to.be.null;
+      expect(el.querySelector('.card-text-container picture')).to.be.null;
     });
   });
 
@@ -230,31 +230,31 @@ describe('card block', () => {
     });
 
     it('wraps card-content-container in a card-link anchor', () => {
-      expect(el.querySelector('a.card__link > .card__content-container')).to.not.be.null;
+      expect(el.querySelector('a.card-link > .card-content-container')).to.not.be.null;
     });
 
     it('sets href from the link paragraph', () => {
-      expect(el.querySelector('a.card__link').getAttribute('href')).to.equal('/platforms/swc/components/button');
+      expect(el.querySelector('a.card-link').getAttribute('href')).to.equal('/platforms/swc/components/button');
     });
 
     it('sets aria-label from the link text', () => {
-      expect(el.querySelector('a.card__link').getAttribute('aria-label')).to.equal('Visit the docs');
+      expect(el.querySelector('a.card-link').getAttribute('aria-label')).to.equal('Visit the docs');
     });
 
     it('visually hides the link paragraph', () => {
-      expect(el.querySelector('.card__text-content p.visually-hidden')).to.not.be.null;
+      expect(el.querySelector('.card-text-content p.visually-hidden')).to.not.be.null;
     });
 
     it('marks the visually-hidden paragraph as aria-hidden', () => {
-      expect(el.querySelector('.card__text-content p.visually-hidden').getAttribute('aria-hidden')).to.equal('true');
+      expect(el.querySelector('.card-text-content p.visually-hidden').getAttribute('aria-hidden')).to.equal('true');
     });
 
     it('removes the nested anchor from the visually-hidden paragraph to prevent invalid HTML', () => {
-      expect(el.querySelector('.card__text-content p.visually-hidden a')).to.be.null;
+      expect(el.querySelector('.card-text-content p.visually-hidden a')).to.be.null;
     });
 
     it('does not add target="_blank" for internal links', () => {
-      expect(el.querySelector('a.card__link').getAttribute('target')).to.be.null;
+      expect(el.querySelector('a.card-link').getAttribute('target')).to.be.null;
     });
   });
 
@@ -263,14 +263,14 @@ describe('card block', () => {
       window.history.pushState({}, '', '#section-one');
       const el = makeCard(WITH_INTERNAL_LINK, 'hash-aware');
       init(el);
-      expect(el.querySelector('a.card__link').getAttribute('href')).to.equal('/platforms/swc/components/button#section-one');
+      expect(el.querySelector('a.card-link').getAttribute('href')).to.equal('/platforms/swc/components/button#section-one');
     });
 
     it('does not append the hash when hash-aware class is absent', () => {
       window.history.pushState({}, '', '#section-one');
       const el = makeCard(WITH_INTERNAL_LINK);
       init(el);
-      expect(el.querySelector('a.card__link').getAttribute('href')).to.equal('/platforms/swc/components/button');
+      expect(el.querySelector('a.card-link').getAttribute('href')).to.equal('/platforms/swc/components/button');
     });
   });
 
@@ -278,19 +278,19 @@ describe('card block', () => {
     it('does not create a card-link when card has no link', () => {
       const el = makeCard(SINGLE_COL_NO_IMAGE);
       init(el);
-      expect(el.querySelector('a.card__link')).to.be.null;
+      expect(el.querySelector('a.card-link')).to.be.null;
     });
 
     it('does not create a card-link when link is embedded inline in body text', () => {
       const el = makeCard(WITH_INLINE_LINK_ONLY);
       init(el);
-      expect(el.querySelector('a.card__link')).to.be.null;
+      expect(el.querySelector('a.card-link')).to.be.null;
     });
 
     it('appends card-content-container directly to the card element when there is no link', () => {
       const el = makeCard(SINGLE_COL_NO_IMAGE);
       init(el);
-      expect(el.querySelector(':scope > .card__content-container')).to.not.be.null;
+      expect(el.querySelector(':scope > .card-content-container')).to.not.be.null;
     });
   });
 
@@ -298,7 +298,7 @@ describe('card block', () => {
     it('adds target="_blank" and rel for external links', () => {
       const el = makeCard(WITH_EXTERNAL_LINK);
       init(el);
-      const link = el.querySelector('a.card__link');
+      const link = el.querySelector('a.card-link');
       expect(link.getAttribute('target')).to.equal('_blank');
       expect(link.getAttribute('rel')).to.include('noopener');
       expect(link.getAttribute('rel')).to.include('noreferrer');
@@ -307,7 +307,7 @@ describe('card block', () => {
     it('appends "(opens in new tab)" to aria-label for external links', () => {
       const el = makeCard(WITH_EXTERNAL_LINK);
       init(el);
-      expect(el.querySelector('a.card__link').getAttribute('aria-label')).to.equal('External resource (opens in new tab)');
+      expect(el.querySelector('a.card-link').getAttribute('aria-label')).to.equal('External resource (opens in new tab)');
     });
   });
 
@@ -319,33 +319,33 @@ describe('card block', () => {
     });
 
     it('adds a card-link-out element inside card-text-container for external links', () => {
-      expect(el.querySelector('.card__text-container .card__link-out')).to.not.be.null;
+      expect(el.querySelector('.card-text-container .card-link-out')).to.not.be.null;
     });
 
     it('places card-link-out after card-text-content', () => {
-      const children = [...el.querySelector('.card__text-container').children];
-      const textIdx = children.findIndex((c) => c.classList.contains('card__text-content'));
-      const iconIdx = children.findIndex((c) => c.classList.contains('card__link-out'));
+      const children = [...el.querySelector('.card-text-container').children];
+      const textIdx = children.findIndex((c) => c.classList.contains('card-text-content'));
+      const iconIdx = children.findIndex((c) => c.classList.contains('card-link-out'));
       expect(iconIdx).to.be.greaterThan(textIdx);
     });
 
     it('renders an svg inside card-link-out', () => {
-      expect(el.querySelector('.card__link-out svg')).to.not.be.null;
+      expect(el.querySelector('.card-link-out svg')).to.not.be.null;
     });
 
     it('svg use element references the open-in icon', () => {
-      const use = el.querySelector('.card__link-out svg use');
+      const use = el.querySelector('.card-link-out svg use');
       expect(use.getAttribute('href')).to.include('s2-icon-openin-20-n.svg');
     });
 
     it('marks the icon svg as aria-hidden', () => {
-      expect(el.querySelector('.card__link-out svg').getAttribute('aria-hidden')).to.equal('true');
+      expect(el.querySelector('.card-link-out svg').getAttribute('aria-hidden')).to.equal('true');
     });
 
     it('does not add card-link-out for internal links', () => {
       const internalEl = makeCard(WITH_INTERNAL_LINK);
       init(internalEl);
-      expect(internalEl.querySelector('.card__link-out')).to.be.null;
+      expect(internalEl.querySelector('.card-link-out')).to.be.null;
     });
   });
 
@@ -357,25 +357,25 @@ describe('card block', () => {
     });
 
     it('adds target="_blank" when href ends with #_blank', () => {
-      expect(el.querySelector('a.card__link').getAttribute('target')).to.equal('_blank');
+      expect(el.querySelector('a.card-link').getAttribute('target')).to.equal('_blank');
     });
 
     it('strips #_blank from the href', () => {
-      expect(el.querySelector('a.card__link').getAttribute('href')).to.equal('/internal/page');
+      expect(el.querySelector('a.card-link').getAttribute('href')).to.equal('/internal/page');
     });
 
     it('adds rel="noopener noreferrer" when #_blank is used', () => {
-      const rel = el.querySelector('a.card__link').getAttribute('rel');
+      const rel = el.querySelector('a.card-link').getAttribute('rel');
       expect(rel).to.include('noopener');
       expect(rel).to.include('noreferrer');
     });
 
     it('does not add a link-out icon for internal links forced to blank tab', () => {
-      expect(el.querySelector('.card__link-out')).to.be.null;
+      expect(el.querySelector('.card-link-out')).to.be.null;
     });
 
     it('appends "(opens in new tab)" to aria-label for #_blank links', () => {
-      expect(el.querySelector('a.card__link').getAttribute('aria-label')).to.equal('Open in new tab (opens in new tab)');
+      expect(el.querySelector('a.card-link').getAttribute('aria-label')).to.equal('Open in new tab (opens in new tab)');
     });
   });
 
