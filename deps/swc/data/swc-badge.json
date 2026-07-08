@@ -36,7 +36,7 @@
     "property": "outline",
     "type": "boolean",
     "default": "false",
-    "description": "Whether the badge is outlined.\n\nCan only be used with semantic variants.",
+    "description": "Whether the badge is outlined.\r\n\r\nCan only be used with semantic variants.",
     "inheritedFrom": "BadgeBase",
     "since": "2.0.0"
   }

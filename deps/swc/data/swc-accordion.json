@@ -19,7 +19,7 @@
     "property": "level",
     "type": "AccordionHeadingLevel",
     "default": "3",
-    "description": "Heading level applied to every item header (2–6). Defaults to 3.\nValues outside that range are clamped.",
+    "description": "Heading level applied to every item header (2–6). Defaults to 3.\r\nValues outside that range are clamped.",
     "inheritedFrom": "AccordionBase",
     "since": "2.0.0"
   },
@@ -46,7 +46,7 @@
     "property": "disabled",
     "type": "boolean",
     "default": "false",
-    "description": "Disables all items in the accordion. Individual items may also be\ndisabled independently.",
+    "description": "Disables all items in the accordion. Individual items may also be\r\ndisabled independently.",
     "inheritedFrom": "AccordionBase",
     "since": "2.0.0"
   },
@@ -55,7 +55,7 @@
     "property": "allowMultiple",
     "type": "boolean",
     "default": "false",
-    "description": "When set, multiple items may be open at the same time. By default only\none item can be open.",
+    "description": "When set, multiple items may be open at the same time. By default only\r\none item can be open.",
     "inheritedFrom": "AccordionBase",
     "since": "2.0.0"
   }

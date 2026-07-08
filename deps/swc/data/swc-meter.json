@@ -13,7 +13,7 @@
     "property": "value",
     "type": "number",
     "default": "0",
-    "description": "Current value. Sanitized via `clampedValue` for rendering and\n`aria-valuenow`.",
+    "description": "Current value. Sanitized via `clampedValue` for rendering and\r\n`aria-valuenow`.",
     "inheritedFrom": "LinearProgressMixin",
     "since": "2.0.0"
   },
@@ -40,7 +40,7 @@
     "property": "accessibleLabel",
     "type": "string",
     "default": "''",
-    "description": "Rare-case accessible-name fallback used when there is no visible\n`label` slot content (for example, a data grid of meters).\nRenders into `aria-label` on the role element when set.",
+    "description": "Rare-case accessible-name fallback used when there is no visible\r\n`label` slot content (for example, a data grid of meters).\r\nRenders into `aria-label` on the role element when set.",
     "inheritedFrom": "LinearProgressMixin",
     "since": "2.0.0"
   },
@@ -48,7 +48,7 @@
     "attribute": "value-label",
     "property": "valueLabel",
     "type": "string | undefined",
-    "description": "Custom value text (e.g. `\"1 of 4\"`). Overrides the auto-formatted\nvalue in both rendered text and `aria-valuetext`.",
+    "description": "Custom value text (e.g. `\"1 of 4\"`). Overrides the auto-formatted\r\nvalue in both rendered text and `aria-valuetext`.",
     "inheritedFrom": "LinearProgressMixin",
     "since": "2.0.0"
   },

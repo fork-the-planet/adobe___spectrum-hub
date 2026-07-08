@@ -3,7 +3,7 @@
     "attribute": "keyboard-activation",
     "property": "keyboardActivation",
     "type": "KeyboardActivation",
-    "description": "Whether selection follows keyboard focus (`automatic`) or the user\nmust press Enter or Space to activate (`manual`, default).",
+    "description": "Whether selection follows keyboard focus (`automatic`, default) or the\r\nuser must press Enter or Space to activate (`manual`). Prefer `manual`\r\nwhen tab panels are expensive to render or not fully present in the DOM.",
     "inheritedFrom": "TabsBase",
     "since": "2.0.0"
   },
@@ -20,7 +20,7 @@
     "property": "direction",
     "type": "TabsDirection",
     "default": "'horizontal'",
-    "description": "The layout direction of the tab list.\n\n**Breaking change:** `'vertical-right'` is no longer supported.\nUse `'vertical'` instead.",
+    "description": "The layout direction of the tab list.\r\n\r\n**Breaking change:** `'vertical-right'` is no longer supported.\r\nUse `'vertical'` instead.",
     "inheritedFrom": "TabsBase",
     "since": "2.0.0"
   },
@@ -29,7 +29,7 @@
     "property": "disabled",
     "type": "boolean",
     "default": "false",
-    "description": "Whether the entire tab list is disabled. When `true`,\n`aria-disabled=\"true\"` is applied to the tablist element and\nall interaction is suppressed.",
+    "description": "Whether the entire tab list is disabled. When `true`,\r\n`aria-disabled=\"true\"` is applied to the tablist element and\r\nall interaction is suppressed.",
     "inheritedFrom": "TabsBase",
     "since": "2.0.0"
   },
@@ -38,7 +38,7 @@
     "property": "accessibleLabel",
     "type": "string",
     "default": "''",
-    "description": "Accessible label for the tablist. Rendered as `aria-label` on the\nelement with `role=\"tablist\"` in the concrete template.",
+    "description": "Accessible label for the tablist. Rendered as `aria-label` on the\r\nelement with `role=\"tablist\"` in the concrete template.",
     "inheritedFrom": "TabsBase",
     "since": "2.0.0"
   },
@@ -47,7 +47,7 @@
     "property": "selected",
     "type": "string",
     "default": "''",
-    "description": "The `tab-id` of the currently selected tab. Setting this property\nupdates which tab appears selected and which panel is visible.",
+    "description": "The `tab-id` of the currently selected tab. Setting this property\r\nupdates which tab appears selected and which panel is visible.",
     "inheritedFrom": "TabsBase",
     "since": "2.0.0"
   }

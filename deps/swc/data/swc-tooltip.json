@@ -13,7 +13,7 @@
     "property": "placement",
     "type": "TooltipPlacement",
     "default": "'top'",
-    "description": "Preferred placement of the tooltip relative to its trigger. This is always\nthe consumer's requested side; the resolved physical side (after any\nviewport-driven flip) is reflected as `actual-placement`.",
+    "description": "Preferred placement of the tooltip relative to its trigger. This is always\r\nthe consumer's requested side; the resolved physical side (after any\r\nviewport-driven flip) is reflected as `actual-placement`.",
     "inheritedFrom": "TooltipBase",
     "since": "2.0.0"
   },
@@ -39,7 +39,7 @@
     "property": "delay",
     "type": "number",
     "default": "1500",
-    "description": "Warm-up delay in milliseconds before the tooltip opens on pointer hover.\nSet to `0` to open immediately. Keyboard focus always opens immediately.",
+    "description": "Warm-up delay in milliseconds before the tooltip opens on pointer hover.\r\nSet to `0` to open immediately. Keyboard focus always opens immediately.",
     "inheritedFrom": "TooltipBase",
     "since": "2.0.0"
   },
@@ -48,7 +48,7 @@
     "property": "disabled",
     "type": "boolean",
     "default": "false",
-    "description": "When set, the tooltip does not respond to hover or focus events and cannot\nbe opened. `disabled` takes priority over `open`: setting `open` to `true`\nwhile disabled is a no-op, and disabling an open tooltip closes it. Applies\nin `manual` mode as well.",
+    "description": "When set, the tooltip does not respond to hover or focus events and cannot\r\nbe opened. `disabled` takes priority over `open`: setting `open` to `true`\r\nwhile disabled is a no-op, and disabling an open tooltip closes it. Applies\r\nin `manual` mode as well.",
     "inheritedFrom": "TooltipBase",
     "since": "2.0.0"
   },
@@ -57,7 +57,7 @@
     "property": "manual",
     "type": "boolean",
     "default": "false",
-    "description": "Suppresses automatic hover and focus wiring.\nThe consumer manages visibility via the `open` property or the popover API.",
+    "description": "Suppresses automatic hover and focus wiring.\r\nThe consumer manages visibility via the `open` property or the popover API.",
     "inheritedFrom": "TooltipBase",
     "since": "2.0.0"
   },
@@ -93,7 +93,7 @@
     "property": "shouldFlip",
     "type": "boolean",
     "default": "true",
-    "description": "Whether the tooltip may reposition to the opposite side when the requested\nplacement does not fit within the viewport.",
+    "description": "Whether the tooltip may reposition to the opposite side when the requested\r\nplacement does not fit within the viewport.",
     "inheritedFrom": "TooltipBase",
     "since": "2.0.0"
   },
@@ -102,7 +102,7 @@
     "property": "labeling",
     "type": "boolean",
     "default": "false",
-    "description": "When set, the tooltip acts as the trigger's accessible name rather than its description.\nUse for icon-only triggers where the tooltip text is the sole accessible name.",
+    "description": "When set, the tooltip acts as the trigger's accessible name rather than its description.\r\nUse for icon-only triggers where the tooltip text is the sole accessible name.",
     "inheritedFrom": "TooltipBase",
     "since": "2.0.0"
   }

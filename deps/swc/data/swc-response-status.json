@@ -32,6 +32,6 @@
     "property": "open",
     "type": "boolean",
     "default": "false",
-    "description": "`true`: reasoning expanded; `false`: reasoning collapsed.\nIgnored while `loading` is `true`. If reasoning slot content is removed,\n`open` is automatically set to `false` and no `swc-response-status-toggle` event is emitted."
+    "description": "`true`: reasoning expanded; `false`: reasoning collapsed.\r\nIgnored while `loading` is `true`. If reasoning slot content is removed,\r\n`open` is automatically set to `false` and no `swc-response-status-toggle` event is emitted."
   }
 ]

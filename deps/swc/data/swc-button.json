@@ -4,7 +4,7 @@
     "property": "variant",
     "type": "ButtonVariant",
     "default": "'primary'",
-    "description": "The visual variant of the button.\n\n`outline` fill-style is only supported with `primary` and `secondary`.\n`static-color` is only supported with `primary` and `secondary`.",
+    "description": "The visual variant of the button.\r\n\r\n`outline` fill-style is only supported with `primary` and `secondary`.\r\n`static-color` is only supported with `primary` and `secondary`.",
     "since": "0.0.1"
   },
   {
@@ -12,14 +12,14 @@
     "property": "fillStyle",
     "type": "ButtonFillStyle",
     "default": "'fill'",
-    "description": "The fill style of the button.\n\n`outline` is only supported with `primary` and `secondary` variants.",
+    "description": "The fill style of the button.\r\n\r\n`outline` is only supported with `primary` and `secondary` variants.",
     "since": "0.0.1"
   },
   {
     "attribute": "static-color",
     "property": "staticColor",
     "type": "ButtonStaticColor | undefined",
-    "description": "Static color treatment for display over colored or image backgrounds.\nOnly supported with `primary` and `secondary` variants.",
+    "description": "Static color treatment for display over colored or image backgrounds.\r\nOnly supported with `primary` and `secondary` variants.",
     "since": "0.0.1"
   },
   {
@@ -27,7 +27,7 @@
     "property": "truncate",
     "type": "boolean",
     "default": "false",
-    "description": "Whether overflowing text is truncated with an ellipsis rather than\nwrapping. Replaces the legacy `no-wrap` attribute from 1st-gen.",
+    "description": "Whether overflowing text is truncated with an ellipsis rather than\r\nwrapping. Replaces the legacy `no-wrap` attribute from 1st-gen.",
     "since": "0.0.1"
   },
   {
@@ -35,7 +35,7 @@
     "property": "justified",
     "type": "boolean",
     "default": "false",
-    "description": "Enables the button to become full-width, if the container\nallows it.",
+    "description": "Enables the button to become full-width, if the container\r\nallows it.",
     "since": "0.0.1"
   },
   {
@@ -51,7 +51,7 @@
     "property": "disabled",
     "type": "boolean",
     "default": "false",
-    "description": "Whether the button is disabled. Removes focusability and prevents\ninteraction.",
+    "description": "Whether the button is disabled. Removes focusability and prevents\r\ninteraction.",
     "inheritedFrom": "ButtonBase",
     "since": "0.0.1"
   },
@@ -60,7 +60,7 @@
     "property": "pending",
     "type": "boolean",
     "default": "false",
-    "description": "Whether the button is in a pending (busy) state. The button remains\nfocusable but activation is suppressed.",
+    "description": "Whether the button is in a pending (busy) state. The button remains\r\nfocusable but activation is suppressed.",
     "inheritedFrom": "ButtonBase",
     "since": "0.0.1"
   },
@@ -68,7 +68,7 @@
     "attribute": "accessible-label",
     "property": "accessibleLabel",
     "type": "string | undefined",
-    "description": "Accessible label forwarded to the internal `<button>` element as\n`aria-label`. Required for icon-only buttons, which have no visible text.",
+    "description": "Accessible label forwarded to the internal `<button>` element as\r\n`aria-label`. Required for icon-only buttons, which have no visible text.",
     "inheritedFrom": "ButtonBase",
     "since": "0.0.1"
   },
@@ -76,7 +76,7 @@
     "attribute": "pending-label",
     "property": "pendingLabel",
     "type": "string | undefined",
-    "description": "Custom accessible label used during the pending state. When omitted,\nthe pending label is derived from the resolved non-busy accessible name\nplus a busy suffix (e.g. \"Save, busy\").",
+    "description": "Custom accessible label used during the pending state. When omitted,\r\nthe pending label is derived from the resolved non-busy accessible name\r\nplus a busy suffix (e.g. \"Save, busy\").",
     "inheritedFrom": "ButtonBase",
     "since": "0.0.1"
   }
