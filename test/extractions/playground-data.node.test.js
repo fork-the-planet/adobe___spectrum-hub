@@ -10,7 +10,7 @@ import {
   resolveControl,
   normalizePropertyName,
   findSwcProp,
-} from '../../scripts/utils/playground-data.js';
+} from '../../blocks/playground/playground-data.js';
 
 const COMPONENTS_SHEET = [
   { component: 'Button', properties: 'variant, staticColor, text, fillStyle, size, isDisabled' },
