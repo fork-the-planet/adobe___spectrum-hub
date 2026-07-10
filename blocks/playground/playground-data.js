@@ -99,15 +99,59 @@ export function normalizePropertyName(name) {
 }
 
 /**
- * Finds a component's SWC prop row by exact property name, falling back to the
- * RSP-normalized name (e.g. "isDisabled" -> "disabled").
+ * Generates the candidate property names to try when matching one
+ * implementation's authored name against another's data, in BOTH directions of
+ * the `is`/`has` boolean-prefix convention:
+ *   - the name as-authored (always first, so exact matches win)
+ *   - the prefix stripped, for an RSP-style name -> SWC (isDisabled -> disabled)
+ *   - `is`/`has` prefixes added, for an SWC-style name -> RSP (disabled -> isDisabled)
+ * Candidates that don't exist in the target data simply never match, so adding
+ * both prefixes is harmless.
+ * @param {string} name
+ * @returns {string[]}
+ */
+export function propertyNameCandidates(name) {
+  const stripped = normalizePropertyName(name);
+  if (stripped !== name) {
+    return [name, stripped];
+  }
+  const capitalized = name.charAt(0).toUpperCase() + name.slice(1);
+  return [name, `is${capitalized}`, `has${capitalized}`];
+}
+
+/**
+ * Finds a prop row whose name matches any of the cross-implementation
+ * candidates for `property`, preferring earlier candidates (exact match first).
+ * @param {string} property
+ * @param {object[]} props
+ * @returns {object | undefined}
+ */
+function findPropByCandidates(property, props) {
+  return propertyNameCandidates(property)
+    .map((candidate) => props.find((p) => p.property === candidate))
+    .find(Boolean);
+}
+
+/**
+ * Finds a component's SWC prop row by matching cross-implementation name
+ * candidates (e.g. "isDisabled" -> "disabled").
  * @param {string} property
  * @param {object[]} swcProps
  * @returns {object | undefined}
  */
 export function findSwcProp(property, swcProps) {
-  return swcProps.find((p) => p.property === property)
-    ?? swcProps.find((p) => p.property === normalizePropertyName(property));
+  return findPropByCandidates(property, swcProps);
+}
+
+/**
+ * Finds a component's RSP prop row by matching cross-implementation name
+ * candidates (e.g. the SWC-style "disabled" -> RSP "isDisabled").
+ * @param {string} property
+ * @param {object[]} rspProps
+ * @returns {object | undefined}
+ */
+export function findRspProp(property, rspProps) {
+  return findPropByCandidates(property, rspProps);
 }
 
 /**
@@ -120,7 +164,7 @@ export function findSwcProp(property, swcProps) {
  * @returns {string[]} Picker option values, empty if none resolvable
  */
 export function resolvePickerOptions(property, rspProps, swcProps) {
-  const rspRow = rspProps.find((p) => p.property === property);
+  const rspRow = findRspProp(property, rspProps);
   if (rspRow?.type) {
     const options = parsePickerOptions(rspRow.type);
     if (options.length) { return options; }
@@ -149,7 +193,8 @@ export function resolvePickerOptions(property, rspProps, swcProps) {
  * @returns {{ controlType: string, options: string[], attribute: string|null } | null}
  */
 export function resolveControl(property, implementation, controlsMap, rspProps, swcProps, onSkip) {
-  const existsInRsp = rspProps.some((p) => p.property === property);
+  const rspRow = findRspProp(property, rspProps);
+  const existsInRsp = Boolean(rspRow);
   const swcRow = findSwcProp(property, swcProps);
   const existsInSwc = Boolean(swcRow);
 
@@ -168,7 +213,7 @@ export function resolveControl(property, implementation, controlsMap, rspProps, 
   const attribute = swcRow?.attribute ?? null;
 
   if (!options.length) {
-    const type = rspProps.find((p) => p.property === property)?.type ?? swcRow?.type ?? 'unknown';
+    const type = rspRow?.type ?? swcRow?.type ?? 'unknown';
     onSkip?.(`No control shown for "${property}": its type ("${type}") isn't a boolean or a list of options, so there's nothing to build a picker from.`);
   }
 

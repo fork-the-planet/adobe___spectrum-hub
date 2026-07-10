@@ -9,7 +9,9 @@ import {
   resolvePickerOptions,
   resolveControl,
   normalizePropertyName,
+  propertyNameCandidates,
   findSwcProp,
+  findRspProp,
 } from '../../blocks/playground/playground-data.js';
 
 const COMPONENTS_SHEET = [
@@ -239,6 +241,32 @@ describe('normalizePropertyName', () => {
   });
 });
 
+describe('propertyNameCandidates', () => {
+  it('adds the prefix-stripped name for an is/has-prefixed name', () => {
+    assert.deepEqual(propertyNameCandidates('isDisabled'), ['isDisabled', 'disabled']);
+    assert.deepEqual(propertyNameCandidates('hasLabel'), ['hasLabel', 'label']);
+  });
+
+  it('adds is/has-prefixed forms for a bare name', () => {
+    assert.deepEqual(propertyNameCandidates('disabled'), ['disabled', 'isDisabled', 'hasDisabled']);
+  });
+});
+
+describe('findRspProp', () => {
+  it('finds a row by exact property name', () => {
+    assert.deepEqual(findRspProp('isQuiet', RSP_PROPS), RSP_PROPS.find((p) => p.property === 'isQuiet'));
+  });
+
+  it('finds an is/has-prefixed rsp row from a bare swc-style name', () => {
+    assert.deepEqual(findRspProp('quiet', RSP_PROPS), RSP_PROPS.find((p) => p.property === 'isQuiet'));
+    assert.deepEqual(findRspProp('pending', RSP_PROPS), RSP_PROPS.find((p) => p.property === 'isPending'));
+  });
+
+  it('returns undefined when no candidate matches', () => {
+    assert.equal(findRspProp('nonexistent', RSP_PROPS), undefined);
+  });
+});
+
 describe('findSwcProp', () => {
   it('finds a row by exact property name', () => {
     assert.deepEqual(findSwcProp('disabled', SWC_PROPS), SWC_PROPS.find((p) => p.property === 'disabled'));
@@ -321,6 +349,22 @@ describe('resolveControl', () => {
     const result = resolveControl('isPending', 'rsp', controlsMap, RSP_PROPS, SWC_PROPS);
     assert.notEqual(result, null);
     assert.equal(result.attribute, 'pending');
+  });
+
+  it('resolves an rsp control from a swc-style boolean name via an added prefix (quiet -> isQuiet)', () => {
+    const result = resolveControl('quiet', 'rsp', controlsMap, RSP_PROPS, SWC_PROPS);
+    assert.notEqual(result, null);
+    assert.deepEqual(result.options, ['no', 'yes']);
+  });
+
+  it('resolves an rsp control from a swc-style boolean name (pending -> isPending)', () => {
+    const result = resolveControl('pending', 'rsp', controlsMap, RSP_PROPS, SWC_PROPS);
+    assert.notEqual(result, null);
+    assert.deepEqual(result.options, ['no', 'yes']);
+  });
+
+  it('still returns null for a swc-only property with no rsp equivalent under any prefix', () => {
+    assert.equal(resolveControl('truncate', 'rsp', controlsMap, RSP_PROPS, SWC_PROPS), null);
   });
 
   describe('onSkip callback', () => {
