@@ -28,7 +28,7 @@
   input[type="datetime-local"],
   textarea,
   select) {
-  outline: 2px solid var(--s2-blue-900);
+  outline: var(--se-focus-indicator-width) solid var(--s2-blue-900);
   outline-offset: 2px;
 }
 
