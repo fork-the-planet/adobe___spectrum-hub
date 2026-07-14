@@ -1,0 +1,4 @@
+/* Intentionally unstyled for now. Placeholder rule keeps stylelint happy. */
+.search {
+  display: block;
+}
