@@ -4,7 +4,7 @@ import loadStyle from '../../scripts/utils/styles.js';
 const style = await loadStyle(import.meta.url);
 
 /**
- * Reliably know when an iteraction was keyboard or pointer based.
+ * Reliably know when an interaction was keyboard or pointer based.
  */
 let lastInput = 'keyboard';
 window.addEventListener('pointerdown', () => (lastInput = 'pointer'), true);
