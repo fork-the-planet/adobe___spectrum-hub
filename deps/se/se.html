@@ -2,7 +2,8 @@
 <html>
 
 <head>
-  <title>Spectrum Edge Form Elements</title>
+  <title>Spectrum Edge - Form Elements</title>
+  <meta name="description" content="Spectrum for Edge Delivery semantic content."/>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="data:,">
   <script type="importmap">
@@ -17,12 +18,13 @@
       }
     }
 
-    form > div {
-      margin-block: var(--s2-spacing-400);
+    form {
+      max-width: 600px;
+      margin-inline: auto;
     }
 
-    .section .default-content {
-      max-width: 600px;
+    form > div {
+      margin-block: var(--s2-spacing-400);
     }
 
     .form-actions, .dialog-actions {
@@ -51,9 +53,8 @@
       </div>
     </se-dialog>
   </template>
-  <div class="section">
-    <div class="default-content">
-      <form>
+  <main>
+    <form>
         <div>
           <se-select label="Select (picker)" name="hello">
             <option>Doc</option>
@@ -80,7 +81,7 @@
         <div>
           <se-segmentedcontrol>
             <fieldset>
-              <legend>View</legend>
+              <legend>Segmented Control</legend>
               <label>
                 <input type="radio" name="view" value="map" checked>
                 <span>Map</span>
@@ -105,8 +106,7 @@
           <se-button class="open-modal">Open modal</se-button>
         </div>
       </form>
-    </div>
-  </div>
+  </main>
   <footer></footer>
   <script>
     const open = document.querySelector('.open-modal');

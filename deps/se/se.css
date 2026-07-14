@@ -2,6 +2,10 @@
   display: block;
   position: relative;
 
+  --s2-elevated-shadow:
+      0 0 2px rgb(0 0 0 / 12%),
+      0 2px 6px rgb(0 0 0 / 4%),
+      0 4px 12px rgb(0 0 0 / 8%);
   --se-field-height: 28px;
   --se-fixed-family: menlo, consolas, monospace;
   --se-field-gap: calc((calc(calc(2 * 1rem) * 1) - 0px - 0px - 1lh) / 2);
@@ -183,12 +187,76 @@ svg.icon {
       border-color: var(--s2-red-900);
     }
 
+    &:hover {
+      background: var(--s2-gray-300);
+      border: 2px solid var(--s2-gray-300);
+    }
+
     &:disabled {
       opacity: 1;
       background: var(--s2-gray-75);
       border: none;
       color: var(--s2-gray-500);
     }
+  }
+
+  select,
+  select::picker(select) {
+    appearance: base-select;
+  }
+
+  select::picker-icon {
+    display: none;
+  }
+
+  select:open::picker-icon {
+    rotate: 180deg;
+  }
+
+  select:disabled {
+    opacity: 0.35;
+  }
+
+  select::picker(select) {
+    background-color: var(--s2-gray-50);
+    color: var(--s2-gray-1000);
+    border: none;
+    border-radius: var(--s2-corner-radius-700);
+    padding: 8px;
+    margin-block: 14px;
+    opacity: 1;
+    translate: 0 0;
+    box-shadow: var(--s2-elevated-shadow);
+    transition:
+      opacity 0.15s ease,
+      translate 0.15s ease,
+      overlay 0.15s ease allow-discrete,
+      display 0.15s ease allow-discrete;
+  }
+
+  select::picker(select):popover-open {
+    @starting-style {
+      opacity: 0;
+      translate: 0 -4px;
+    }
+  }
+
+  select:not(:open)::picker(select) {
+    opacity: 0;
+    translate: 0 -4px;
+  }
+
+  option {
+    font-size: 14px;
+    padding: var(--s2-spacing-50) 12px var(--s2-spacing-50) var(--s2-spacing-50);
+    border-radius: var(--s2-corner-radius-200);
+  }
+
+  option::checkmark {
+    color: var(--s2-blue-900);
+    font-size: 16px;
+    font-weight: 900;
+    padding-left: 2px;
   }
 
   .se-inputfield-select-wrapper {
@@ -411,7 +479,7 @@ svg.icon {
     }
 
     &:has(input:checked) span {
-      background: var(--s2-gray-400);
+      background: var(--s2-gray-50);
       border: 2px solid var(--s2-gray-900);
       border-radius: var(--s2-corner-radius-600);
     }

@@ -10,6 +10,8 @@ let lastInput = 'keyboard';
 window.addEventListener('pointerdown', () => (lastInput = 'pointer'), true);
 window.addEventListener('keydown', () => (lastInput = 'keyboard'), true);
 
+const getHash = () => Math.random().toString(36).slice(2, 7);
+
 class SEFormElement extends LitElement {
   static formAssociated = true;
 
@@ -23,11 +25,13 @@ class SEFormElement extends LitElement {
     error: { type: String },
     placeholder: { type: String },
     disabled: { type: Boolean },
+    _idHash: { state: true },
   };
 
   constructor() {
     super();
     this._internals = this.attachInternals();
+    this._idHash = this.id ? `${this.id}-${getHash()}` : getHash();
   }
 
   connectedCallback() {
@@ -36,16 +40,16 @@ class SEFormElement extends LitElement {
     this._internals.setFormValue(this.value);
   }
 
-  get form() {
-    return this._internals.form;
-  }
-
   handleFocusIn() {
     if (lastInput === 'keyboard') this._internals.states.add('keyboard-focus');
   }
 
   handleFocusOut() {
     this._internals.states.delete('keyboard-focus');
+  }
+
+  get form() {
+    return this._internals.form;
   }
 }
 
@@ -87,11 +91,12 @@ class SEInput extends SEFormElement {
   render() {
     return html`
       <div class="se-inputfield">
-        ${this.label ? html`<label for="${this.name}">${this.label}</label>` : nothing}
+        ${this.label ? html`<label for="${this._idHash}">${this.label}</label>` : nothing}
         <div class="se-input-wrapper">
           <input
             type=${this.type}
             name=${this.name}
+            id=${this._idHash}
             placeholder=${this.placeholder || nothing}
             .value="${this.value || ''}"
             @input=${this.handleEvent}
@@ -239,10 +244,10 @@ class SESelect extends SEFormElement {
   render() {
     return html`
       <div class="se-inputfield">
-        ${this.label ? html`<label for="${this.name}">${this.label}</label>` : nothing}
+        ${this.label ? html`<label for="${this._idHash}">${this.label}</label>` : nothing}
         <div class="se-inputfield-select-wrapper">
           <select
-            id=${this.id}
+            id=${this._idHash}
             name=${this.name}
             value=${this.value}
             @focusin=${this.handleFocusIn}
