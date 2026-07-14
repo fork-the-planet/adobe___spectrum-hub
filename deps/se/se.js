@@ -343,7 +343,6 @@ class SESegmentedControl extends LitElement {
 class SEDialog extends LitElement {
   static properties = {
     open: { type: Boolean },
-    modal: { type: Boolean },
     overflow: { type: String },
     heading: { type: String },
     closedby: { type: String },
@@ -365,6 +364,8 @@ class SEDialog extends LitElement {
   }
 
   showModal() {
+    // If the shadowDom has not been fully rendered,
+    // mark it as lazy for updated to handle.
     if (!this._dialog) {
       this._showLazyModal = true;
       return;
