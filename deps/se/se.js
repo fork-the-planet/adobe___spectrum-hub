@@ -208,6 +208,29 @@ class SECheckbox extends LitElement {
   }
 }
 
+class SESwitch extends SECheckbox {
+  render() {
+    return html`
+      <div class="se-switch">
+        <input
+          type="checkbox"
+          role="switch"
+          id="${this.name}"
+          name="${this.name}"
+          ?checked=${this.checked}
+          class="${this.error ? 'has-error' : ''}"
+          @change=${this.handleChange}
+        />
+        <label for="${this.name}">
+          <slot></slot>
+          <span class="se-switch-track"><span class="se-switch-thumb"></span></span>
+        </label>
+        ${this.error ? html`<p class="se-inputfield-error-text">${this.error}</p>` : nothing}
+      </div>
+    `;
+  }
+}
+
 class SESelect extends SEFormElement {
   update(props) {
     if (props.has('value')) {
@@ -321,9 +344,16 @@ class SESegmentedControl extends LitElement {
     this.shadowRoot.adoptedStyleSheets = [style];
   }
 
+  handleChange() {
+    this._segmentWrapper.querySelectorAll('input[type="radio"]').forEach((radio) => {
+      radio.toggleAttribute('checked', radio.checked);
+    });
+  }
+
   firstUpdated() {
     // Adopt light DOM options into the shadow
     this._segmentWrapper.prepend(...this.childNodes);
+    this._segmentWrapper.addEventListener('change', () => this.handleChange());
   }
 
   get _segmentWrapper() {
@@ -417,6 +447,7 @@ class SEDialog extends LitElement {
 customElements.define('se-input', SEInput);
 customElements.define('se-textarea', SETextarea);
 customElements.define('se-checkbox', SECheckbox);
+customElements.define('se-switch', SESwitch);
 customElements.define('se-select', SESelect);
 customElements.define('se-button', SEButton);
 customElements.define('se-segmentedcontrol', SESegmentedControl);
