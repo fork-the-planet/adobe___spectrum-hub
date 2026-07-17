@@ -1,0 +1,218 @@
+.playground {
+  --playground-iframe-min-block-size: 200px;
+  --playground-controls-min-inline-size: 200px;
+  --playground-border-color: var(--s2-gray-300);
+  --playground-border-radius: 32px;
+  --playground-inner-radius: calc(var(--playground-border-radius) - 1px);
+  --playground-control-gap: var(--s2-spacing-300);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2-spacing-400);
+  background-color: var(--s2-gray-25);
+  border-radius: var(--playground-border-radius);
+  container-type: inline-size;
+}
+
+/*
+ * No `overflow: hidden` here — that would clip the picker dropdowns (which are
+ * absolutely positioned and can extend below/beyond a panel). Instead the iframe
+ * is clipped by .playground-preview and each panel rounds its own outward corners
+ * so their backgrounds still nest inside the rounded card border.
+ */
+.playground-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2-spacing-400);
+}
+
+.playground-preview {
+  flex: 1 1 auto;
+  min-block-size: var(--playground-iframe-min-block-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s2-spacing-400);
+  overflow: hidden;
+  background-color: var(--playground-iframe-background-color, inherit);
+
+  iframe {
+    border: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    min-block-size: var(--playground-iframe-min-block-size);
+    display: block;
+    border-radius: var(--s2-corner-radius-300);
+  }
+}
+
+.playground-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--playground-control-gap);
+  padding-inline: var(--s2-spacing-300);
+}
+
+.playground-control {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2-spacing-100);
+}
+
+@container (width >= 600px) {
+  .playground-layout {
+    flex-direction: row;
+    align-items: stretch;
+    padding-inline: var(--s2-spacing-400);
+    padding-block-start: var(--s2-spacing-400);
+  }
+
+  .playground-preview {
+    flex: 1 1 auto;
+    border-block-start: 0;
+    background-color: var(--s2-gray-25);
+    padding: 0;
+  }
+
+  .playground-controls {
+    flex: 0 0 var(--playground-controls-min-inline-size);
+    border-block-start: 0;
+    padding-block: var(--s2-spacing-400);
+
+    /* right column: round the right corners, not the bottom-left */
+    border-end-start-radius: 0;
+    border-start-end-radius: var(--playground-inner-radius);
+  }
+}
+
+/* Code disclosure */
+.playground-disclosure {
+  padding: var(--s2-spacing-400);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .playground-expand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s2-spacing-100);
+    font-size: var(--s2-component-m-regular-font-size);
+    font-weight: var(--s2-component-m-bold-font-weight);
+    color: var(--s2-gray-700);
+    cursor: pointer;
+    user-select: none;
+    padding-inline: var(--s2-spacing-200);
+    padding-block: 5px 6px;
+    background-color: var(--s2-gray-100);
+    border: none;
+    border-radius: var(--s2-corner-radius-500);
+
+    &::before {
+      content: '';
+      display: inline-block;
+      mask-image: url('/img/icons/s2-icon-chevrondown-20-n.svg');
+      background-color: currentcolor;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      mask-size: contain;
+      inline-size: 20px;
+      block-size: 20px;
+      transition: transform 0.15s ease;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--s2-blue-800);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+  }
+
+  &.is-expanded .playground-expand::before {
+    transform: rotate(180deg);
+  }
+
+  .playground-code {
+    inline-size: 100%;
+    position: relative;
+    overflow: hidden;
+    max-block-size: 6rem;
+    margin-block-end: var(--s2-spacing-200);
+
+    &::after {
+      position: absolute;
+
+      /* Purely decorative fade — never intercept clicks meant for the copy button. */
+      pointer-events: none;
+      content: '';
+      inset: 0;
+      block-size: 100%;
+      inline-size: 100%;
+      background: linear-gradient(to bottom, transparent, var(--se-body-background-color));
+    }
+  }
+
+  &.is-expanded .playground-code {
+    max-block-size: none;
+
+    &::after {
+      background: none;
+    }
+  }
+
+  pre {
+    margin: 0;
+    padding: var(--s2-spacing-300);
+    padding-inline-end: var(--s2-spacing-1000);
+    background-color: var(--s2-gray-75);
+    border-radius: 24px;
+    overflow-x: auto;
+    font-size: var(--s2-component-s-regular-font-size);
+    line-height: 1.6;
+    color: var(--s2-gray-800);
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+  .playground-copy {
+    position: absolute;
+    z-index: 1;
+    inset-block-start: var(--s2-spacing-200);
+    inset-inline-end: var(--s2-spacing-200);
+    font-size: var(--s2-component-s-regular-font-size);
+    font-weight: var(--s2-component-m-bold-font-weight);
+    color: var(--s2-gray-800);
+    padding-inline: var(--s2-spacing-200);
+    padding-block: 5px 6px;
+    background-color: var(--s2-gray-100);
+    border-radius: var(--s2-corner-radius-500); 
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    &::before {
+      content: url('/img/icons/s2-icon-copy-20-n.svg');
+      display: inline-block;
+      inline-size: 20px;
+      block-size: 20px;
+    }
+
+    &.is-copied::before {
+      content: url('/img/icons/s2-icon-checkmarkcircle-20-n.svg');
+    }
+
+    &:hover {
+      background-color: var(--s2-gray-50);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--s2-blue-800);
+      outline-offset: 2px;
+    }
+
+    &.is-copied {
+      pointer-events: none;
+    }
+  }
+}
